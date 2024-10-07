@@ -24,11 +24,10 @@ The members of this team are below.
 
 ## Thomas
 
-https://github.com/tepoulin
+Thomas is a junior majoring in statistics. He enjoys cooking dinners, watching movies, and ggploting. His Github page is [tepoulin](https://github.com/tepoulin).
 
 ## 
 
-Dan is a professor in the Math/Stat department and is the instructor for the course.
 
 <!-- Please leave in the information below -->
 
