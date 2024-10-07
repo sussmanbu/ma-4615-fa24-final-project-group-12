@@ -95,14 +95,14 @@
     "href": "about.html#thomas",
     "title": "About",
     "section": "Thomas",
-    "text": "Thomas\nhttps://github.com/tepoulin"
+    "text": "Thomas\nThomas is a junior majoring in statistics. He enjoys cooking dinners, watching movies, and ggploting. His Github page is tepoulin."
   },
   {
     "objectID": "about.html#section",
     "href": "about.html#section",
     "title": "About",
     "section": "",
-    "text": "Dan is a professor in the Math/Stat department and is the instructor for the course.\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "text": "About this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
