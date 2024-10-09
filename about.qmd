@@ -25,6 +25,8 @@ This is a website for the final project for MA[46]15 Data Science with R by Team
 The members of this team are below.
 
 
+Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu
+
 
 <!-- Please leave in the information below -->
 
