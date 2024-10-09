@@ -91,18 +91,18 @@
     "text": "This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
   },
   {
-    "objectID": "about.html#thomas",
-    "href": "about.html#thomas",
+    "objectID": "about.html#chang-liu",
+    "href": "about.html#chang-liu",
     "title": "About",
-    "section": "Thomas",
-    "text": "Thomas\nThomas is a junior majoring in statistics. He enjoys cooking dinners, watching movies, and ggploting. His Github page is tepoulin."
+    "section": "Chang Liu",
+    "text": "Chang Liu\nLuis is a Ph.D. student in Stats and is the Teaching Fellow for the course."
   },
   {
-    "objectID": "about.html#section",
-    "href": "about.html#section",
+    "objectID": "about.html#dan-sussman",
+    "href": "about.html#dan-sussman",
     "title": "About",
-    "section": "",
-    "text": "About this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "section": "Dan Sussman",
+    "text": "Dan Sussman\nDan is a professor in the Math/Stat department and is the instructor for the course.\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
