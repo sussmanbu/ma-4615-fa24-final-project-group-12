@@ -16,6 +16,8 @@ about:
 
 ---
 
+Vivinia Cai is a student at BU majoring in Data Science with a minor in Computer Science. 
+https://github.com/vivinia-c
 
 This comes from the file `about.qmd`.
 
