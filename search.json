@@ -95,7 +95,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c\nThis comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below.\nXinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "text": "This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below.\nXinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
