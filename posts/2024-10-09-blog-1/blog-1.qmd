@@ -1,0 +1,21 @@
+---
+title: "Blog 1"
+author: ""
+date: "2024-10-09"
+date-modified: "2024-10-09"
+draft: FALSE
+---
+U.S. College Admission
+https://www.kaggle.com/datasets/eswarchandt/admission/data
+
+There are 400 rows and 7 columns in the dataset. The data is collected for the Education Department to know the total number of college applications received so they can analyze the admission of a student into colleges. The data is able to be loaded and cleaned. We hope to see if race is a contributing factor to the admission rate. The main challenge we foresee is providing valuable insights with only seven variables, most of which are categorical. This surplus of nominal information doesn’t allow us to glean as much depth of sample’s measurements of prestige and economic status, as, say, admissions rate and income.
+
+Freshman Intentions to Major in S&E Fields
+https://data.world/nsf/freshman-intentions-to-major-in-s-e-fields
+
+There are 7 columns and 18 rows. It is collected by Higher Education Research Institute, University of California at Los Angeles, special tabulations (2014) of the Survey of the American Freshman. The intention of this dataset is to see American Freshman’s intentions to different majors by race and gender. The major question I hope to address is what are the most popular majors among American Freshman across different racial and gender groups. I am able to load and clean this dataset. My challenge is that there may be limitations because of insufficient data. The data is from one college in a year. 
+
+Medical Student Mental Health
+https://www.kaggle.com/datasets/thedevastator/medical-student-mental-health?resource=download 
+
+There are 886 rows and 20 columns in the dataset and was designed to explore the empathy, mental health, and burnout levels of medical students in Switzerland. It consists of various demographic factors such as age, gender, year of study, along with internal measures like job satisfaction, empathy, depression, anxiety, and burnout levels. The data was collected through self-reported surveys and psychological tests. While the dataset is clean and ready for analysis, some minor cleaning may be needed to address missing data or outliers. We  hope to examine whether health status and study hours are linked to depression and anxiety levels, and if years of study and job satisfaction influence burnout and empathy levels among the students.

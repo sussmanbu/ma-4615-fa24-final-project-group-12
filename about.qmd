@@ -15,12 +15,32 @@ about:
       href: https://github.com/sussmanbu/
 
 ---
+<<<<<<< HEAD
 
 ## Youngbin Kang
 
 Youngbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is 
 https://github.com/youngbinkang 
 
+=======
+This comes from the file `about.qmd`.
+
+This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME.
+The members of this team are below.
+
+
+## Thomas
+
+Thomas is a junior majoring in statistics. His Github page is [tepoulin](https://github.com/tepoulin).
+
+## Xinyu
+
+Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu
+
+## Vivinia
+
+Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c
+>>>>>>> 0fa6654caa58c48163079bc1febc37c722b65dba
 
 <!-- Please leave in the information below -->
 
