@@ -16,11 +16,13 @@ about:
 
 ---
 
+Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c
 
 This comes from the file `about.qmd`.
 
 This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME.
 The members of this team are below.
+
 
 ## Thomas
 
@@ -28,6 +30,7 @@ Thomas is a junior majoring in statistics. His Github page is [tepoulin](https:/
 
 ## 
 
+Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu
 
 <!-- Please leave in the information below -->
 
