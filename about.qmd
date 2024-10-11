@@ -16,19 +16,12 @@ about:
 
 ---
 
+## Youngbin Kang
 
-This comes from the file `about.qmd`.
+Youngbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is 
+https://github.com/youngbinkang 
 
-This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME.
-The members of this team are below.
 
-## Chang Liu
-
-Luis is a Ph.D. student in Stats and is the Teaching Fellow for the course.
-
-## Dan Sussman
-
-Dan is a professor in the Math/Stat department and is the instructor for the course.
 
 <!-- Please leave in the information below -->
 
