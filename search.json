@@ -53,14 +53,14 @@
     "href": "index.html",
     "title": "MA [46]15 Final Project",
     "section": "",
-    "text": "Final Project due May 7, 2024 at 11:59pm.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBlog post 1: Dataset exploration\n\n\n\n\n\n\n\n\n\n\n\nOct 9, 2024\n\n\nGroup 12\n\n\n\n\n\n\n\n\n\n\n\n\nExamples\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started\n\n\n\n\n\n\n\n\nDirections to set up your website and create your first post. \n\n\n\n\n\nFeb 23, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Team Meeting\n\n\n\n\n\n\n\n\nThis post details the steps you’ll take for your first team meeting. \n\n\n\n\n\nFeb 21, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\nNo matching items"
+    "text": "Final Project due May 7, 2024 at 11:59pm.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBlog 1\n\n\n\n\n\n\n\n\n\n\n\nOct 9, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nExamples\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFeb 26, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\n\n\n\n\n\n\nGetting started\n\n\n\n\n\n\n\n\nDirections to set up your website and create your first post. \n\n\n\n\n\nFeb 23, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\n\n\n\n\n\n\nFirst Team Meeting\n\n\n\n\n\n\n\n\nThis post details the steps you’ll take for your first team meeting. \n\n\n\n\n\nFeb 21, 2024\n\n\nDaniel Sussman\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "posts/2024-10-09-blog-post-1-dataset-exploration/blog-post-1-dataset-exploration.html",
-    "href": "posts/2024-10-09-blog-post-1-dataset-exploration/blog-post-1-dataset-exploration.html",
-    "title": "Blog post 1: Dataset exploration",
+    "objectID": "posts/2024-10-09-blog-1/blog-1.html",
+    "href": "posts/2024-10-09-blog-1/blog-1.html",
+    "title": "Blog 1",
     "section": "",
-    "text": "tesing"
+    "text": "test"
   },
   {
     "objectID": "posts/2023-10-15-getting-started/getting-started.html",
@@ -95,21 +95,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
-  },
-  {
-    "objectID": "about.html#thomas",
-    "href": "about.html#thomas",
-    "title": "About",
-    "section": "Thomas",
-    "text": "Thomas\nThomas is a junior majoring in statistics. He enjoys cooking dinners, watching movies, and ggploting. His Github page is tepoulin."
-  },
-  {
-    "objectID": "about.html#section",
-    "href": "about.html#section",
-    "title": "About",
-    "section": "",
-    "text": "About this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "text": "Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c\nThis comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below.\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
