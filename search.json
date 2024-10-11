@@ -102,7 +102,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
+    "text": "&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD"
+  },
+  {
+    "objectID": "about.html#youngbin-kang",
+    "href": "about.html#youngbin-kang",
+    "title": "About",
+    "section": "Youngbin Kang",
+    "text": "Youngbin Kang\nYoungbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is https://github.com/youngbinkang\n======= This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
   },
   {
     "objectID": "about.html#thomas",
@@ -116,14 +123,14 @@
     "href": "about.html#xinyu",
     "title": "About",
     "section": "Xinyu",
-    "text": "Xinyu\nXinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu"
+    "text": "Xinyu\nXinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is (https://github.com/Christina-Xinyu)"
   },
   {
     "objectID": "about.html#vivinia",
     "href": "about.html#vivinia",
     "title": "About",
     "section": "Vivinia",
-    "text": "Vivinia\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "text": "Vivinia\n&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is vivinia-c ======= Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c &gt;&gt;&gt;&gt;&gt;&gt;&gt; 0fa6654caa58c48163079bc1febc37c722b65dba &gt;&gt;&gt;&gt;&gt;&gt;&gt; 634f9237568bb9f8bc513ea31d5c5f6d2c78141a\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
