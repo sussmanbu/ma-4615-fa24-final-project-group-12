@@ -102,21 +102,21 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD"
+    "text": "This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
   },
   {
-    "objectID": "about.html#youngbin-kang",
-    "href": "about.html#youngbin-kang",
+    "objectID": "about.html#youngbin",
+    "href": "about.html#youngbin",
     "title": "About",
-    "section": "Youngbin Kang",
-    "text": "Youngbin Kang\nYoungbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is https://github.com/youngbinkang\n======= This comes from the file about.qmd.\nThis is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below."
+    "section": "Youngbin",
+    "text": "Youngbin\nYoungbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is https://github.com/youngbinkang"
   },
   {
     "objectID": "about.html#thomas",
     "href": "about.html#thomas",
     "title": "About",
     "section": "Thomas",
-    "text": "Thomas\nThomas is a junior majoring in statistics. His Github page is tepoulin."
+    "text": "Thomas\nThomas Poulin is a junior majoring in statistics. His Github page is tepoulin."
   },
   {
     "objectID": "about.html#xinyu",
@@ -130,7 +130,7 @@
     "href": "about.html#vivinia",
     "title": "About",
     "section": "Vivinia",
-    "text": "Vivinia\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is vivinia-c\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c"
+    "text": "Vivinia\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is vivinia-c"
   },
   {
     "objectID": "about.html#don",
