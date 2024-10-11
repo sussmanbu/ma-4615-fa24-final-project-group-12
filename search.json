@@ -130,7 +130,14 @@
     "href": "about.html#vivinia",
     "title": "About",
     "section": "Vivinia",
-    "text": "Vivinia\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is vivinia-c\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
+    "text": "Vivinia\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is vivinia-c\nVivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c"
+  },
+  {
+    "objectID": "about.html#don",
+    "href": "about.html#don",
+    "title": "About",
+    "section": "Don",
+    "text": "Don\nDon Tang is a junior at BU majoring in Econ and Math. https://github.com/DonTang9\n\n\nAbout this Template.\nThis is based off of the standard Quarto website template from RStudio (2023.09.0 Build 463)."
   },
   {
     "objectID": "big_picture.html",
