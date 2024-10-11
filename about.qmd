@@ -35,12 +35,14 @@ Thomas is a junior majoring in statistics. His Github page is [tepoulin](https:/
 
 ## Xinyu
 
-Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is https://github.com/Christina-Xinyu
+Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is (https://github.com/Christina-Xinyu)
 
 ## Vivinia
 
+Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is [vivinia-c](https://github.com/vivinia-c)
+
 Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. https://github.com/vivinia-c
->>>>>>> 0fa6654caa58c48163079bc1febc37c722b65dba
+
 
 ## Don
 Don Tang is a junior at BU majoring in Econ and Math. https://github.com/DonTang9
