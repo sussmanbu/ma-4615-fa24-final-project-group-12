@@ -27,7 +27,7 @@ Youngbin Kang is a senior at BU majoring in Media Science with a minor in Statis
 Thomas Poulin is a junior majoring in statistics. His Github page is [tepoulin](https://github.com/tepoulin).
 
 ## Xinyu
-Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is (https://github.com/Christina-Xinyu)
+Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is [Christina-Xinyu](https://github.com/Christina-Xinyu)
 
 ## Vivinia
 Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is [vivinia-c](https://github.com/vivinia-c)
