@@ -5,10 +5,10 @@ date: "2024-10-09"
 date-modified: "2024-10-09"
 draft: FALSE
 ---
-U.S. College Admission
-https://www.kaggle.com/datasets/eswarchandt/admission/data
+U.S. DOE College Scorecard https://collegescorecard.ed.gov/data/
 
-There are 400 rows and 7 columns in the dataset. The data is collected for the Education Department to know the total number of college applications received so they can analyze the admission of a student into colleges. The data is able to be loaded and cleaned. We hope to see if race is a contributing factor to the admission rate. The main challenge we foresee is providing valuable insights with only seven variables, most of which are categorical. This surplus of nominal information doesn’t allow us to glean as much depth of sample’s measurements of prestige and economic status, as, say, admissions rate and income.
+There are 6485 rows and 3000+ columns in the dataset. The data was originally collected and compiled by the U.S. Department of Education on institution-level metrics for the 2022-23 academic year. The data is able to be loaded and cleaned. We hope to see if race is a factor in performance such as graduation rate and test scores. Additionally, we will measure the relationship between parents’ loan amounts, race, and college performance, in an attempt to highlight any financial barriers different races may face in coming to college. A potential challenge can be cleaning the data since there are over 3000+ columns of data.
+
 
 Freshman Intentions to Major in S&E Fields
 https://data.world/nsf/freshman-intentions-to-major-in-s-e-fields
