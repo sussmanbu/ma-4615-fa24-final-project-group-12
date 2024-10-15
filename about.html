@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Group 12 - About</title>
+<title>About – Group 12</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -105,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-jolla content">
+<div class="quarto-about-jolla">
  <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">About</h1>
@@ -124,27 +124,24 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
   </div>
 </header><main class="content" id="quarto-document-content">
-<p>This comes from the file <code>about.qmd</code>.</p>
-<p>This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below.</p>
-<section id="youngbin" class="level2">
-<h2 data-anchor-id="youngbin">Youngbin</h2>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
+<section id="youngbin-kang" class="level2">
+<h2 data-anchor-id="youngbin-kang">Youngbin Kang</h2>
 <p>Youngbin Kang is a senior at BU majoring in Media Science with a minor in Statistics. Her Github user page is https://github.com/youngbinkang</p>
+<p>======= This comes from the file <code>about.qmd</code>.</p>
+<p>This is a website for the final project for MA[46]15 Data Science with R by Team TEAMNAME. The members of this team are below.</p>
 </section>
 <section id="thomas" class="level2">
 <h2 data-anchor-id="thomas">Thomas</h2>
-<p>Thomas Poulin is a junior majoring in statistics. His Github page is <a href="https://github.com/tepoulin">tepoulin</a>.</p>
+<p>Thomas is a junior majoring in statistics. His Github page is <a href="https://github.com/tepoulin">tepoulin</a>.</p>
 </section>
 <section id="xinyu" class="level2">
 <h2 data-anchor-id="xinyu">Xinyu</h2>
-<p>Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is (https://github.com/Christina-Xinyu)</p>
+<p>Xinyu Xu is a senior at BU, majoring in Statistics and Media Science. Her GitHub page is <a href="https://github.com/Christina-Xinyu">Christina-Xinyu</a></p>
 </section>
 <section id="vivinia" class="level2">
 <h2 data-anchor-id="vivinia">Vivinia</h2>
 <p>Vivinia Cai is a junior at BU majoring in Data Science with a minor in Computer Science. Her Github page is <a href="https://github.com/vivinia-c">vivinia-c</a></p>
-</section>
-<section id="don" class="level2">
-<h2 data-anchor-id="don">Don</h2>
-<p>Don Tang is a junior at BU majoring in Econ and Math. https://github.com/DonTang9</p>
 <!-- Please leave in the information below -->
 <section id="about-this-template." class="level3">
 <h3 data-anchor-id="about-this-template.">About this Template.</h3>
@@ -191,18 +188,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -234,7 +220,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/sussmanbu\.github\.io\/ma-4615-fa24-final-project-group-12\/");
@@ -242,7 +250,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
