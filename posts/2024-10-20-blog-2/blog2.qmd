@@ -5,7 +5,6 @@ date: "2024-10-20"
 date-modified: "2024-10-20"
 draft: FALSE
 ---
-
 The data is originally obtained by the U.S Department of Education College Scoreboard on institutional lever for the 2022-23 academic year through IPEDS program. IPEDS gathers data from all institutions participating in federal student financial aid programs (Title IV), ensuring comprehensive coverage of postsecondary institutions in the U.S. 
 The data is collected to improve transparency regarding college costs, graduation outcomes, and student debt, thereby helping students and their families make informed decisions about higher education. Policymakers also use this data for creating policies around higher education funding, affordability, and accountability
 The sample is focused only on Title IV institutions, which means schools not participating in federal aid programs may be excluded, so it might be biased.
