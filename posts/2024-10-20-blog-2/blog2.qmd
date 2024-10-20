@@ -1,5 +1,5 @@
 ---
-title: "Blog 1"
+title: "Blog 2"
 author: "Group 12"
 date: "2024-10-20"
 date-modified: "2024-10-20"
