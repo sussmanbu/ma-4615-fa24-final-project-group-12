@@ -1,0 +1,331 @@
+Variable,Description
+LO_INC_WDRAW_ORIG_YR2_RT,"Percent of low-income (less than $30,000 in nominal family income) students withdrawn from original institution within 2 years"
+LO_INC_ENRL_ORIG_YR2_RT,"Percent of low-income (less than $30,000 in nominal family income) students who were still enrolled at original institution within 2 years"
+LO_INC_ENRL_4YR_TRANS_YR2_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 4-year institution and were still enrolled within 2 years"
+MD_INC_WDRAW_ORIG_YR2_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students withdrawn from original institution within 2 years"
+MD_INC_ENRL_ORIG_YR2_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students who were still enrolled at original institution within 2 years"
+MD_INC_ENRL_4YR_TRANS_YR2_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students who transferred to a 4-year institution and were still enrolled within 2 years"
+HI_INC_WDRAW_ORIG_YR2_RT,"Percent of high-income (above $75,000 in nominal family income) students withdrawn from original institution within 2 years"
+HI_INC_ENRL_ORIG_YR2_RT,"Percent of high-income (above $75,000 in nominal family income) students who were still enrolled at original institution within 2 years"
+HI_INC_ENRL_4YR_TRANS_YR2_RT,"Percent of high-income (above $75,000 in nominal family income) students who transferred to a 4-year institution and were still enrolled within 2 years"
+FEMALE_WDRAW_ORIG_YR2_RT,Percent of female students withdrawn from original institution within 2 years
+FEMALE_ENRL_ORIG_YR2_RT,Percent of female students who were still enrolled at original institution within 2 years
+FEMALE_ENRL_4YR_TRANS_YR2_RT,Percent of female students who transferred to a 4-year institution and were still enrolled within 2 years
+MALE_WDRAW_ORIG_YR2_RT,Percent of male students withdrawn from original institution within 2 years
+MALE_ENRL_ORIG_YR2_RT,Percent of male students who were still enrolled at original institution within 2 years
+MALE_ENRL_4YR_TRANS_YR2_RT,Percent of male students who transferred to a 4-year institution and were still enrolled within 2 years
+PELL_WDRAW_ORIG_YR2_RT,Percent of students who received a Pell Grant at the institution and withdrew from original institution within 2 years
+PELL_ENRL_ORIG_YR2_RT,Percent of students who received a Pell Grant at the institution and who were still enrolled at original institution within 2 years
+PELL_ENRL_4YR_TRANS_YR2_RT,Percent of students who received a Pell Grant at the institution and who transferred to a 4-year institution and were still enrolled within 2 years
+NOPELL_WDRAW_ORIG_YR2_RT,Percent of students who never received a Pell Grant at the institution and withdrew from original institution within 2 years
+NOPELL_ENRL_ORIG_YR2_RT,Percent of students who never received a Pell Grant at the institution and who were still enrolled at original institution within 2 years
+NOPELL_ENRL_4YR_TRANS_YR2_RT,Percent of students who never received a Pell Grant at the institution and who transferred to a 4-year institution and were still enrolled within 2 years
+LOAN_WDRAW_ORIG_YR2_RT,Percent of students who received a federal loan at the institution and withdrew from original institution within 2 years
+LOAN_ENRL_ORIG_YR2_RT,Percent of students who received a federal loan at the institution and who were still enrolled at original institution within 2 years
+LOAN_ENRL_4YR_TRANS_YR2_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and were still enrolled within 2 years
+NOLOAN_WDRAW_ORIG_YR2_RT,Percent of students who never received a federal loan at the institution and withdrew from original institution within 2 years
+NOLOAN_ENRL_ORIG_YR2_RT,Percent of students who never received a federal loan at the institution and who were still enrolled at original institution within 2 years
+NOLOAN_ENRL_4YR_TRANS_YR2_RT,Percent of students who never received a federal loan at the institution and who transferred to a 4-year institution and were still enrolled within 2 years
+FIRSTGEN_WDRAW_ORIG_YR2_RT,Percent of first-generation students withdrawn from original institution within 2 years
+FIRSTGEN_ENRL_ORIG_YR2_RT,Percent of first-generation students who were still enrolled at original institution within 2 years
+FIRSTGEN_ENRL_4YR_TRANS_YR2_RT,Percent of first-generation students who transferred to a 4-year institution and were still enrolled within 2 years
+NOT1STGEN_WDRAW_ORIG_YR2_RT,Percent of not-first-generation students withdrawn from original institution within 2 years
+NOT1STGEN_ENRL_ORIG_YR2_RT,Percent of not-first-generation students who were still enrolled at original institution within 2 years
+NOT1STGEN_ENRL_4YR_TRANS_YR2_RT,Percent of not-first-generation students who transferred to a 4-year institution and were still enrolled within 2 years
+COMP_ORIG_YR4_RT,Percent completed within 4 years at original institution
+COMP_4YR_TRANS_YR4_RT,Percent who transferred to a 4-year institution and completed within 4 years
+WDRAW_ORIG_YR4_RT,Percent withdrawn from original institution within 4 years
+LO_INC_COMP_ORIG_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who completed within 4 years at original institution"
+LO_INC_COMP_4YR_TRANS_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 4-year institution and completed within 4 years"
+LO_INC_WDRAW_ORIG_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students withdrawn from original institution within 4 years"
+MD_INC_COMP_ORIG_YR4_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students who completed within 4 years at original institution"
+MD_INC_COMP_4YR_TRANS_YR4_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students who transferred to a 4-year institution and completed within 4 years"
+MD_INC_WDRAW_ORIG_YR4_RT,"Percent of middle-income (between $30,000 and $75,000 in nominal family income) students withdrawn from original institution within 4 years"
+HI_INC_COMP_ORIG_YR4_RT,"Percent of high-income (above $75,000 in nominal family income) students who completed within 4 years at original institution"
+HI_INC_COMP_4YR_TRANS_YR4_RT,"Percent of high-income (above $75,000 in nominal family income) students who transferred to a 4-year institution and completed within 4 years"
+HI_INC_WDRAW_ORIG_YR4_RT,"Percent of high-income (above $75,000 in nominal family income) students withdrawn from original institution within 4 years"
+FEMALE_COMP_ORIG_YR4_RT,Percent of female students who completed within 4 years at original institution
+FEMALE_COMP_4YR_TRANS_YR4_RT,Percent of female students who transferred to a 4-year institution and completed within 4 years
+FEMALE_WDRAW_ORIG_YR4_RT,Percent of female students withdrawn from original institution within 4 years
+MALE_COMP_ORIG_YR4_RT,Percent of male students who completed within 4 years at original institution
+MALE_COMP_4YR_TRANS_YR4_RT,Percent of male students who transferred to a 4-year institution and completed within 4 years
+MALE_WDRAW_ORIG_YR4_RT,Percent of male students withdrawn from original institution within 4 years
+PELL_COMP_ORIG_YR4_RT,Percent of students who received a Pell Grant at the institution and who completed in 4 years at original institution
+PELL_COMP_4YR_TRANS_YR4_RT,Percent of students who received a Pell Grant at the institution and who transferred to a 4-year institution and completed within 4 years
+PELL_WDRAW_ORIG_YR4_RT,Percent of students who received a Pell Grant at the institution and withdrew from original institution within 4 years
+NOPELL_COMP_ORIG_YR4_RT,Percent of students who never received a Pell Grant at the institution and who completed in 4 years at original institution
+NOPELL_COMP_4YR_TRANS_YR4_RT,Percent of students who never received a Pell Grant at the institution and who transferred to a 4-year institution and completed within 4 years
+NOPELL_WDRAW_ORIG_YR4_RT,Percent of students who never received a Pell Grant at the institution and withdrew from original institution within 4 years
+LOAN_COMP_ORIG_YR4_RT,Percent of students who received a federal loan at the institution and who completed in 4 years at original institution
+LOAN_COMP_4YR_TRANS_YR4_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and completed within 4 years
+LOAN_WDRAW_ORIG_YR4_RT,Percent of students who received a federal loan at the institution and withdrew from original institution within 4 years
+NOLOAN_COMP_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and who completed in 4 years at original institution
+NOLOAN_COMP_4YR_TRANS_YR4_RT,Percent of students who never received a federal loan at the institution and who transferred to a 4-year institution and completed within 4 years
+NOLOAN_WDRAW_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and withdrew from original institution within 4 years
+FIRSTGEN_COMP_ORIG_YR4_RT,Percent of first-generation students who completed within 4 years at original institution
+FIRSTGEN_COMP_4YR_TRANS_YR4_RT,Percent of first-generation students who transferred to a 4-year institution and completed within 4 years
+FIRSTGEN_WDRAW_ORIG_YR4_RT,Percent of first-generation students withdrawn from original institution within 4 years
+NOT1STGEN_COMP_ORIG_YR4_RT,Percent of not-first-generation students who completed within 4 years at original institution
+NOT1STGEN_COMP_4YR_TRANS_YR4_RT,Percent of not-first-generation students who transferred to a 4-year institution and completed within 4 years
+NOT1STGEN_WDRAW_ORIG_YR4_RT,Percent of not-first-generation students withdrawn from original institution within 4 years
+UG,Enrollment of all undergraduate students
+UGDS_WHITE,Total share of enrollment of undergraduate degree-seeking students who are white
+UGDS_BLACK,Total share of enrollment of undergraduate degree-seeking students who are black
+UGDS_HISP,Total share of enrollment of undergraduate degree-seeking students who are Hispanic
+UGDS_ASIAN,Total share of enrollment of undergraduate degree-seeking students who are Asian
+UGDS_AIAN,Total share of enrollment of undergraduate degree-seeking students who are American Indian/Alaska Native
+UGDS_NHPI,Total share of enrollment of undergraduate degree-seeking students who are Native Hawaiian/Pacific Islander
+UGDS_2MOR,Total share of enrollment of undergraduate degree-seeking students who are two or more races
+UG_NRA,Total share of enrollment of undergraduate students who are non-resident aliens
+SAT_AVG,Average SAT equivalent score of students admitted
+C150_4_WHITE,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for white students"
+C150_4_BLACK,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for black students"
+C150_4_HISP,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for Hispanic students"
+C150_4_ASIAN,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for Asian students"
+C150_4_AIAN,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for American Indian/Alaska Native students"
+C150_4_NHPI,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for Native Hawaiian/Pacific Islander students"
+C150_4_2MOR,"Completion rate for first-time, full-time students at four-year institutions (150% of expected time to completion) for students of two-or-more-races"
+C150_L4_WHITE,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for white students"
+C150_L4_BLACK,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for black students"
+C150_L4_HISP,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for Hispanic students"
+C150_L4_ASIAN,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for Asian students"
+C150_L4_AIAN,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for American Indian/Alaska Native students"
+C150_L4_NHPI,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for Native Hawaiian/Pacific Islander students"
+C150_L4_2MOR,"Completion rate for first-time, full-time students at less-than-four-year institutions (150% of expected time to completion) for students of two-or-more-races"
+FTFTPCTPELL,"Percentage of full-time, first-time degree/certificate-seeking undergraduate students awarded a Pell Grant"
+FTFTPCTFLOAN,"Percentage of full-time, first-time degree/certificate-seeking undergraduate students awarded a federal loan"
+FTFTPCTPELL_POOLED_SUPP,"Percentage of full-time, first-time degree/certificate-seeking undergraduate students awarded a Pell Grant, pooled in rolling averages and suppressed for small n size"
+FTFTPCTFLOAN_POOLED_SUPP,"Percentage of full-time, first-time degree/certificate-seeking undergraduate students awarded a federal loan, pooled in rolling averages and suppressed for small n size"
+PPLUS_PCT_LOW,Lower bound of estimated percentage range of students whose parents took out a PLUS loan
+PPLUS_PCT_HIGH,Upper bound of estimated percentage range of students whose parents took out a PLUS loan
+PPLUS_PCT_LOW_POOLED_SUPP,"Lower bound of estimated percentage range of students whose parents took out a PLUS loan, pooled in rolling averages and suppressed for small n size"
+PPLUS_PCT_HIGH_POOLED_SUPP,"Upper bound of estimated percentage range of students whose parents took out a PLUS loan, pooled in rolling averages and suppressed for small n size"
+PLUS_DEBT_INST_MALE_N,Student recipient count for median PLUS loan debt disbursed to males at this institution
+PLUS_DEBT_INST_MALE_MD,Median PLUS loan debt disbursed to males at this institution
+PLUS_DEBT_ALL_MALE_N,Student recipient count for median PLUS loan debt disbursed to males at all institutions
+PLUS_DEBT_ALL_MALE_MD,Median PLUS loan debt disbursed to males at all institutions
+PLUS_DEBT_INST_NOMALE_N,Student recipient count for median PLUS loan debt disbursed to non-males at this institution
+PLUS_DEBT_INST_NOMALE_MD,Median PLUS loan debt disbursed to non-males at this institution
+PLUS_DEBT_ALL_NOMALE_N,Student recipient count for median PLUS loan debt disbursed to non-males at all institutions
+PLUS_DEBT_ALL_NOMALE_MD,Median PLUS loan debt disbursed to non-males at all institutions
+BBRR1_FED_MALE_N,Male federal student loan borrower-based 1-year borrower count
+BBRR1_FED_MALE_DFLT,Percentage of male federal student loan borrowers in default after 1 year
+BBRR1_FED_MALE_DLNQ,Percentage of male federal student loan borrowers in delinquency after 1 year
+BBRR1_FED_MALE_DFR,Percentage of male federal student loan borrowers in deferment after 1 year
+BBRR1_FED_MALE_PAIDINFULL,Percentage of male federal student loan borrowers paid in full after 1 year
+BBRR1_FED_MALE_DISCHARGE,Percentage of male federal student loan borrowers with all loans discharged after 1 year
+BBRR1_FED_NOMALE_N,Non-male federal student loan borrower-based 1-year borrower count
+BBRR1_FED_NOMALE_DFLT,Percentage of non-male federal student loan borrowers in default after 1 year
+BBRR1_FED_NOMALE_DLNQ,Percentage of non-male federal student loan borrowers in delinquency after 1 year
+BBRR1_FED_NOMALE_DFR,Percentage of non-male federal student loan borrowers in deferment after 1 year
+BBRR1_FED_NOMALE_PAIDINFULL,Percentage of non-male federal student loan borrowers paid in full after 1 year
+BBRR1_FED_NOMALE_DISCHARGE,Percentage of non-male federal student loan borrowers with all loans discharged after 1 year
+LO_INC_COMP_ORIG_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who completed within 4 years at original institution"
+LO_INC_COMP_4YR_TRANS_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 4-year institution and completed within 4 years"
+LO_INC_COMP_2YR_TRANS_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 2-year institution and completed within 4 years"
+LO_INC_WDRAW_ORIG_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students withdrawn from original institution within 4 years"
+LO_INC_WDRAW_4YR_TRANS_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 4-year institution and withdrew within 4 years"
+LO_INC_WDRAW_2YR_TRANS_YR4_RT,"Percent of low-income (less than $30,000 in nominal family income) students who transferred to a 2-year institution and withdrew within 4 years"
+LOAN_COMP_ORIG_YR4_RT,Percent of students who received a federal loan at the institution and who completed in 4 years at original institution
+LOAN_COMP_4YR_TRANS_YR4_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and completed within 4 years
+LOAN_WDRAW_ORIG_YR4_RT,Percent of students who received a federal loan at the institution and withdrew from original institution within 4 years
+LOAN_WDRAW_4YR_TRANS_YR4_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and withdrew within 4 years
+LOAN_ENRL_ORIG_YR4_RT,Percent of students who received a federal loan at the institution and who were still enrolled at original institution within 4 years
+LOAN_ENRL_4YR_TRANS_YR4_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and were still enrolled within 4 years
+NOLOAN_COMP_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and who completed in 4 years at original institution
+NOLOAN_COMP_4YR_TRANS_YR4_RT,Percent of students who never received a federal loan at the institution and who transferred to a 4-year institution and completed within 4 years
+NOLOAN_WDRAW_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and withdrew from original institution within 4 years
+NOLOAN_WDRAW_4YR_TRANS_YR4_RT,Percent of students who never received a federal loan at the institution and who transferred to a 4-year institution and withdrew within 4 years
+NOLOAN_ENRL_4YR_TRANS_YR4_RT,Percent of students who never received a federal loan at the institution and who transferred to a 4-year institution and were still enrolled within 4 years
+NOLOAN_ENRL_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and who were still enrolled at original institution within 4 years
+NOLOAN_UNKN_ORIG_YR4_RT,Percent of students who never received a federal loan at the institution and with status unknown within 4 years at original institution
+NOLOAN_UNKN_4YR_TRANS_YR4_RT,Percent of students who received a federal loan at the institution and who transferred to a 4-year institution and whose status is unknown within 4 years
+BBRR1_FED_IND_NOPROG,Percentage of independent federal student loan borrowers not making progress after 1 year
+BBRR1_FED_IND_MAKEPROG,Percentage of independent federal student loan borrowers making progress after 1 year
+BBRR1_FED_IND_PAIDINFULL,Percentage of independent federal student loan borrowers paid in full after 1 year
+BBRR1_FED_IND_DISCHARGE,Percentage of independent federal student loan borrowers with all loans discharged after 1 year
+BBRR1_FED_DEP_N,Dependent federal student loan borrower-based 1-year borrower count
+BBRR1_FED_DEP_DFLT,Percentage of dependent federal student loan borrowers in default after 1 year
+BBRR1_FED_DEP_DLNQ,Percentage of dependent federal student loan borrowers in delinquency after 1 year
+BBRR1_FED_DEP_FBR,Percentage of dependent federal student loan borrowers in forbearance after 1 year
+BBRR1_FED_DEP_DFR,Percentage of dependent federal student loan borrowers in deferment after 1 year
+BBRR1_FED_DEP_NOPROG,Percentage of dependent federal student loan borrowers not making progress after 1 year
+BBRR1_FED_DEP_MAKEPROG,Percentage of dependent federal student loan borrowers making progress after 1 year
+BBRR1_FED_DEP_PAIDINFULL,Percentage of dependent federal student loan borrowers paid in full after 1 year
+BBRR1_FED_DEP_DISCHARGE,Percentage of dependent federal student loan borrowers with all loans discharged after 1 year
+BBRR1_FED_PELL_DFLT,Pell Grant recipient federal student loan borrower-based 1-year borrower count
+BBRR1_FED_PELL_DLNQ,Percentage of Pell Grant recipient federal student loan borrowers in default after 1 year
+BBRR1_FED_PELL_FBR,Percentage of Pell Grant recipient federal student loan borrowers in forbearance after 1 year
+BBRR1_FED_PELL_DFR,Percentage of Pell Grant recipient federal student loan borrowers in deferment after 1 year
+BBRR1_FED_PELL_NOPROG,Percentage of Pell Grant recipient federal student loan borrowers not making progress after 1 year
+BBRR1_FED_PELL_MAKEPROG,Percentage of Pell Grant recipient federal student loan borrowers making progress after 1 year
+BBRR1_FED_PELL_PAIDINFULL,Percentage of Pell Grant recipient federal student loan borrowers paid in full after 1 year
+BBRR1_FED_PELL_DISCHARGE,Percentage of Pell Grant recipient federal student loan borrowers with all loans discharged after 1 year
+BBRR1_FED_NOPELL_N,Non-Pell Grant recipient federal student loan borrower-based 1-year borrower count
+BBRR1_FED_NOPELL_DFLT,Percentage of non-Pell Grant recipient federal student loan borrowers in default after 1 year
+BBRR1_FED_NOPELL_DLNQ,Percentage of non-Pell Grant recipient federal student loan borrowers in delinquency after 1 year
+BBRR1_FED_NOPELL_FBR,Percentage of non-Pell Grant recipient federal student loan borrowers in forbearance after 1 year
+BBRR1_FED_NOPELL_DFR,Percentage of non-Pell Grant recipient federal student loan borrowers in deferment after 1 year
+BBRR1_FED_NOPELL_NOPROG,Percentage of non-Pell Grant recipient federal student loan borrowers not making progress after 1 year
+BBRR1_FED_NOPELL_MAKEPROG,Percentage of non-Pell Grant recipient federal student loan borrowers making progress after 1 year
+BBRR1_FED_NOPELL_PAIDINFULL,Percentage of non-Pell Grant recipient federal student loan borrowers paid in full after 1 year
+BBRR1_FED_NOPELL_DISCHARGE,Percentage of non-Pell Grant recipient federal student loan borrowers with all loans discharged after 1 year
+BBRR1_PP_IND_N,Independent student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR1_PP_DEP_N,Dependent student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR1_PP_PELL_N,Pell Grant recipient student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR1_PP_NOPELL_N,Non-Pell Grant recipient student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR1_PP_MALE_N,Male student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR1_PP_NOMALE_N,Non-male student Parent PLUS Loan borrower-based 1-year borrower count
+BBRR2_FED_IND_N,Independent federal student loan borrower-based 2-year borrower count
+BBRR2_FED_DEP_N,Dependent federal student loan borrower-based 2-year borrower count
+BBRR2_FED_PELL_N,Pell Grant recipient federal student loan borrower-based 2-year borrower count
+BBRR2_FED_NOPELL_N,Non-Pell Grant recipient federal student loan borrower-based 2-year borrower count
+BBRR2_FED_MALE_N,Male federal student loan borrower-based 2-year borrower count
+BBRR2_FED_NOMALE_N,Non-male federal student loan borrower-based 2-year borrower count
+BBRR2_PP_IND_N,Independent student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR2_PP_DEP_N,Dependent student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR2_PP_PELL_N,Pell Grant recipient student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR2_PP_NOPELL_N,Non-Pell Grant recipient student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR2_PP_MALE_N,Male student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR2_PP_NOMALE_N,Non-male student Parent PLUS Loan borrower-based 2-year borrower count
+BBRR3_FED_UG_N,Undergraduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_UGCOMP_N,Undergraduate completer undergraduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_UGNOCOMP_N,Undergraduate non-completer undergraduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_UGUNK_N,Undergraduate unknown completion status undergraduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_GR_N,Graduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_GRCOMP_N,Graduate completer graduate federal student loan borrower-based 3-year borrower count
+BBRR3_FED_GRNOCOMP_N,Graduate non-completer graduate federal student loan borrower-based 3-year borrower count
+BBRR3_PP_UG_N,Undergraduate student Parent PLUS Loan borrower-based 3-year borrower count
+BBRR3_PP_UGCOMP_N,Undergraduate completer undergraduate student Parent PLUS Loan borrower-based 3-year borrower count
+BBRR3_PP_UGNOCOMP_N,Undergraduate non-completer undergraduate student Parent PLUS Loan borrower-based 3-year borrower count
+BBRR3_PP_UGUNK_N,Undergraduate unknown completion status undergraduate student Parent PLUS Loan borrower-based 3-year borrower count
+INC_PCT_LO,"Percentage of aided students whose family income is between $0-$30,000"
+INC_PCT_M1,"Aided students with family incomes between $30,001-$48,000 in nominal dollars"
+INC_PCT_M2,"Aided students with family incomes between $48,001-$75,000 in nominal dollars"
+INC_PCT_H1,"Aided students with family incomes between $75,001-$110,000 in nominal dollars"
+INC_PCT_H2,"Aided students with family incomes between $110,001+ in nominal dollars"
+DEP_INC_PCT_M1,"Dependent students with family incomes between $30,001-$48,000 in nominal dollars"
+DEP_INC_PCT_M2,"Dependent students with family incomes between $48,001-$75,000 in nominal dollars"
+IND_INC_PCT_LO,"Percentage of students who are financially independent and have family incomes between $0-30,000"
+IND_INC_PCT_LO,"Percentage of students who are financially dependent and have family incomes between $0-30,000"
+DEP_INC_AVG,Average family income of dependent students in real 2015 dollars.
+IND_INC_AVG,Average family income of independent students in real 2015 dollars.
+LO_INC_YR2_N,"Number of low-income (less than $30,000 in nominal family income) students in overall 2-year completion cohort"
+MD_INC_YR2_N,"Number of middle-income (between $30,000 and $75,000 in nominal family income) students in overall 2-year completion cohort"
+HI_INC_YR2_N,"Number of high-income (above $75,000 in nominal family income) students in overall 2-year completion cohort"
+LO_INC_YR3_N,"Number of low-income (less than $30,000 in nominal family income) students in overall 3-year completion cohort"
+MD_INC_YR3_N,"Number of middle-income (between $30,000 and $75,000 in nominal family income) students in overall 3-year completion cohort"
+HI_INC_YR3_N,"Number of high-income (above $75,000 in nominal family income) students in overall 3-year completion cohort"
+LO_INC_YR4_N,"Number of low-income (less than $30,000 in nominal family income) students in overall 4-year completion cohort"
+MD_INC_YR4_N,"Number of middle-income (between $30,000 and $75,000 in nominal family income) students in overall 4-year completion cohort"
+HI_INC_YR4_N,"Number of high-income (above $75,000 in nominal family income) students in overall 4-year completion cohort"
+LO_INC_YR6_N,"Number of low-income (less than $30,000 in nominal family income) students in overall 6-year completion cohort"
+MD_INC_YR6_N,"Number of middle-income (between $30,000 and $75,000 in nominal family income) students in overall 6-year completion cohort"
+HI_INC_YR6_N,"Number of high-income (above $75,000 in nominal family income) students in overall 6-year completion cohort"
+LO_INC_YR8_N,"Number of low-income (less than $30,000 in nominal family income) students in overall 8-year completion cohort"
+MD_INC_YR8_N,"Number of middle-income (between $30,000 and $75,000 in nominal family income) students in overall 8-year completion cohort"
+HI_INC_YR8_N,"Number of high-income (above $75,000 in nominal family income) students in overall 8-year completion cohort"
+LO_INC_DEBT_MDN,"The median debt for students with family income between $0-$30,000"
+MD_INC_DEBT_MDN,"The median debt for students with family income between $30,001-$75,000"
+HI_INC_DEBT_MDN,"The median debt for students with family income $75,001+"
+LO_INC_DEBT_N,"The number of students in the median debt low-income (less than or equal to $30,000 in nominal family income) students cohort"
+MD_INC_DEBT_N,"The number of students in the median debt middle-income (between $30,000 and $75,000 in nominal family income) students cohort"
+HI_INC_DEBT_N,"The number of students in the median debt high-income (above $75,000 in nominal family income) students cohort"
+LOAN_EVER,Share of students who received a federal loan while in school
+PELL_EVER,Share of students who received a Pell Grant while in school
+FAMINC,Average family income
+MD_FAMINC,Median family income
+FAMINC_IND,Average family income for independent students
+LNFAMINC,Average of the log of family income
+LNFAMINC_IND,Average of the log of family income for independent students
+MEDIAN_HH_INC,Median household income
+LN_MEDIAN_HH_INC,Log of the median household income
+GT_25K_P10,"Share of students earning over $25,000/year (threshold earnings) 10 years after entry"
+GT_28K_P10,"Share of students earning over $28,000/year (threshold earnings) 10 years after entry"
+MN_EARN_WNE_INC1_P6,"Mean earnings of students working and not enrolled 6 years after entry in the lowest income tercile $0-$30,000"
+MN_EARN_WNE_INC2_P6,"Mean earnings of students working and not enrolled 6 years after entry in the middle income tercile $30,001-$75,000"
+MN_EARN_WNE_INC3_P6,"Mean earnings of students working and not enrolled 6 years after entry in the highest income tercile $75,001+"
+DEBT_MDN_SUPP,"Median debt, suppressed for n=30"
+GRAD_DEBT_MDN_SUPP,"Median debt of completers, suppressed for n=30"
+D150_4_WHITE,Adjusted cohort count for completion rate of White students at four-year institutions (denominator of 150% completion rate)
+D150_4_BLACK,Adjusted cohort count for completion rate of Black/African American students at four-year institutions (denominator of 150% completion rate)
+D150_4_HISP,Adjusted cohort count for completion rate of Hispanic students at four-year institutions (denominator of 150% completion rate)
+D150_4_ASIAN,Adjusted cohort count for completion rate of Asian students at four-year institutions (denominator of 150% completion rate)
+D150_4_AIAN,Adjusted cohort count for completion rate of American Indian/Alaska Native students at four-year institutions (denominator of 150% completion rate)
+D150_4_NHPI,Adjusted cohort count for completion rate of Native Hawaiian/Pacific Islander students at four-year institutions (denominator of 150% completion rate)
+D150_4_2MOR,Adjusted cohort count for completion rate of students of Two or More Races at four-year institutions (denominator of 150% completion rate)
+D150_4_NRA,Adjusted cohort count for completion rate of U.S. Nonresident students at four-year institutions (denominator of 150% completion rate)
+SATVRMID,Midpoint of SAT scores at the institution (critical reading)
+SATMTMID,Midpoint of SAT scores at the institution (math)
+SATWRMID,Midpoint of SAT scores at the institution (writing)
+HBCU,Flag for Historically Black College and University
+PBI,Flag for predominantly black institution
+ANNHI,Flag for Alaska Native Native Hawaiian serving institution
+TRIBAL,Flag for tribal college and university
+AANAPII,Flag for Asian American Native American Pacific Islander-serving institution
+HSI,Flag for Hispanic-serving institution
+NANTI,Flag for Native American non-tribal institution
+MENONLY,Flag for men-only college
+WOMENONLY,Flag for women-only college
+RELAFFIL,Religous affiliation of the institution
+D150_4_UNKN,Adjusted cohort count for completion rate of students of Unknown race at four-year institutions (denominator of 150% completion rate)
+D150_L4_WHITE,Adjusted cohort count for completion rate of White students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_BLACK,Adjusted cohort count for completion rate of Black/African American students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_HISP,Adjusted cohort count for completion rate of Hispanic students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_ASIAN,Adjusted cohort count for completion rate of Asian students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_AIAN,Adjusted cohort count for completion rate of American Indian/Alaska Native students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_NHPI,Adjusted cohort count for completion rate of Native Hawaiian/Pacific Islander students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_2MOR,Adjusted cohort count for completion rate of students of Two or More Races at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_NRA,Adjusted cohort count for completion rate of U.S. Nonresident students at less-than-four-year institutions (denominator of 150% completion rate)
+D150_L4_UNKN,Adjusted cohort count for completion rate of students of Unknown race at less-than-four-year institutions (denominator of 150% completion rate)
+D150_4_WHITENH,"Adjusted cohort count for completion rate of White, non-Hispanic students at four-year institutions (denominator of 150% completion rate)"
+D150_4_BLACKNH,"Adjusted cohort count for completion rate of Black, non-Hispanic students at four-year institutions (denominator of 150% completion rate)"
+D150_4_API,Adjusted cohort count for completion rate of Asian/Pacific Islander students at four-year institutions (denominator of 150% completion rate)
+D150_L4_WHITENH,"Adjusted cohort count for completion rate of White, non-Hispanic students at less-than-four-year institutions (denominator of 150% completion rate)"
+D150_L4_BLACKNH,"Adjusted cohort count for completion rate of Black, non-Hispanic students at less-than-four-year institutions (denominator of 150% completion rate)"
+D150_L4_API,Adjusted cohort count for completion rate of Asian/Pacific Islander students at less-than-four-year institutions (denominator of 150% completion rate)
+PPLUS_PCT_LOW,Lower bound of estimated percentage range of students whose parents took out a PLUS loan
+PPLUS_PCT_HIGH,Upper bound of estimated percentage range of students whose parents took out a PLUS loan
+PPLUS_PCT_LOW_POOLED_SUPP,"Lower bound of estimated percentage range of students whose parents took out a PLUS loan, pooled in rolling averages and suppressed for small n size"
+PPLUS_PCT_HIGH_POOLED_SUPP,"Upper bound of estimated percentage range of students whose parents took out a PLUS loan, pooled in rolling averages and suppressed for small n size"
+BBRR3_FED_PELL_DFLT,Percentage of Pell Grant recipient federal student loan borrowers in default after 3 years
+BBRR3_FED_PELL_MAKEPROG,Percentage of Pell Grant recipient federal student loan borrowers making progress after 3 years
+BBRR3_FED_NOPELL_DFLT,Percentage of non-Pell Grant recipient federal student loan borrowers in default after 3 years
+BBRR3_FED_NOPELL_MAKEPROG,Percentage of non-Pell Grant recipient federal student loan borrowers making progress after 3 years
+BBRR3_PP_PELL_DFLT,Percentage of Pell Grant recipient student Parent PLUS Loan borrowers in default after 3 years
+BBRR3_PP_PELL_MAKEPROG,Percentage of Pell Grant recipient student Parent PLUS Loan borrowers making progress after 3 years
+BBRR3_PP_NOPELL_DFLT,Percentage of non-Pell Grant recipient student Parent PLUS Loan borrowers in default after 3 years
+BBRR3_PP_NOPELL_MAKEPROG,Percentage of non-Pell Grant recipient student Parent PLUS Loan borrowers making progress after 3 years
+MD_EARN_WNE_INC1_P6,"Median earnings of students working and not enrolled 6 years after entry in the lowest income tercile $0-$30,000"
+MD_EARN_WNE_INC2_P6,"Median earnings of students working and not enrolled 6 years after entry in the middle income tercile $30,001-$75,000"
+MD_EARN_WNE_INC3_P6,"Median earnings of students working and not enrolled 6 years after entry in the highest income tercile $75,001+"
+MD_EARN_WNE_MALE0_P6,Median earnings of non-male students working and not enrolled 6 years after entry
+MD_EARN_WNE_MALE1_P6,Median earnings of male students working and not enrolled 6 years after entry
+MD_EARN_WNE_INC1_P10,"Median earnings of students working and not enrolled 10 years after entry in the lowest income tercile $0-$30,000"
+MD_EARN_WNE_INC2_P10,"Median earnings of students working and not enrolled 10 years after entry in the middle income tercile $30,001-$75,000"
+MD_EARN_WNE_INC3_P10,"Median earnings of students working and not enrolled 10 years after entry in the highest income tercile $75,001+"
+MD_EARN_WNE_MALE0_P10,Median earnings of non-male students working and not enrolled 10 years after entry
+MD_EARN_WNE_MALE1_P10,Median earnings of male students working and not enrolled 10 years after entry
+STUFACR,Undergraduate student to instructional faculty ratio
+IRPS_ASIAN,Share of full time faculty that are Asian
+IRPS_BLACK,Share of full time faculty that are Black or African American
+IRPS_HISP,Share of full time faculty that are Hispanic
+IRPS_WHITE,Share of full time faculty that are White
+IRPS_NHPI,Share of full time faculty that are Native Hawaiian or Other Pacific Islander
+IRPS_WOMEN,Share of full time faculty that are men
+IRPS_MEN,Share of full time faculty that are women
+ADM_RATE_SUPP,"Admission rate, suppressed for n<30"
+PCTPELL_DCS,Percentage of degree/certificate-seeking undergraduate students awarded a Pell Grant
+PCTFLOAN_DCS,Percentage of degree/certificate-seeking undergraduate students awarded a federal loan
+SATVR50,50th percentile of SAT scores at the institution (critical reading)
+SATMT50,50th percentile of SAT scores at the institution (math)
+ACTCM50,50th percentile of the ACT cumulative score
+ACTEN50,50th percentile of the ACT English score
+ACTMT50,50th percentile of the ACT math score
+UNITID,Unit ID for institution
+OPEID,8-digit OPE ID for institution
+OPEID6,6-digit OPE ID for institution
+INSTNM,Institution name
+CITY,City
+STABBR,State postcode
+ZIP,ZIP code
