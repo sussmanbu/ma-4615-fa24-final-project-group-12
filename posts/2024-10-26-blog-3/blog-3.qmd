@@ -1,0 +1,9 @@
+---
+title: "blog 3"
+author: "Group 12"
+date: "2024-10-26"
+date-modified: "2024-10-26"
+draft: FALSE
+---
+
+We cleaned the data by manually going through the dataset and choosing columns we think will be useful and relevant. We focused on important values such as completion rate for different races, percent of students who received a Pell Grant, SAT and ACT test scores, and family income.   

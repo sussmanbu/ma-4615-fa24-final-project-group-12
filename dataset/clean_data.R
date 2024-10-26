@@ -11,7 +11,6 @@ data_cols <- data_cols |>
 cleaned_data <- data |>
   select(all_of(data_cols$Variable))
 
-# View the cleaned data
-cleaned_data
+write_rds(cleaned_data, file = here::here("dataset", "cleaned_dataset.rds"))
 
-saveRDS(cleaned_data, "dataset/cleaned_dataset.rds")
+read_rds("dataset/cleaned_dataset.rds")
