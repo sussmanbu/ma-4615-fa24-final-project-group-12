@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="">
 <meta name="dcterms.date" content="2024-10-09">
 
-<title>Group 12 - Blog 1</title>
+<title>Blog 1 – Group 12</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -108,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -153,8 +153,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>U.S. College Admission https://www.kaggle.com/datasets/eswarchandt/admission/data</p>
-<p>There are 400 rows and 7 columns in the dataset. The data is collected for the Education Department to know the total number of college applications received so they can analyze the admission of a student into colleges. The data is able to be loaded and cleaned. We hope to see if race is a contributing factor to the admission rate. The main challenge we foresee is providing valuable insights with only seven variables, most of which are categorical. This surplus of nominal information doesn’t allow us to glean as much depth of sample’s measurements of prestige and economic status, as, say, admissions rate and income.</p>
+<p>U.S. DOE College Scorecard https://collegescorecard.ed.gov/data/</p>
+<p>There are 6485 rows and 3000+ columns in the dataset. The data was originally collected and compiled by the U.S. Department of Education on institution-level metrics for the 2022-23 academic year. The data is able to be loaded and cleaned. We hope to see if race is a factor in performance such as graduation rate and test scores. Additionally, we will measure the relationship between parents’ loan amounts, race, and college performance, in an attempt to highlight any financial barriers different races may face in coming to college. A potential challenge can be cleaning the data since there are over 3000+ columns of data.</p>
 <p>Freshman Intentions to Major in S&amp;E Fields https://data.world/nsf/freshman-intentions-to-major-in-s-e-fields</p>
 <p>There are 7 columns and 18 rows. It is collected by Higher Education Research Institute, University of California at Los Angeles, special tabulations (2014) of the Survey of the American Freshman. The intention of this dataset is to see American Freshman’s intentions to different majors by race and gender. The major question I hope to address is what are the most popular majors among American Freshman across different racial and gender groups. I am able to load and clean this dataset. My challenge is that there may be limitations because of insufficient data. The data is from one college in a year.</p>
 <p>Medical Student Mental Health https://www.kaggle.com/datasets/thedevastator/medical-student-mental-health?resource=download</p>
@@ -198,18 +198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -241,7 +230,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/sussmanbu\.github\.io\/ma-4615-fa24-final-project-group-12\/");
@@ -249,7 +260,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
