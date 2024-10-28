@@ -1,9 +1,123 @@
 ---
-title: "blog 3"
+title: "blog post 3: Preliminary EDA"
 author: "Group 12"
 date: "2024-10-26"
 date-modified: "2024-10-26"
 draft: FALSE
 ---
 
-We cleaned the data by manually going through the dataset and choosing columns we think will be useful and relevant. We focused on important values such as completion rate for different races, percent of students who received a Pell Grant, SAT and ACT test scores, and family income.   
+We cleaned the data by manually going through the dataset and selecting columns that are relevant to our study. We were guided by information which may help highlight racial inequalities within the U.S.'s post-secondary education system. We focused on important variables such as completion rates for different races, percent of students who received Pell Grants, SAT and ACT test scores, and family income. The following is a preliminary analysis on of data after a first sweep of cleaning.
+
+A cursory inspection of the distribution of the share of faculty of each race shows no unusual observations. Although comparatively a rare occurrence, it is not surprising that a college’s entire faculty could be all Asian, Black, Hispanic, or White, as—for example—HBCUs and HCIs are common institutions. It appears that the distribution for each racial minority’s share of their school’s faculty is skewed right, whereas the distribution for White is slightly skewed left. Again, this aligns with our expectation: professorship seems to be a traditionally White role, historically offered only to those with wealth and privilege. 
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+cleaned_data <- read_rds("dataset/cleaned_dataset.rds")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+cleaned_data |> 
+  rename(Asian = IRPS_ASIAN, Black = IRPS_BLACK, Hispanic = IRPS_HISP,
+         White = IRPS_WHITE, NHPI = IRPS_NHPI) |> 
+  pivot_longer(cols = c(Asian, Black, Hispanic, White, NHPI),
+               names_to = "race",         
+               values_to = "value") |> 
+  ggplot(aes(x = race, y = value)) + 
+  geom_boxplot() +
+  labs(
+    title = "Share of Faculty by Race",
+    x = "Race",
+    y = "Proportion of Faculty"
+  ) + 
+  theme(
+    axis.text.x = element_text(size = 7),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+```
+
+There are a lot more White and Hispanic students being counted compared to Native Hawaiian/Pacific and Black students.
+```{r}
+#| echo: false
+#| warning: false
+cleaned_data |> 
+  rename(Asian = D150_4_ASIAN, Black = D150_4_BLACK, Hispanic = D150_4_HISP,
+         White = D150_4_WHITE, NHPI = D150_4_NHPI) |> 
+  pivot_longer(cols = c(Asian, Black, Hispanic, White, NHPI),
+               names_to = "race",         
+               values_to = "cohort_count") |> 
+  ggplot(aes(x = race, y = cohort_count)) + 
+  geom_point(alpha = 0.1) +
+  labs(
+    title = "Adjusted Cohort Count at 4-Year Institutions by Race",
+    x = "Race",
+    y = "Adjusted Cohort Count"
+  ) + 
+  theme(
+    axis.text.x = element_text(size = 7),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+```
+
+This box plot shows differences in completion rates by race at four-year institutions. Asian students have the highest completion rates and Black students have the lowest completion rates.
+```{r}
+#| echo: false
+#| warning: false
+cleaned_data |> 
+  rename(White_Completion = C150_4_WHITE, 
+         Black_Completion = C150_4_BLACK, 
+         Hispanic_Completion = C150_4_HISP, 
+         Asian_Completion = C150_4_ASIAN) |> 
+  pivot_longer(cols = c(White_Completion, Black_Completion, Hispanic_Completion, Asian_Completion), 
+               names_to = "race", 
+               values_to = "completion_rate") |> 
+  ggplot(aes(x = race, y = completion_rate, fill = race)) + 
+  geom_boxplot() +
+  labs(
+    title = "Completion Rates by Race at Four-Year Institutions",
+    x = "Race",
+    y = "Completion Rate(%)"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 7),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+```
+
+This boxplot illustrates the distribution of undergraduate enrollment proportions across different racial and ethnic groups. This shows that White students are the most represented group, while AIAN and NHPI students have significantly lower representation.
+```{r}
+#| echo: false
+#| warning: false
+cleaned_data |> 
+  rename(
+    Asian = UGDS_ASIAN, 
+    Black = UGDS_BLACK, 
+    Hispanic = UGDS_HISP,
+    White = UGDS_WHITE, 
+    AIAN = UGDS_AIAN, 
+    NHPI = UGDS_NHPI
+  ) |> 
+  pivot_longer(cols = c(Asian, Black, Hispanic, White, AIAN, NHPI),
+               names_to = "race",         
+               values_to = "value") |> 
+  ggplot(aes(x = race, y = value)) + 
+  geom_boxplot() +
+  labs(
+    title = "Share of Undergraduate Enrollment by Race",
+    x = "Race",
+    y = "Proportion of Students"
+  ) + 
+  theme(
+    axis.text.x = element_text(size = 7),
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+
+```
+
+

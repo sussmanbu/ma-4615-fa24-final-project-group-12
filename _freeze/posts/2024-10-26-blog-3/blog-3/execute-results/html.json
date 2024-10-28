@@ -1,0 +1,17 @@
+{
+  "hash": "c899d68557a82e5e9731185858b92555",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"blog post 3: Preliminary EDA\"\nauthor: \"Group 12\"\ndate: \"2024-10-26\"\ndate-modified: \"2024-10-26\"\ndraft: FALSE\n---\n\n\nWe cleaned the data by manually going through the dataset and selecting columns that are relevant to our study. We were guided by information which may help highlight racial inequalities within the U.S.'s post-secondary education system. We focused on important variables such as completion rates for different races, percent of students who received Pell Grants, SAT and ACT test scores, and family income. The following is a preliminary analysis on of data after a first sweep of cleaning.\n\nA cursory inspection of the distribution of the share of faculty of each race shows no unusual observations. Although comparatively a rare occurrence, it is not surprising that a college’s entire faculty could be all Asian, Black, Hispanic, or White, as—for example—HBCUs and HCIs are common institutions. It appears that the distribution for each racial minority’s share of their school’s faculty is skewed right, whereas the distribution for White is slightly skewed left. Again, this aligns with our expectation: professorship seems to be a traditionally White role, historically offered only to those with wealth and privilege. \n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](blog-3_files/figure-html/unnamed-chunk-2-1.png){width=672}\n:::\n:::\n\n\nThere are a lot more White and Hispanic students being counted compared to Native Hawaiian/Pacific and Black students.\n\n::: {.cell}\n::: {.cell-output-display}\n![](blog-3_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\nThis box plot shows differences in completion rates by race at four-year institutions. Asian students have the highest completion rates and Black students have the lowest completion rates.\n\n::: {.cell}\n::: {.cell-output-display}\n![](blog-3_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\nThis boxplot illustrates the distribution of undergraduate enrollment proportions across different racial and ethnic groups. This shows that White students are the most represented group, while AIAN and NHPI students have significantly lower representation.\n\n::: {.cell}\n::: {.cell-output-display}\n![](blog-3_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "blog-3_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

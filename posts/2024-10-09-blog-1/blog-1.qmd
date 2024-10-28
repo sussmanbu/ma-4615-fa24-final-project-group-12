@@ -1,5 +1,5 @@
 ---
-title: "Blog 1"
+title: "Blog post 1: Dataset exploration"
 author: ""
 date: "2024-10-09"
 date-modified: "2024-10-09"
