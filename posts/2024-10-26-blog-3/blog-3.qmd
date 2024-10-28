@@ -1,5 +1,5 @@
 ---
-title: "blog post 3: Preliminary EDA"
+title: "Blog post 3: Preliminary EDA"
 author: "Group 12"
 date: "2024-10-26"
 date-modified: "2024-10-26"
