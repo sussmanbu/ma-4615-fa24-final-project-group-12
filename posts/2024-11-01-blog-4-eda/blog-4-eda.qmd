@@ -5,4 +5,51 @@ date: "2024-11-01"
 date-modified: "2024-11-01"
 draft: FALSE
 ---
+In the previous blog posts, we observed big trends, particularly around racial disparities in faculty representation, student enrollment, cohort size, and completion rates. These big trends point toward systemic inequalities in higher education that affect access, support, and outcomes for minority students. In Blog post 4, we will focus on exploring relationships between income, race, financial aid, and withdrawal and completion rates. 
+```{r}
+#| echo: false
+#| warning: false
+library(tidyverse)
+cleaned_data <- read_rds("dataset/cleaned_dataset.rds") |>
+  mutate(FAMINC = as.numeric(FAMINC))
 
+average_income_summary <- cleaned_data |>
+  pivot_longer(cols = c(UGDS_WHITE, UGDS_BLACK, UGDS_HISP, UGDS_ASIAN, UGDS_AIAN, UGDS_NHPI, UGDS_2MOR), 
+               names_to = "Race", 
+               values_to = "Proportion") |>
+  mutate(bins_Race = cut_interval(Proportion, length = 0.1)) |>
+  group_by(Race, bins_Race) |>
+  summarize(Average_Income = mean(FAMINC, na.rm = TRUE), .groups = "drop")
+
+ggplot(average_income_summary, aes(x = bins_Race, y = Average_Income, fill = Race)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Family Income by Race and Proportion Bins",
+       x = "Proportion of Students",
+       y = "Average Family Income",
+       fill = "Race") +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::dollar)
+```
+In schools where White students make up over 40% of enrollment, they have the highest family income. For schools with 10% to 40% of student enrollment by race, Asian students tend to have the highest family income. 
+```{r}
+library(tidyverse)
+
+cleaned_data <- cleaned_data %>%
+  mutate(
+    Aggregate_Completion_Rate = (
+      C150_4_WHITE * UGDS_WHITE +
+      C150_4_BLACK * UGDS_BLACK +
+      C150_4_HISP * UGDS_HISP +
+      C150_4_ASIAN * UGDS_ASIAN +
+      C150_4_AIAN * UGDS_AIAN +
+      C150_4_NHPI * UGDS_NHPI +
+      C150_4_2MOR * UGDS_2MOR
+    ) / (UGDS_WHITE + UGDS_BLACK + UGDS_HISP + UGDS_ASIAN + UGDS_AIAN + UGDS_NHPI + UGDS_2MOR)
+  )
+
+completion_model <- lm(Aggregate_Completion_Rate ~ FAMINC * (UGDS_WHITE + UGDS_BLACK + UGDS_HISP + UGDS_ASIAN + UGDS_AIAN + UGDS_NHPI + UGDS_2MOR),
+                       data = cleaned_data)
+
+summary(completion_model)
+```
+Result for modeling: There are no residual degrees of freedom which indicates that the model is overfitted. Multiple R-squared is 1 with NA Adjusted R-squared.
