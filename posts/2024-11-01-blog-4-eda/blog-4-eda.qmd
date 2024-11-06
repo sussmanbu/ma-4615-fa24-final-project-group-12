@@ -5,6 +5,7 @@ date: "2024-11-01"
 date-modified: "2024-11-01"
 draft: FALSE
 ---
+<<<<<<< HEAD
 In the previous blog posts, we observed big trends, particularly around racial disparities in faculty representation, student enrollment, cohort size, and completion rates. These big trends point toward systemic inequalities in higher education that affect access, support, and outcomes for minority students. In Blog post 4, we will focus on exploring relationships between income, race, financial aid, and withdrawal and completion rates. 
 ```{r}
 #| echo: false
@@ -53,3 +54,40 @@ completion_model <- lm(Aggregate_Completion_Rate ~ FAMINC * (UGDS_WHITE + UGDS_B
 summary(completion_model)
 ```
 Result for modeling: There are no residual degrees of freedom which indicates that the model is overfitted. Multiple R-squared is 1 with NA Adjusted R-squared.
+=======
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+
+data <- readRDS("dataset/cleaned_dataset.rds")
+
+sat_data <- data %>%
+  select(SAT_AVG, UGDS_WHITE, UGDS_BLACK, UGDS_HISP, UGDS_ASIAN, UGDS_AIAN, UGDS_NHPI, UGDS_2MOR) %>%
+  filter(!is.na(SAT_AVG))
+
+sat_long <- sat_data %>%
+  pivot_longer(
+    cols = starts_with("UGDS_"),
+    names_to = "Race",
+    values_to = "Proportion"
+  )
+
+sat_long <- sat_long %>%
+  mutate(Race = recode(Race,
+                       "UGDS_WHITE" = "White",
+                       "UGDS_BLACK" = "Black",
+                       "UGDS_HISP" = "Hispanic",
+                       "UGDS_ASIAN" = "Asian",
+                       "UGDS_AIAN" = "American Indian/Alaska Native",
+                       "UGDS_NHPI" = "Native Hawaiian/Pacific Islander",
+                       "UGDS_2MOR" = "Two or More Races"))
+
+ggplot(sat_long, aes(x = Proportion, y = SAT_AVG)) +
+
+  geom_smooth(aes(color = Race), method = "lm", se = FALSE) +
+  labs(title = "SAT Scores by Race Proportion",
+       x = "Proportion of Student Body",
+       y = "Average SAT Score",
+       color = "Race") +
+  theme_minimal()
+```
+>>>>>>> 0a3acc5bb8f6683900f7e9948121cbe521a7c53d
