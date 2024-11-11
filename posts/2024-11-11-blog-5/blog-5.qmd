@@ -1,0 +1,13 @@
+---
+title: "blog 5"
+subtitle: "Complementary Dataset"
+author: "Group 12"
+date: "2024-11-11"
+date-modified: "2024-11-11"
+draft: FALSE
+---
+
+  We are currently in the process of merging our supplementary dataset with our primary dataset. The primary dataset encompasses a range of racial, economic, and academic factors across all accredited colleges in the United States. To complement this, we have identified an additional dataset from the [Bureau of Economic Analysis](https://www.bea.gov/data/gdp/gdp-state) which provides state-level data on aggregate GDP and per capita GDP from years 1997 to 2023.
+  Our goal in combining these datasets is to explore potential patterns between racial compositions among universities, state-level GDP, and changes in per capita GDP. We are investigating questions such as: Do states with more diverse college populations experience greater economic growth? In other words, can a more educated minority population, and consequently a more educated overall population, contribute to a state’s economic performance?
+  After we finish cleaning our new dataset and appropriately augment it to our primary file, we will use techniques discussed in class to build plots which allow for a geographic visualization of college diversity’s association with state-level economic growth. As a consequence of limited time, we forfeited aspirations of finding a more complementary dataset and settled for a cross-analysis on education and GDP. Because we are not entirely confident that our GDP dataset will illuminate the most insightful conclusions, we maintain an open eye for possible datasets which better bridge together unintuitive relationships between race, education, and geographic location of colleges.
+
