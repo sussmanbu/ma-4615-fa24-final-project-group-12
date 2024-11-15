@@ -50,6 +50,3 @@ GDP_long <- GDP %>%
 combined_data <- GDP_long %>%
   left_join(Population_long, by = c("GeoName" = "State", "Year")) %>%
   mutate(GDP_per_Capita = GDP_Value / Population)  # Calculate GDP per capita
-
-
-

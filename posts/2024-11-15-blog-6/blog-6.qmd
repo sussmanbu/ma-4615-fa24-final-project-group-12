@@ -1,0 +1,24 @@
+---
+title: "Blog 6"
+author: "Group 12"
+date: "2024-11-15"
+date-modified: "2024-11-15"
+draft: FALSE
+---
+
+```{r}
+gdp_per_capita_bar_data <- combined_data |>
+  filter(Year == 2023 & !is.na(GDP_per_Capita)) |>
+  arrange(desc(GDP_per_Capita))                    
+
+ggplot(gdp_per_capita_bar_data, aes(x = reorder(GeoName, GDP_per_Capita), y = GDP_per_Capita)) +
+  geom_bar(stat = "identity", fill = "blue") +  
+  coord_flip() +                                   
+  labs(
+    title = "GDP Per Capita by State (2023)",
+    x = "State",
+    y = "GDP Per Capita"
+  )
+```
+In 2023, New York, Massachusetts, and California had the highest GDP per capita while states such as Mississippi, West Virginia, and Arkansas had the lowest.  
+
