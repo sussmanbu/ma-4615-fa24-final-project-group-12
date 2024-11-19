@@ -1,5 +1,5 @@
 ---
-title: "Blog 6"
+title: "Blog 6: EDA of Complementary Datasets"
 author: "Group 12"
 date: "2024-11-15"
 date-modified: "2024-11-15"
@@ -7,18 +7,99 @@ draft: FALSE
 ---
 
 ```{r}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(stringr)
+
+populations <- read_rds("dataset/Population.rds")
+populations |> 
+  select(-AKPOP_20231219) |> 
+  rename(Year = observation_date) |> 
+  mutate(Year = str_extract(Year, "^.{4}")) |> 
+  filter(Year >= 2013) |> 
+  pivot_longer(
+    cols = ends_with("POP"),
+    names_to = "State",
+    values_to = "Population"
+  ) |>
+  mutate(State = str_replace_all(State, "POP", "")) |> 
+  group_by(State) |> 
+  arrange(State, Year) |>
+  mutate(PopulationChange_percent = (Population - lag(Population))/lag(Population)*100) |>
+  ungroup() |> 
+  ggplot(aes(x = Year, y = PopulationChange_percent, color = State, group = State)) +
+  geom_line() +
+  labs(title = "Population Change Over Time",
+       x = "Year",
+       y = "Percentage Change in Population",
+       fill = "State Name"
+  )
+```
+This graph demonstrates the percentage change in population by year, for each state. (We would like to find a way to better represent this information so that the plot is less crowded by state-dependent information. A potential solution is to only include states with the greatest percent changes in population, or rather, if our claim encourages it, include all states with roughly constant growth to showcase a lack of erratic population explosions—but, we digress.) The first insight that this plot provides is that not all states are seeing increasing populations. Some states are experiencing repeated percent changes below that 0-change axis. We hope to use our racial education dataset and linear modeling to find an association between a state’s growth and available educational opportunities for minorities. Further, we will combine this population dataset with our GDP dataset to gleam a more nuanced picture of economic performance among the states. This allows for a better proxy of economic prosperity, which can be used in conjunction with our primary dataset to find influences of diverse college enrollment on a state’s economic growth.
+
+Here is our code and subsequent output from combining our GDP and population dataset, yielding an economic proxy. Although this was extensive work just to derive data on GDP per capita for a range of years, we can assure the reader that we were also acutely aware of the work involved and exhausted many options before making our own dataset. 
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+GDP = read_csv("dataset/GDP.csv")
+Population = read_csv("dataset/Population.csv")
+
+state_names <- c("Alaska", "Alabama", "Arkansas", "Arizona", "California", "Colorado", 
+                 "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Iowa", 
+                 "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", 
+                 "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", 
+                 "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", 
+                 "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", 
+                 "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", 
+                 "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", 
+                 "Virginia", "Vermont", "Wisconsin", "West Virginia", "Wyoming")
+colnames(Population)[1:length(state_names) + 1] <- state_names
+
+Population_long <- Population %>%
+  pivot_longer(
+    cols = -observation_date, 
+    names_to = "State",       
+    values_to = "Population" 
+  ) %>%
+  mutate(
+    Year = as.numeric(substr(observation_date, 1, 4)), 
+    State = gsub("POP$", "", State)                   
+  ) %>%
+  select(State, Year, Population)                     
+
+GDP_long <- GDP %>%
+  pivot_longer(
+    cols = as.character(1997:2023), 
+    names_to = "Year",            
+    values_to = "GDP_Value"        
+  ) %>%
+  mutate(Year = as.numeric(Year))  
+
+combined_data <- GDP_long |> 
+  left_join(Population_long, by = c("GeoName" = "State", "Year")) |> 
+  mutate(GDP_per_Capita = GDP_Value / Population)
+combined_data <- GDP_long |> 
+  left_join(Population_long, by = c("GeoName" = "State", "Year")) |> 
+  mutate(GDP_per_Capita = GDP_Value / Population)
 gdp_per_capita_bar_data <- combined_data |>
   filter(Year == 2023 & !is.na(GDP_per_Capita)) |>
   arrange(desc(GDP_per_Capita))                    
 
 ggplot(gdp_per_capita_bar_data, aes(x = reorder(GeoName, GDP_per_Capita), y = GDP_per_Capita)) +
-  geom_bar(stat = "identity", fill = "blue") +  
+  geom_bar(stat = "identity", fill = "lightblue") +  
   coord_flip() +                                   
   labs(
     title = "GDP Per Capita by State (2023)",
     x = "State",
     y = "GDP Per Capita"
-  )
+  ) +
+  theme(axis.text.y = element_text(size = 5))
+  
 ```
-In 2023, New York, Massachusetts, and California had the highest GDP per capita while states such as Mississippi, West Virginia, and Arkansas had the lowest.  
+In 2023, New York, Massachusetts, and California had the highest GDP per capita while states such as Mississippi, West Virginia, and Arkansas had the lowest. We will use information such as this to make an argument for more extensive educational opportunities at the college level as being related to a state's economic growth.
 
