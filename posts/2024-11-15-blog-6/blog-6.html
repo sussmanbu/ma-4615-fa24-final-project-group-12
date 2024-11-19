@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Group 12">
+<meta name="dcterms.date" content="2024-11-15">
 
-<title>Group 12 - MA [46]15 Final Project</title>
+<title>Group 12 - Blog 6: EDA of Complementary Datasets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,77 +102,19 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Group 12</span>
     </a>
   </div>
@@ -149,19 +125,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./big_picture.html"> 
+    <a class="nav-link" href="../../big_picture.html"> 
 <span class="menu-text">Big Picture</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./analysis.html"> 
+    <a class="nav-link" href="../../analysis.html"> 
 <span class="menu-text">Analysis</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./data.html"> 
+    <a class="nav-link" href="../../data.html"> 
 <span class="menu-text">Data</span></a>
   </li>  
 </ul>
@@ -174,306 +150,129 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">MA [46]15 Final Project</h1>
+    <div class="quarto-title column-body">
+      <h1 class="title">Blog 6: EDA of Complementary Datasets</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Group 12 </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 15, 2024</p>
+      </div>
+    </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">November 15, 2024</p>
+      </div>
+    </div>
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(9)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<p><img src="images/data-science.png" class="img-fluid"></p>
-<section id="final-project-due-may-7-2024-at-1159pm." class="level1">
-<h1>Final Project due May 7, 2024 at 11:59pm.</h1>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="blog-6_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This graph demonstrates the percentage change in population by year, for each state. (We would like to find a way to better represent this information so that the plot is less crowded by state-dependent information. A potential solution is to only include states with the greatest percent changes in population, or rather, if our claim encourages it, include all states with roughly constant growth to showcase a lack of erratic population explosions—but, we digress.) The first insight that this plot provides is that not all states are seeing increasing populations. Some states are experiencing repeated percent changes below that 0-change axis. We hope to use our racial education dataset and linear modeling to find an association between a state’s growth and available educational opportunities for minorities. Further, we will combine this population dataset with our GDP dataset to gleam a more nuanced picture of economic performance among the states. This allows for a better proxy of economic prosperity, which can be used in conjunction with our primary dataset to find influences of diverse college enrollment on a state’s economic growth.</p>
+<p>Here is our code and subsequent output from combining our GDP and population dataset, yielding an economic proxy. Although this was extensive work just to derive data on GDP per capita for a range of years, we can assure the reader that we were also acutely aware of the work involved and exhausted many options before making our own dataset.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GDP <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/GDP.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Population <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/Population.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>state_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alaska"</span>, <span class="st">"Alabama"</span>, <span class="st">"Arkansas"</span>, <span class="st">"Arizona"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Florida"</span>, <span class="st">"Georgia"</span>, <span class="st">"Hawaii"</span>, <span class="st">"Iowa"</span>, </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Idaho"</span>, <span class="st">"Illinois"</span>, <span class="st">"Indiana"</span>, <span class="st">"Kansas"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Louisiana"</span>, </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Massachusetts"</span>, <span class="st">"Maryland"</span>, <span class="st">"Maine"</span>, <span class="st">"Michigan"</span>, <span class="st">"Minnesota"</span>, </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Missouri"</span>, <span class="st">"Mississippi"</span>, <span class="st">"Montana"</span>, <span class="st">"North Carolina"</span>, <span class="st">"North Dakota"</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Nebraska"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"New Jersey"</span>, <span class="st">"New Mexico"</span>, <span class="st">"Nevada"</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"New York"</span>, <span class="st">"Ohio"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Oregon"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Rhode Island"</span>, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"South Carolina"</span>, <span class="st">"South Dakota"</span>, <span class="st">"Tennessee"</span>, <span class="st">"Texas"</span>, <span class="st">"Utah"</span>, </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Virginia"</span>, <span class="st">"Vermont"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"West Virginia"</span>, <span class="st">"Wyoming"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Population)[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(state_names) <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> state_names</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Population_long <span class="ot">&lt;-</span> Population <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>observation_date, </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"State"</span>,       </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Population"</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(observation_date, <span class="dv">1</span>, <span class="dv">4</span>)), </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">State =</span> <span class="fu">gsub</span>(<span class="st">"POP$"</span>, <span class="st">""</span>, State)                   </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(State, Year, Population)                     </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>GDP_long <span class="ot">&lt;-</span> GDP <span class="sc">%&gt;%</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">as.character</span>(<span class="dv">1997</span><span class="sc">:</span><span class="dv">2023</span>), </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,            </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"GDP_Value"</span>        </span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))  </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> GDP_long <span class="sc">|&gt;</span> </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Population_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"GeoName"</span> <span class="ot">=</span> <span class="st">"State"</span>, <span class="st">"Year"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> GDP_Value <span class="sc">/</span> Population)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> GDP_long <span class="sc">|&gt;</span> </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Population_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"GeoName"</span> <span class="ot">=</span> <span class="st">"State"</span>, <span class="st">"Year"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> GDP_Value <span class="sc">/</span> Population)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>gdp_per_capita_bar_data <span class="ot">&lt;-</span> combined_data <span class="sc">|&gt;</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2023</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(GDP_per_Capita)) <span class="sc">|&gt;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(GDP_per_Capita))                    </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gdp_per_capita_bar_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(GeoName, GDP_per_Capita), <span class="at">y =</span> GDP_per_Capita)) <span class="sc">+</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span>  </span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>                                   </span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"GDP Per Capita by State (2023)"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"State"</span>,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GDP Per Capita"</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="blog-6_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In 2023, New York, Massachusetts, and California had the highest GDP per capita while states such as Mississippi, West Virginia, and Arkansas had the lowest. We will use information such as this to make an argument for more extensive educational opportunities at the college level as being related to a state’s economic growth.</p>
 
 
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1731646800000" data-listing-file-modified-sort="1731978499962" data-listing-date-modified-sort="1731646800000" data-listing-reading-time-sort="5" data-listing-word-count-sort="960">
-<div class="thumbnail">
-<p><a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external"></a></p><a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-11-15-blog-6/blog-6_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external">Blog 6: EDA of Complementary Datasets</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external">This graph demonstrates the percentage change in population by year, for each state. (We would like to find a way to better represent this information so that the plot is…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-11-15-blog-6/blog-6.html" class="no-external">
-<div class="listing-date">
-Nov 15, 2024
-</div>
-<div class="listing-author">
-Group 12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1731301200000" data-listing-file-modified-sort="1731368407550" data-listing-date-modified-sort="1731301200000" data-listing-reading-time-sort="2" data-listing-word-count-sort="234">
-<div class="thumbnail">
-<p><a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external"></a></p><a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external">Blog 5: Complementary Dataset</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external">We are currently in the process of merging our supplementary dataset with our primary dataset. The primary dataset encompasses a range of racial, economic, and academic…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-11-11-blog-5/blog-5.html" class="no-external">
-<div class="listing-date">
-Nov 11, 2024
-</div>
-<div class="listing-author">
-Group 12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1730433600000" data-listing-file-modified-sort="1730990927780" data-listing-date-modified-sort="1730433600000" data-listing-reading-time-sort="4" data-listing-word-count-sort="703">
-<div class="thumbnail">
-<p><a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external"></a></p><a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-11-01-blog-4-eda/blog-4-eda_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external">Blog 4: EDA</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external">In the previous blog posts, we observed big trends, particularly around racial disparities in faculty representation, student enrollment, cohort size, and completion rates.…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-11-01-blog-4-eda/blog-4-eda.html" class="no-external">
-<div class="listing-date">
-Nov 1, 2024
-</div>
-<div class="listing-author">
-Group 12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1729915200000" data-listing-file-modified-sort="1730158118096" data-listing-date-modified-sort="1729915200000" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external"></a></p><a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external">
-<p class="card-img-top"><img src="posts/2024-10-26-blog-3/blog-3_files/figure-html/unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external">Blog post 3: Preliminary EDA</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external">We cleaned the data by manually going through the dataset and selecting columns that are relevant to our study. We were guided by information which may help highlight racial…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-26-blog-3/blog-3.html" class="no-external">
-<div class="listing-date">
-Oct 26, 2024
-</div>
-<div class="listing-author">
-Group 12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1729396800000" data-listing-file-modified-sort="1730155471019" data-listing-date-modified-sort="1729396800000" data-listing-reading-time-sort="1" data-listing-word-count-sort="155">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external"></a></p><a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external">Blog post 2: Data Background</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external">https://collegescorecard.ed.gov/data/glossary/</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-20-blog-2/blog2.html" class="no-external">
-<div class="listing-date">
-Oct 20, 2024
-</div>
-<div class="listing-author">
-Group 12
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1728446400000" data-listing-file-modified-sort="1730123663803" data-listing-date-modified-sort="1728446400000" data-listing-reading-time-sort="2" data-listing-word-count-sort="337">
-<div class="thumbnail">
-<p><a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external"></a></p><a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external">Blog post 1: Dataset exploration</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external"></a>
-</div>
-<div class="listing-description">
-<a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external">U.S. DOE College Scorecard https://collegescorecard.ed.gov/data/</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2024-10-09-blog-1/blog-1.html" class="no-external">
-<div class="listing-date">
-Oct 9, 2024
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-categories="" data-listing-date-sort="1708923600000" data-listing-file-modified-sort="1728306928384" data-listing-date-modified-sort="1708923600000" data-listing-reading-time-sort="1" data-listing-word-count-sort="56">
-<div class="thumbnail">
-<p><a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a></p><a href="./posts/2023-12-20-examples/examples.html" class="no-external">
-<p class="card-img-top"><img src="posts/2023-12-20-examples/examples_files/figure-html/unnamed-chunk-1-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">Examples</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">Here are some examples of changing the size of a figure.</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-12-20-examples/examples.html" class="no-external">
-<div class="listing-date">
-Feb 26, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="" data-listing-date-sort="1708664400000" data-listing-file-modified-sort="1728306928381" data-listing-date-modified-sort="1708664400000" data-listing-reading-time-sort="3" data-listing-word-count-sort="402">
-<div class="thumbnail">
-<p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a></p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">Getting started</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">Directions to set up your website and create your first post. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-10-15-getting-started/getting-started.html" class="no-external">
-<div class="listing-date">
-Feb 23, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="8" data-categories="" data-listing-date-sort="1708491600000" data-listing-file-modified-sort="1728306928380" data-listing-date-modified-sort="1708491600000" data-listing-reading-time-sort="3" data-listing-word-count-sort="404">
-<div class="thumbnail">
-<p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a></p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">
-<p><img src="./posts/2023-10-13-first-team-meeting/a-business-team-giving-fist-bump-in-agreement.jpg" class="thumbnail-image"></p>
-</a><p><a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">First Team Meeting</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-
-</div>
-<div class="listing-description">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">This post details the steps you’ll take for your first team meeting. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2023-10-13-first-team-meeting/first-team-meeting.html" class="no-external">
-<div class="listing-date">
-Feb 21, 2024
-</div>
-<div class="listing-author">
-Daniel Sussman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
