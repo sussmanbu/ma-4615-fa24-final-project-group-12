@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Group 12">
-<meta name="dcterms.date" content="2024-11-15">
+<meta name="dcterms.date" content="2024-12-09">
 
-<title>Group 12 - Blog post 6: EDA of Complementary Datasets</title>
+<title>Group 12 - Blog post 7: EDA and Thesis</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -151,7 +117,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Blog 6: EDA of Complementary Datasets</h1>
+      <h1 class="title">Blog post 7: EDA and Thesis</h1>
                       </div>
   </div>
     
@@ -168,14 +134,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 15, 2024</p>
+        <p class="date">December 9, 2024</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">November 15, 2024</p>
+        <p class="date-modified">December 9, 2024</p>
       </div>
     </div>
       
@@ -193,82 +159,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="blog-6_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>This graph demonstrates the percentage change in population by year, for each state. (We would like to find a way to better represent this information so that the plot is less crowded by state-dependent information. A potential solution is to only include states with the greatest percent changes in population, or rather, if our claim encourages it, include all states with roughly constant growth to showcase a lack of erratic population explosions—but, we digress.) The first insight that this plot provides is that not all states are seeing increasing populations. Some states are experiencing repeated percent changes below that 0-change axis. We hope to use our racial education dataset and linear modeling to find an association between a state’s growth and available educational opportunities for minorities. Further, we will combine this population dataset with our GDP dataset to gleam a more nuanced picture of economic performance among the states. This allows for a better proxy of economic prosperity, which can be used in conjunction with our primary dataset to find influences of diverse college enrollment on a state’s economic growth.</p>
-<p>Here is our code and subsequent output from combining our GDP and population dataset, yielding an economic proxy. Although this was extensive work just to derive data on GDP per capita for a range of years, we can assure the reader that we were also acutely aware of the work involved and exhausted many options before making our own dataset.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>GDP <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/GDP.csv"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Population <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/Population.csv"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>state_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alaska"</span>, <span class="st">"Alabama"</span>, <span class="st">"Arkansas"</span>, <span class="st">"Arizona"</span>, <span class="st">"California"</span>, <span class="st">"Colorado"</span>, </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Connecticut"</span>, <span class="st">"Delaware"</span>, <span class="st">"Florida"</span>, <span class="st">"Georgia"</span>, <span class="st">"Hawaii"</span>, <span class="st">"Iowa"</span>, </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Idaho"</span>, <span class="st">"Illinois"</span>, <span class="st">"Indiana"</span>, <span class="st">"Kansas"</span>, <span class="st">"Kentucky"</span>, <span class="st">"Louisiana"</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Massachusetts"</span>, <span class="st">"Maryland"</span>, <span class="st">"Maine"</span>, <span class="st">"Michigan"</span>, <span class="st">"Minnesota"</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Missouri"</span>, <span class="st">"Mississippi"</span>, <span class="st">"Montana"</span>, <span class="st">"North Carolina"</span>, <span class="st">"North Dakota"</span>, </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Nebraska"</span>, <span class="st">"New Hampshire"</span>, <span class="st">"New Jersey"</span>, <span class="st">"New Mexico"</span>, <span class="st">"Nevada"</span>, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"New York"</span>, <span class="st">"Ohio"</span>, <span class="st">"Oklahoma"</span>, <span class="st">"Oregon"</span>, <span class="st">"Pennsylvania"</span>, <span class="st">"Rhode Island"</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"South Carolina"</span>, <span class="st">"South Dakota"</span>, <span class="st">"Tennessee"</span>, <span class="st">"Texas"</span>, <span class="st">"Utah"</span>, </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                 <span class="st">"Virginia"</span>, <span class="st">"Vermont"</span>, <span class="st">"Wisconsin"</span>, <span class="st">"West Virginia"</span>, <span class="st">"Wyoming"</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(Population)[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(state_names) <span class="sc">+</span> <span class="dv">1</span>] <span class="ot">&lt;-</span> state_names</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>Population_long <span class="ot">&lt;-</span> Population <span class="sc">%&gt;%</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="sc">-</span>observation_date, </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"State"</span>,       </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"Population"</span> </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> <span class="fu">as.numeric</span>(<span class="fu">substr</span>(observation_date, <span class="dv">1</span>, <span class="dv">4</span>)), </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">State =</span> <span class="fu">gsub</span>(<span class="st">"POP$"</span>, <span class="st">""</span>, State)                   </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(State, Year, Population)                     </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>GDP_long <span class="ot">&lt;-</span> GDP <span class="sc">%&gt;%</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">as.character</span>(<span class="dv">1997</span><span class="sc">:</span><span class="dv">2023</span>), </span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"Year"</span>,            </span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"GDP_Value"</span>        </span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Year =</span> <span class="fu">as.numeric</span>(Year))  </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> GDP_long <span class="sc">|&gt;</span> </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Population_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"GeoName"</span> <span class="ot">=</span> <span class="st">"State"</span>, <span class="st">"Year"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> GDP_Value <span class="sc">/</span> Population)</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> GDP_long <span class="sc">|&gt;</span> </span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(Population_long, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"GeoName"</span> <span class="ot">=</span> <span class="st">"State"</span>, <span class="st">"Year"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">GDP_per_Capita =</span> GDP_Value <span class="sc">/</span> Population)</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>gdp_per_capita_bar_data <span class="ot">&lt;-</span> combined_data <span class="sc">|&gt;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> <span class="dv">2023</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(GDP_per_Capita)) <span class="sc">|&gt;</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(GDP_per_Capita))                    </span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gdp_per_capita_bar_data, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(GeoName, GDP_per_Capita), <span class="at">y =</span> GDP_per_Capita)) <span class="sc">+</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"lightblue"</span>) <span class="sc">+</span>  </span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span>                                   </span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"GDP Per Capita by State (2023)"</span>,</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"State"</span>,</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"GDP Per Capita"</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="blog-6_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>In 2023, New York, Massachusetts, and California had the highest GDP per capita while states such as Mississippi, West Virginia, and Arkansas had the lowest. We will use information such as this to make an argument for more extensive educational opportunities at the college level as being related to a state’s economic growth.</p>
 
 
 
