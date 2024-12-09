@@ -65,6 +65,8 @@ ggplot(pge_long, aes(x = Proportion, y = Earnings/1000, color = Income)) +
 An alternative view of the same data more clearly shows the relationships between average earnings after graduation and familial income. Although not faceted by race, the general conclusion is that the vast majority of students earn between \$38,000 and \$48,000 despite entering into college from families making less than \$30,000 to families earning more than $75,000. So, although not yet a rigorously proven piece of evidence, this chart supports the idea that college is a powerful force in leveling the economic playing field in America.
 
 ```{r}
+#| warning: false
+#| message: false
 #| echo: false
 library(tidyverse)
 cleaned_data <- read_rds("dataset/cleaned_dataset.rds")
