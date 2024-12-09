@@ -8,7 +8,7 @@ draft: FALSE
 
 Our tentative thesis is that racial disparities in family income are greater before college than in post-graduation salaries. In other words, while students enter college from diverse financial backgrounds, their economic outcomes after college show less variation. If, under scrutiny, our findings do align with our thesis, then the data suggests that college does, to some degree, mitigate systemic inequalities; however, if our conclusions are not as clear-cut, then there may be room to argue that college, as an economic instrument, is not as beneficial as we may have previously believed.     
 
-This first graph illustrates that, for all race categories, students whose family's are in the upper two terciles earn significantly equal incomes by 10 years after graduation. Because average earnings are statistically similar for students whose families make `$30,001-$75,000` and `$75,001+`, we have reason to suspect that college is effective in closing the economic-inequality gap, intra-racially. However, students whose families make less than `$30,000` make a statistically significant amount less in post-graduation eanrings, compared to their richer counterparts. Additionally, two interesting behaviors that we did not anticipate seeing are that, according to our local linear model, colleges with greater proportions of Black or Hispanic students are associated with lower average salaries after graduation (for all income terciles), compared to their Asian and White counterparts.   
+This first graph illustrates that, for all race categories, students whose family's are in the upper two terciles earn significantly equal incomes by 10 years after graduation. Because average earnings are statistically similar for students whose families make \$30,001-\$75,000 and \$75,001+, we have reason to suspect that college is effective in closing the economic-inequality gap, intra-racially. However, students whose families make less than \$30,000 make a statistically significant amount less in post-graduation earnings, compared to their richer counterparts. Additionally, two interesting behaviors that we did not anticipate seeing are that, according to our local linear model, colleges with greater proportions of Black or Hispanic students are associated with lower average salaries after graduation (for all income terciles), compared to their Asian and White counterparts.   
 ```{r}
 #| warning: false
 #| message: false
@@ -61,4 +61,37 @@ ggplot(pge_long, aes(x = Proportion, y = Earnings/1000, color = Income)) +
     strip.text = element_text(face = "bold"),
     axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+
+An alternative view of the same data more clearly shows the relationships between average earnings after graduation and familial income. Although not faceted by race, the general conclusion is that the vast majority of students earn between \$38,000 and \$48,000 despite entering into college from families making less than \$30,000 to families earning more than $75,000. So, although not yet a rigorously proven piece of evidence, this chart supports the idea that college is a powerful force in leveling the economic playing field in America.
+
+```{r}
+#| echo: false
+library(tidyverse)
+cleaned_data <- read_rds("dataset/cleaned_dataset.rds")
+cleaned_data |> 
+  select(MD_EARN_WNE_INC1_P10,MD_EARN_WNE_INC2_P10,MD_EARN_WNE_INC3_P10) |> 
+  rename(`$0-$30,000 tercile` = MD_EARN_WNE_INC1_P10,
+         `$30,001-$75,000 tercile` = MD_EARN_WNE_INC2_P10,
+         `$75,001+ tercile` = MD_EARN_WNE_INC3_P10) |> 
+  pivot_longer(cols = everything(), names_to = "variable", values_to = "value") |> 
+  ggplot(aes(x = value/1000, color = variable, fill = variable)) +
+  geom_density(alpha = 0.4) +
+  theme_minimal() +
+  labs(title = "Density Plot of Median Earnings (10 years after graduation)
+                of Students From Each Tercile",
+       x = "Median earnings ($ in 1,000s)",
+       y = "Density",
+       color = "Variable",
+       fill = "Variable") +
+  theme(
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank()
+  )
+```
+
+
+
+
+
 
