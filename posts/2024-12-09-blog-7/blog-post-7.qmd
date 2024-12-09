@@ -6,3 +6,59 @@ date-modified: "2024-12-09"
 draft: FALSE
 ---
 
+Our tentative thesis is that racial disparities in family income are greater before college than in post-graduation salaries. In other words, while students enter college from diverse financial backgrounds, their economic outcomes after college show less variation. If, under scrutiny, our findings do align with our thesis, then the data suggests that college does, to some degree, mitigate systemic inequalities; however, if our conclusions are not as clear-cut, then there may be room to argue that college, as an economic instrument, is not as beneficial as we may have previously believed.     
+
+This first graph illustrates that, for all race categories, students whose family's are in the upper two terciles earn significantly equal incomes by 10 years after graduation. Because average earnings are statistically similar for students whose families make `$30,001-$75,000` and `$75,001+`, we have reason to suspect that college is effective in closing the economic-inequality gap, intra-racially. However, students whose families make less than `$30,000` make a statistically significant amount less in post-graduation eanrings, compared to their richer counterparts. Additionally, two interesting behaviors that we did not anticipate seeing are that, according to our local linear model, colleges with greater proportions of Black or Hispanic students are associated with lower average salaries after graduation (for all income terciles), compared to their Asian and White counterparts.   
+```{r}
+#| warning: false
+#| message: false
+#| echo: false
+suppressPackageStartupMessages(library(tidyverse))
+data <- read_rds("dataset/cleaned_dataset.rds")
+
+postgrad_earnings <- data |> 
+  select(MD_EARN_WNE_INC1_P10,MD_EARN_WNE_INC2_P10,MD_EARN_WNE_INC3_P10,
+         UGDS_WHITE, UGDS_BLACK, UGDS_HISP, UGDS_ASIAN) |> 
+  filter(!is.na(MD_EARN_WNE_INC1_P10) &
+         !is.na(MD_EARN_WNE_INC2_P10) &
+         !is.na(MD_EARN_WNE_INC3_P10))
+
+pge_long <- postgrad_earnings |> 
+  pivot_longer(
+    cols = starts_with("UGDS_"),
+    names_to = "Race",
+    values_to = "Proportion") |> 
+  pivot_longer(
+    cols = starts_with("MD_EARN_WNE_"),
+    names_to = "Income",
+    values_to = "Earnings")
+
+pge_long <- pge_long |>
+  mutate(Income = recode(Income,
+                         "MD_EARN_WNE_INC1_P10" = "$0-$30,000 tercile",
+                         "MD_EARN_WNE_INC2_P10" = "$30,001-$75,000 tercile",
+                         "MD_EARN_WNE_INC3_P10" = "$75,001+ tercile")) |> 
+  mutate(Race = recode(Race,
+                       "UGDS_WHITE" = "White",
+                       "UGDS_BLACK" = "Black",
+                       "UGDS_HISP" = "Hispanic",
+                       "UGDS_ASIAN" = "Asian"))
+
+ggplot(pge_long, aes(x = Proportion, y = Earnings/1000, color = Income)) +
+  geom_smooth(se = TRUE, method = "loess", span = 0.1) +
+  facet_wrap(~ Race, scales = "free_x") +
+  scale_color_brewer(palette = "Set2") +
+  labs(
+    title = "Earnings vs. Proportion by Income Tercile and Race",
+    x = "Proportion of Students",
+    y = "Earnings",
+    color = "Income Tercile"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(hjust = 0.5),
+    strip.text = element_text(face = "bold"),
+    axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
