@@ -1,5 +1,5 @@
 ---
-title: "Blog 6: EDA of Complementary Datasets"
+title: "Blog post 6: EDA of Complementary Datasets"
 author: "Group 12"
 date: "2024-11-15"
 date-modified: "2024-11-15"

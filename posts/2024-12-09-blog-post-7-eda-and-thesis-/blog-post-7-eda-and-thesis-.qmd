@@ -1,0 +1,8 @@
+---
+title: "Blog post 7: EDA and Thesis "
+author: "Group 12"
+date: "2024-12-09"
+date-modified: "2024-12-09"
+draft: FALSE
+---
+

@@ -1,5 +1,5 @@
 ---
-title: "Blog 5: Complementary Dataset"
+title: "Blog post 5: Complementary Dataset"
 author: "Group 12"
 date: "2024-11-11"
 date-modified: "2024-11-11"
