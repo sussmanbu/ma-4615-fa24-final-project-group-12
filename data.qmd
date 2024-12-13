@@ -10,6 +10,59 @@ draft: false
 
 This comes from the file `data.qmd`.
 
+## Data Overview
+
+The data was originally collected and compiled by the U.S. Department of Education to provide transparency and consumer information related to individual institutions of higher education and individual fields of study within those institutions. The dataset includes data from the 1996-97 academic year to the 2022-23 academic year. 
+
+The data was initiated under President Obama's administration to ensure reliable information exists to help students find colleges that best fit their needs, enabling them to succeed. The dataset can be accessed using this [link](https://collegescorecard.ed.gov/data/). 
+
+### Limitations of the Data
+- It is an extremely large dataset consisting of over 3,000 variables/columns, requiring significant cleaning.  
+- The sample focuses only on Title IV institutions, meaning schools not participating in federal aid programs may be excluded, potentially introducing bias.
+
+
+## Data Files and Variables
+
+Some of the most important variables we looked at include:
+
+- Race  
+- Withdrawal Rates & Completion Rates  
+- Financial Aid/Pell Grants  
+- Family Income  
+- Debt/Loans  
+- Earnings Post-Graduation  
+- Test Scores  
+
+ 
+## Data Cleaning
+
+We cleaned the data by manually going through the dataset and selecting variables that are relevant to our study. We were guided by information that may help highlight racial inequalities within the U.S.'s post-secondary education system. These variables were then saved to a CSV file, and a new dataset containing only the relevant variables was created. The cleaned dataset contains 316 columns. 
+
+```{r}
+#| warning: false
+#| message: false
+#| echo: true
+#| results: "hide"
+
+library(tidyverse)
+
+# Read in the datasets
+data = read_csv("dataset/dataset-ignore/Most-Recent-Cohorts-Institution.csv")
+data_cols = read_csv("dataset/cleaned_dataset.csv") # Most important variables from the dataset
+
+data_cols <- data_cols |> 
+  filter(!is.na(Variable)) # Make sure there aren't any null values
+
+# Select the columns listed in data_cols$Variable
+cleaned_data <- data |>
+  select(all_of(data_cols$Variable))
+
+write_rds(cleaned_data, file = here::here("dataset", "cleaned_dataset.rds"))
+
+read_rds("dataset/cleaned_dataset.rds")
+```
+
+
 Your first steps in this project will be to find data to work on.
 
 I recommend trying to find data that interests you and that you are knowledgeable about. A bad example would be if you have no interest in video games but your data set is about video games. I also recommend finding data that is related to current events, social justice, and other areas that have an impact.

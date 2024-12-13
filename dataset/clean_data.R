@@ -2,10 +2,10 @@ library(tidyverse)
 
 # Read in the datasets
 data = read_csv("dataset/dataset-ignore/Most-Recent-Cohorts-Institution.csv")
-data_cols = read_csv("dataset/cleaned_dataset.csv")
+data_cols = read_csv("dataset/cleaned_dataset.csv") #Most important variables from the dataset
 
 data_cols <- data_cols |> 
-  filter(!is.na(Variable))
+  filter(!is.na(Variable)) #Make sure there aren't any null values
 
 # Select the columns listed in data_cols$Variable
 cleaned_data <- data |>
