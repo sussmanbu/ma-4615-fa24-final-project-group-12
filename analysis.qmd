@@ -6,8 +6,85 @@ draft: false
 ---
 
 ![](https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg)
-
 This comes from the file `analysis.qmd`.
+
+```{r echo = FALSE}
+#| warning: false
+
+library(tidyverse)
+
+# Load and preprocess the data
+cleaned_data <- read_rds("dataset/cleaned_dataset.rds") %>%
+  mutate(
+    INC_PCT_LO = as.numeric(INC_PCT_LO),
+    INC_PCT_M1 = as.numeric(INC_PCT_M1),
+    INC_PCT_M2 = as.numeric(INC_PCT_M2),
+    INC_PCT_H1 = as.numeric(INC_PCT_H1),
+    INC_PCT_H2 = as.numeric(INC_PCT_H2)
+  ) %>%
+  select(
+    INC_PCT_LO, INC_PCT_M1, INC_PCT_M2, INC_PCT_H1, INC_PCT_H2,
+    UGDS_WHITE, UGDS_BLACK, UGDS_HISP, UGDS_ASIAN, UGDS_AIAN, UGDS_NHPI, UGDS_2MOR
+  )
+
+# Reshape data to long format for plotting
+long_data <- cleaned_data %>%
+  pivot_longer(
+    cols = starts_with("INC_PCT"), 
+    names_to = "Income_Group", 
+    values_to = "Income_Percentage"
+  ) %>%
+  pivot_longer(
+    cols = starts_with("UGDS_"), 
+    names_to = "Race", 
+    values_to = "Race_Percentage"
+  ) %>%
+  mutate(
+    Contribution = Income_Percentage * Race_Percentage, # Estimate race composition in aid
+    Income_Group = factor(
+      Income_Group, 
+      levels = c("INC_PCT_LO", "INC_PCT_M1", "INC_PCT_M2", "INC_PCT_H1", "INC_PCT_H2"), 
+      labels = c("$0-$30K", "$30K-$48K", "$48K-$75K", "$75K-$110K", "$110K+")
+    )
+  )
+
+# Summarize the contribution by income group and race
+stacked_data <- long_data %>%
+  group_by(Income_Group, Race) %>%
+  summarize(Total_Contribution = sum(Contribution, na.rm = TRUE), .groups = "drop")
+
+# Create the stacked bar chart
+ggplot(stacked_data, aes(x = Income_Group, y = Total_Contribution, fill = Race)) +
+  geom_bar(stat = "identity") +
+  labs(
+    title = "Racial Composition of Aided Students by Income Group",
+    x = "Income Group",
+    y = "Proportion of Aided Students",
+    fill = "Race"
+  ) +
+  scale_fill_brewer(palette = "Set3") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    plot.title = element_text(size = 14, face = "bold")
+  )
+```
+The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.
+
+## Observations & Conclusions  
+
+ - The largest proportion of aided students comes from the lowest income group ($0-30k)
+ - The lowest income group shows a more diverse racial distribution compared to higher income groups  
+ - While White students make up the majority in all income groups, racial minorities are present in notable proportions, especially in the lower income brackets 
+ - As income increases, the overall number of aided students decreases significantly
+ - This figure touches on the role financial aid can play in bridging financial disparities, enabling students from low-income and underrepresented racial backgrounds to access higher education
+ - Financial aid is essential in leveling the playing field for student from low-income backgrounds 
+ 
+## Limitations 
+
+  - This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups. 
+  - The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.
+  - Therefore, this figure should be used as a general estimate rather than a precise measurement. 
 
 We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You'll also reflect on next steps and further analysis.
 
