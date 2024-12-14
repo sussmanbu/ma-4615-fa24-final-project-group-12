@@ -155,7 +155,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-makes-a-good-data-set" id="toc-what-makes-a-good-data-set" class="nav-link active" data-scroll-target="#what-makes-a-good-data-set">What makes a good data set?</a></li>
+  <li><a href="#data-overview" id="toc-data-overview" class="nav-link active" data-scroll-target="#data-overview">Data Overview</a>
+  <ul class="collapse">
+  <li><a href="#limitations-of-the-data" id="toc-limitations-of-the-data" class="nav-link" data-scroll-target="#limitations-of-the-data">Limitations of the Data</a></li>
+  </ul></li>
+  <li><a href="#data-files-and-variables" id="toc-data-files-and-variables" class="nav-link" data-scroll-target="#data-files-and-variables">Data Files and Variables</a></li>
+  <li><a href="#data-cleaning" id="toc-data-cleaning" class="nav-link" data-scroll-target="#data-cleaning">Data Cleaning</a></li>
+  <li><a href="#what-makes-a-good-data-set" id="toc-what-makes-a-good-data-set" class="nav-link" data-scroll-target="#what-makes-a-good-data-set">What makes a good data set?</a></li>
   <li><a href="#where-to-keep-data" id="toc-where-to-keep-data" class="nav-link" data-scroll-target="#where-to-keep-data">Where to keep data?</a>
   <ul class="collapse">
   <li><a href="#sharing-your-data" id="toc-sharing-your-data" class="nav-link" data-scroll-target="#sharing-your-data">Sharing your data</a></li>
@@ -194,9 +200,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><img src="images/data-import-cheatsheet-thumbs.png" class="img-fluid"></p>
 <p>This comes from the file <code>data.qmd</code>.</p>
+<section id="data-overview" class="level2">
+<h2 class="anchored" data-anchor-id="data-overview">Data Overview</h2>
+<p>The data was originally collected and compiled by the U.S. Department of Education to provide transparency and consumer information related to individual institutions of higher education and individual fields of study within those institutions. The dataset includes data from the 1996-97 academic year to the 2022-23 academic year.</p>
+<p>The data was initiated under President Obama’s administration to ensure reliable information exists to help students find colleges that best fit their needs, enabling them to succeed. The dataset can be accessed using this <a href="https://collegescorecard.ed.gov/data/">link</a>.</p>
+<section id="limitations-of-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-the-data">Limitations of the Data</h3>
+<ul>
+<li>It is an extremely large dataset consisting of over 3,000 variables/columns, requiring significant cleaning.<br>
+</li>
+<li>The sample focuses only on Title IV institutions, meaning schools not participating in federal aid programs may be excluded, potentially introducing bias.</li>
+</ul>
+</section>
+</section>
+<section id="data-files-and-variables" class="level2">
+<h2 class="anchored" data-anchor-id="data-files-and-variables">Data Files and Variables</h2>
+<p>Some of the most important variables we looked at include:</p>
+<ul>
+<li>Race<br>
+</li>
+<li>Withdrawal Rates &amp; Completion Rates<br>
+</li>
+<li>Financial Aid/Pell Grants<br>
+</li>
+<li>Family Income<br>
+</li>
+<li>Debt/Loans<br>
+</li>
+<li>Earnings Post-Graduation<br>
+</li>
+<li>Test Scores</li>
+</ul>
+</section>
+<section id="data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="data-cleaning">Data Cleaning</h2>
+<p>We cleaned the data by manually going through the dataset and selecting variables that are relevant to our study. We were guided by information that may help highlight racial inequalities within the U.S.’s post-secondary education system. These variables were then saved to a CSV file, and a new dataset containing only the relevant variables was created. The cleaned dataset contains 316 columns.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the datasets</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/dataset-ignore/Most-Recent-Cohorts-Institution.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>data_cols <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"dataset/cleaned_dataset.csv"</span>) <span class="co"># Most important variables from the dataset</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>data_cols <span class="ot">&lt;-</span> data_cols <span class="sc">|&gt;</span> </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Variable)) <span class="co"># Make sure there aren't any null values</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the columns listed in data_cols$Variable</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>cleaned_data <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">all_of</span>(data_cols<span class="sc">$</span>Variable))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(cleaned_data, <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"dataset"</span>, <span class="st">"cleaned_dataset.rds"</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">read_rds</span>(<span class="st">"dataset/cleaned_dataset.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Your first steps in this project will be to find data to work on.</p>
 <p>I recommend trying to find data that interests you and that you are knowledgeable about. A bad example would be if you have no interest in video games but your data set is about video games. I also recommend finding data that is related to current events, social justice, and other areas that have an impact.</p>
 <p>Initially, you will study <em>one dataset</em> but later you will need to combine that data with another dataset. For this reason, I recommend finding data that has some date and/or location components. These types of data are conducive to interesting visualizations and analysis and you can also combine this data with other data that also has a date or location variable. Data from the census, weather data, economic data, are all relatively easy to combine with other data with time/location components.</p>
+</section>
 <section id="what-makes-a-good-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="what-makes-a-good-data-set">What makes a good data set?</h2>
 <ul>
@@ -218,28 +278,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For larger datasets, you’ll need to create a new folder in the project root directory named <code>dataset-ignore</code>. This will be ignored by git (based off the <code>.gitignore</code> file in the project root directory) which will help you avoid issues with Github’s size limits. Your team will have to manually make sure the data files in <code>dataset-ignore</code> are synced across team members.</p>
 <p>Your <a href="./scripts/load_and_clean_data.R">load_and_clean_data.R</a> file is how you will load and clean your data. Here is a an example of a very simple one.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"scripts/load_and_clean_data.R"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span> <span class="co"># Use echo=FALSE or omit it to avoid code output  </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"scripts/load_and_clean_data.R"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">TRUE</span> <span class="co"># Use echo=FALSE or omit it to avoid code output  </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-&gt; library(tidyverse)</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
+&gt; library(tidyverse)
+
 &gt; loan_data &lt;- read_csv(here::here("dataset", "loan_refusal.csv"))</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
