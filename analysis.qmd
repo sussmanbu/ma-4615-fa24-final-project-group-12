@@ -85,6 +85,70 @@ The stacked bar chart illustrates the racial composition of aided students by in
   - This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups. 
   - The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.
   - Therefore, this figure should be used as a general estimate rather than a precise measurement. 
+  
+
+```{r echo = FALSE}
+#| warning: false
+library(tidyverse)
+
+scatter_data <- read_rds("dataset/cleaned_dataset.rds") %>%
+  select(
+    LO_INC_WDRAW_ORIG_YR4_RT, MD_INC_WDRAW_ORIG_YR4_RT, HI_INC_WDRAW_ORIG_YR4_RT,
+    UGDS_WHITE
+  ) %>%
+  pivot_longer(
+    cols = starts_with("LO_INC"),
+    names_to = "Income_Category",
+    values_to = "Withdrawal_Rate"
+  ) %>%
+  mutate(
+    Racial_Diversity = 1 - UGDS_WHITE,
+    Withdrawal_Rate = as.numeric(Withdrawal_Rate),
+    Income_Category = recode(Income_Category,
+                             "LO_INC_WDRAW_ORIG_YR4_RT" = "Low Income",
+                             "MD_INC_WDRAW_ORIG_YR4_RT" = "Medium Income",
+                             "HI_INC_WDRAW_ORIG_YR4_RT" = "High Income")
+  ) %>%
+  drop_na()
+
+# Scatter Plot
+ggplot(scatter_data, aes(x = Racial_Diversity, y = Withdrawal_Rate)) +
+  geom_point(alpha = 0.4, color = "blue", position = position_jitter(width = 0.02, height = 0.02)) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  facet_wrap(~ Income_Category, scales = "free_y") +
+  labs(
+    title = "Withdrawal Rates and Racial Diversity in Colleges",
+    subtitle = "Faceted by Family Income Level",
+    x = "Proportion of Underrepresented Racial Groups",
+    y = "Withdrawal Rate"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 12, face = "bold"),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5))
+```
+This scatterplot illustrates the relationship between racial diversity of low income students (families earning less than $30,000 annually) are influenced by the racial composition of colleges, as measured by the proportion of underrepresented racial groups (1 - UGDS_WHITE). The x-axis represents the proportion of underrepresented racial groups in colleges, while the y-axis shows the withdrawal rate, which is defined as the percentage of low income who left their original institution within four years. By faceting the data by income level, this analysis focuses specifically on the low income students.
+
+## Observations & Conclusions 
+
+ - A slight downward trend in withdrawal rates is visible as racial diversity increases. This trend suggests that institutions with greater racial diversity may provide more supportive and inclusive environments for economically disadvantaged students, which could contribute to lower withdrawal rates. 
+ - In contrast, colleges with predominantly white students enrollments tend to show slightly higher withdrawal rates for low income students, while institutions with greater diversity show marginally better retention rates.
+The marginally better retention rates in more diverse colleges align with the idea that diverse racial composition might mitigate some of the challenges faced by low income students.
+ - These findings support our thesis that racial disparities in family income are greater before college than after graduation. While low-income students face significant systemic barriers before enrolling in college, the diversity of their college may mitigate some of these challenges, improving retention rates during college. 
+ - However, the modest slope of the loess trend line suggests that while institutional diversity is significant, its effect on withdrawal rates is relatively small. This highlights the importance of other factors, such as financial aid availability, campus resources, and academic support, in fostering student retention.
+
+## Limitations 
+
+  - It is assumed that higher levels of racial diversity (1 - UGDS_WHITE) are associated with better student support for low-income students, but diverse institutions may still need to be equipped with adequate student support services.
+  - Colleges in predominantly white areas may naturally have lower diversity and face unique retention challenges due to regional demographic differences.
+  - Different college policies, such as financial aid allocation, admissions criteria, and retention strategies, should be accounted for.
+  - 1 - UGDS_WHITE does not capture the nuance of other racial groups or how race interacts with factors such as income, first-generation status, or academic ability.
+  - The subtle trend in this figure suggests that racial diversity alone has a limited impact on retention. Other factors, such as faculty representation, curriculum inclusivity, and campus resources, may have a more significant impact.
+
+  
 
 We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You'll also reflect on next steps and further analysis.
 
