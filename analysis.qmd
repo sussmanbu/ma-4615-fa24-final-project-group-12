@@ -8,6 +8,13 @@ draft: false
 ![](https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg)
 This comes from the file `analysis.qmd`.
 
+## Introduction and Motivation
+People often view higher education institutions as a significant pathway to reduce systemic inequalities and promote upward mobility. However, it remains uncertain how much a family's financial background and racial demographics affect things like dropout rates, academic readiness, and post-graduation earnings. This study evaluates how effectively higher education addresses these issues by analyzing family income, average student debt, racial composition, financial aid, and completion rates. Specifically, the focus is on whether higher education institutions reduce disparities in outcomes like retention and post-graduation earnings or if these disparities persist despite access to higher education.
+
+This work supports the thesis that racial disparities in income differences are more considerable before people go to college than in post-graduation earnings. Additionally, it looks at how things before college, such as SAT/ACT scores, connect to economic mobility. This offers a better understanding of the role of higher education in mitigating systemic challenges in society.
+
+
+
 ```{r echo = FALSE}
 #| warning: false
 
