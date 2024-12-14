@@ -155,8 +155,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#observations-conclusions" id="toc-observations-conclusions" class="nav-link active" data-scroll-target="#observations-conclusions">Observations &amp; Conclusions</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#observations-conclusions" id="toc-observations-conclusions" class="nav-link" data-scroll-target="#observations-conclusions">Observations &amp; Conclusions</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#observations-conclusions-1" id="toc-observations-conclusions-1" class="nav-link" data-scroll-target="#observations-conclusions-1">Observations &amp; Conclusions</a></li>
+  <li><a href="#limitations-1" id="toc-limitations-1" class="nav-link" data-scroll-target="#limitations-1">Limitations</a>
   <ul class="collapse">
   <li><a href="#example-of-loading-data" id="toc-example-of-loading-data" class="nav-link" data-scroll-target="#example-of-loading-data">Example of loading data</a></li>
   </ul></li>
@@ -193,6 +196,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg" class="img-fluid"> This comes from the file <code>analysis.qmd</code>.</p>
+<section id="introduction-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
+<p>People often view higher education institutions as a significant pathway to reduce systemic inequalities and promote upward mobility. However, it remains uncertain how much a family’s financial background and racial demographics affect things like dropout rates, academic readiness, and post-graduation earnings. This study evaluates how effectively higher education addresses these issues by analyzing family income, average student debt, racial composition, financial aid, and completion rates. Specifically, the focus is on whether higher education institutions reduce disparities in outcomes like retention and post-graduation earnings or if these disparities persist despite access to higher education.</p>
+<p>This work supports the thesis that racial disparities in income differences are more considerable before people go to college than in post-graduation earnings. Additionally, it looks at how things before college, such as SAT/ACT scores, connect to economic mobility. This offers a better understanding of the role of higher education in mitigating systemic challenges in society.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -203,6 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.</p>
+</section>
 <section id="observations-conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="observations-conclusions">Observations &amp; Conclusions</h2>
 <ul>
@@ -221,6 +229,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups.</li>
 <li>The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.</li>
 <li>Therefore, this figure should be used as a general estimate rather than a precise measurement.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This scatterplot illustrates the relationship between racial diversity of low income students (families earning less than $30,000 annually) are influenced by the racial composition of colleges, as measured by the proportion of underrepresented racial groups (1 - UGDS_WHITE). The x-axis represents the proportion of underrepresented racial groups in colleges, while the y-axis shows the withdrawal rate, which is defined as the percentage of low income who left their original institution within four years. By faceting the data by income level, this analysis focuses specifically on the low income students.</p>
+</section>
+<section id="observations-conclusions-1" class="level2">
+<h2 class="anchored" data-anchor-id="observations-conclusions-1">Observations &amp; Conclusions</h2>
+<ul>
+<li>A slight downward trend in withdrawal rates is visible as racial diversity increases. This trend suggests that institutions with greater racial diversity may provide more supportive and inclusive environments for economically disadvantaged students, which could contribute to lower withdrawal rates.</li>
+<li>In contrast, colleges with predominantly white students enrollments tend to show slightly higher withdrawal rates for low income students, while institutions with greater diversity show marginally better retention rates. The marginally better retention rates in more diverse colleges align with the idea that diverse racial composition might mitigate some of the challenges faced by low income students.</li>
+<li>These findings support our thesis that racial disparities in family income are greater before college than after graduation. While low-income students face significant systemic barriers before enrolling in college, the diversity of their college may mitigate some of these challenges, improving retention rates during college.</li>
+<li>However, the modest slope of the loess trend line suggests that while institutional diversity is significant, its effect on withdrawal rates is relatively small. This highlights the importance of other factors, such as financial aid availability, campus resources, and academic support, in fostering student retention.</li>
+</ul>
+</section>
+<section id="limitations-1" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-1">Limitations</h2>
+<ul>
+<li>It is assumed that higher levels of racial diversity (1 - UGDS_WHITE) are associated with better student support for low-income students, but diverse institutions may still need to be equipped with adequate student support services.</li>
+<li>Colleges in predominantly white areas may naturally have lower diversity and face unique retention challenges due to regional demographic differences.</li>
+<li>Different college policies, such as financial aid allocation, admissions criteria, and retention strategies, should be accounted for.</li>
+<li>1 - UGDS_WHITE does not capture the nuance of other racial groups or how race interacts with factors such as income, first-generation status, or academic ability.</li>
+<li>The subtle trend in this figure suggests that racial diversity alone has a limited impact on retention. Other factors, such as faculty representation, curriculum inclusivity, and campus resources, may have a more significant impact.</li>
 </ul>
 <p>We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You’ll also reflect on next steps and further analysis.</p>
 <p>The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc.</p>
