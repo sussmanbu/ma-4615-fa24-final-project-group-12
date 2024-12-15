@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -156,6 +185,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link active" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a></li>
+  <li><a href="#statistical-model" id="toc-statistical-model" class="nav-link" data-scroll-target="#statistical-model">Statistical Model</a>
+  <ul class="collapse">
+  <li><a href="#variable-selection" id="toc-variable-selection" class="nav-link" data-scroll-target="#variable-selection">Variable Selection</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  </ul></li>
   <li><a href="#observations-conclusions" id="toc-observations-conclusions" class="nav-link" data-scroll-target="#observations-conclusions">Observations &amp; Conclusions</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
   <li><a href="#observations-conclusions-1" id="toc-observations-conclusions-1" class="nav-link" data-scroll-target="#observations-conclusions-1">Observations &amp; Conclusions</a></li>
@@ -195,11 +229,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Pebbleswithquarzite.jpg" class="img-fluid"> This comes from the file <code>analysis.qmd</code>.</p>
+<p><img src="ma415_analysispage_photo.jpg" class="img-fluid"> This comes from the file <code>analysis.qmd</code>.</p>
 <section id="introduction-and-motivation" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
 <p>People often view higher education institutions as a significant pathway to reduce systemic inequalities and promote upward mobility. However, it remains uncertain how much a family’s financial background and racial demographics affect things like dropout rates, academic readiness, and post-graduation earnings. This study evaluates how effectively higher education addresses these issues by analyzing family income, average student debt, racial composition, financial aid, and completion rates. Specifically, the focus is on whether higher education institutions reduce disparities in outcomes like retention and post-graduation earnings or if these disparities persist despite access to higher education.</p>
 <p>This work supports the thesis that racial disparities in income differences are more considerable before people go to college than in post-graduation earnings. Additionally, it looks at how things before college, such as SAT/ACT scores, connect to economic mobility. This offers a better understanding of the role of higher education in mitigating systemic challenges in society.</p>
+</section>
+<section id="statistical-model" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-model">Statistical Model</h2>
+<p>Our motivation for research begs an obvious question: how can you measure whether one college is a better engine for economic equality than another? To address this, we developed a custom pseudo-variance metric that could quantify the inequality in post-graduation incomes partitioned on family income prior to entering college, for each observed college. Available data limits the partitioning to three categories: students hailing from families making below $30,000 in annual household income (an approximation of the established poverty line), students from families making between $30,001-$75,000, and students from families making more than $75,000. Traditional variance cannot be directly calculated for the three income brackets because the average of the three post-graduation incomes differs across colleges, making the variance influenced not only by the spread of the incomes but also by the central value. This pseudo-variance metric measures the aggregate percentage difference in median post-graduation incomes between the designated terciles, 10 years out of college. It is calculated by dividing the median earnings of each tercile by the maximum median of the three partitioned incomes, effectively standardizing the median incomes, then subtracting the sum of the standardized median incomes by the theoretical maximum. The smaller a college’s <code>var_measure</code>, the smaller the difference between the median incomes of the three terciles. For example, Boston University’s <code>var_measure</code> is 3.96, indicating that the university performs well in guaranteeing similar post-gradation incomes to all students regardless of their economic background. Compare this with East Tennessee State University in Johnson City, TN, which has a <code>var_measure</code> of 30.40, indicating that the aggregate difference between post-graduation incomes for each tertile is 30 percent. Through these examples, you can see that this metric provides a tailored way to evaluate inequalities in post-graduation income for each college. Before building the model, our group evaluated our response variable under the scrutiny of MLR assumptions. Because the pseudo-<span class="math inline">\(\chi^2\)</span> nature of our <code>var_measure</code>, it was known that a quantile-quantile plot would reject the normally-distributed assumption. This was easily resolved using a square root transformation on the response variable. Subsequent Q-Q plots depicted a straight line with heavily tamed tails. Further, a Residual vs.&nbsp;Fitted plot illustrated a random scatter of points around zero, demonstrating homoscedasticity among error terms with expected value equal to zero. The final assumption regarding independence of observations is tricky to navigate, however we decided to ultimately move forward with the model but with more caution than we first anticipated.</p>
+<section id="variable-selection" class="level3">
+<h3 class="anchored" data-anchor-id="variable-selection">Variable Selection</h3>
+<p>Choosing predictors for this statistical model involved a lengthy processing method. The approximately 300 variables in the cleaned dataset were narrowed down to roughly thirty of greatest interest. The first issue variable selection posed was significant multicollinearity between predictors. Due to the proportional nature of the datatset, some variables were de facto categorical complements of other variables. To mitigate possible multicollinearity, we removed another subset of potential predictors. The resulting variables, with the exception of ones measuring racial proportions, all quantify financial factors pertaining specifically to the lowest income brackets. These include metrics such as the proportion of students awarded a Pell Grant, the percentage of federal student loan borrowers making progress on their loan, and the percentage of aided students whose family income is between $0-$30,000. A comprehensive list of these variables is presented below. The hypothesis being that if colleges are more financially supportive of their more economically fragile students, then they are likely better at closing post-graduation inequality gaps.</p>
+<section id="model-variables" class="level5">
+<h5 class="anchored" data-anchor-id="model-variables">Model Variables</h5>
+<ul>
+<li><strong>var_measure:</strong> Pseudo-variance metric for measuring post-graduation income equality</li>
+<li><strong>UGDS_BLACK:</strong> Total share of enrollment of undergraduate degree-seeking students who are black</li>
+<li><strong>UGDS_HISP:</strong> Total share of enrollment of undergraduate degree-seeking students who are Hispanic</li>
+<li><strong>UGDS_ASIAN:</strong> Total share of enrollment of undergraduate degree-seeking students who are Asian</li>
+<li><strong>FTFTPCTFLOAN_POOLED_SUPP:</strong> Percentage of full-time, first-time degree/certificate-seeking undergraduate students awarded a federal loan</li>
+<li><strong>INC_PCT_LO:</strong> Percentage of aided students whose family income is between $0-$30,000</li>
+<li><strong>INC_PCT_M1:</strong> Percentage of aided students with family incomes between $30,001-$48,000</li>
+<li><strong>INC_PCT_LO*INC_PCT_M1:</strong> Interaction term between <code>INC_PCT_LO</code> and <code>INC_PCT_M1</code></li>
+<li><strong>LO_INC_DEBT_MDN:</strong> The median debt for students with family income between $0-$30,000”</li>
+<li><strong>BBRR3_FED_PELL_MAKEPROG:</strong> Percentage of Pell Grant recipient federal student loan borrowers making repayment progress after 3 years</li>
+</ul>
+<p>We considered creating an interaction term between <code>BBRR3_FED_PELL_MAKEPROG</code> and <code>BBRR3_PP_PELL_MAKEPROG</code> (Percentage of Pell Grant recipient student Parent PLUS Loan borrowers making progress after 3 years) because of a suspected dependency between the variables. The theory is that if a student is making progress on paying their federal loans back then they are also likely making progress in paying their PLUS loans back; however, the resulting interaction term did not significantly contribute to model predictability, so it was not included in the final model. Moreover, the predictor <code>BBRR3_PP_PELL_MAKEPROG</code> had a p-value of nearly 1.0000, indicating an utterly insignificant relationship to our response variable. It would not be included in our final model. The same suspected dependency between <code>INC_PCT_LO</code> and <code>INC_PCT_M1</code> encouraged us to include an interaction term between the two financial aid metrics. We theorized that colleges are likely awarding financial aid to similar proportions of students from the lower income brackets. This interaction term proved to play a significant role in improving our model so it stayed as a predictor. We acknowledged the dependent nature of our race variables (as they measure proportions of a whole), but we decided to leave them in the final model because isolating the racial affects on our response variable outweighed possible multicollinearity issues. This problem of highly correlated predictors was mitigated by only focusing on a subset of the racial breakdown: the most frequent races among student populations, i.e.&nbsp;Black, Hispanic, and Asian.</p>
+</section>
+</section>
+<section id="results" class="level3">
+<h3 class="anchored" data-anchor-id="results">Results</h3>
+<p>The final model is represented by the following equation: <span class="math display">\[
+  \sqrt{var\_measure_i} = 10.6397 - 2.1601*UGDS\_BLACK_i - 1.5554*UGDS\_HISP_i - 2.0451*UGDS\_ASIAN_i \\
+  + 1.5862*FTFTPCTFLOAN\_POOLED\_SUPP_i - 6.5651*INC\_PCT\_LO_i - 27.1280*INC\_PCT\_M1_i \\
+  + 51.8836*(INC\_PCT\_LO*INC\_PCT\_M1)_i - 0.0001*LO\_INC\_DEBT\_MDN_i \\
+  - 7.3350*BBRR3\_FED\_PELL\_MAKEPROG_i + \epsilon_i
+  \]</span> This multiple linear regression model has an adjusted correlation of determination of 0.2639308 and a RMSE of 1.145915, indicating that the average error is only 1.31 units off from a college’s true <code>var_measure</code> value. We believe the reason for such a low adjusted correlation of determination and RMSE is due to the narrow range of <code>sqrt(var_measure)</code>: nearly all values of the response variable fall between 2 and 8. Because there is little variance to explain, the adjusted <span class="math inline">\(R^2\)</span> and RMSE are naturally low.</p>
+<p>Interpretations of each of the nine predictor coefficients are provided below: - <span class="math inline">\(\beta_{BLACK}\)</span> = -2.1601: A one percentage point increase in the share of Black students at a college is associated with a 0.0005 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{HISP}\)</span> = -1.5554: A one percentage point increase in the share of Hispanic students at a college is associated with a 0.0002 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{ASIAN}\)</span> = -2.0451: A one percentage point increase in the share of Asian students at a college is associated with a 0.0004 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{PCTFLOAN}\)</span> = 1.5862: A one percentage point increase in percent of full-time undergraduate students at a college who are awarded a federal loan is associated with a 0.0003 unit increase in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{INC\_PCT\_LO}\)</span> = -6.5651: A one percentage point increase in percent of aided students at a college whose family income is between $0-$30,000 is associated with a 0.0043 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{INC\_PCT\_M1}\)</span> = -27.1280: A one percentage point increase in percent of aided students at a college whose family income is between $30,001-$48,000 is associated with a 0.0736 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{LO*M1}\)</span> = 51.8836: For a one percentage point increase in percent of aided students at a college whose family income is between $0-$30,000, the effect of a one percentage point increase in percent of aided students at a college whose family income is between $30,001-$48,000 is associated with a 0.2692 unit increase in a college’s <code>var_measure</code> (and vice versa). - <span class="math inline">\(\beta_{DEBT}\)</span> = -0.0001: A $1,000 increase in the median debt for students with family income between $0-$30,000 is associated with a 0.1 unit decrease in a college’s <code>var_measure</code>. - <span class="math inline">\(\beta_{MAKEPROG}\)</span> = -7.3350: A one percentage point increase in the percent of a college’s Pell-Grant-recipient federal-student-loan borrowers making repayment progress after 3 years is associated with a 0.0054 unit decrease in a college’s <code>var_measure</code>.</p>
+<p>An interesting take away from the variable selection process was that the proportion of students awarded a Pell Grant was not significantly associated with a lower <code>var_measure</code> not including white - <strong>UGDS_WHITE:</strong> Total share of enrollment of undergraduate degree-seeking students who are white</p>
+<p>this confusing too: - <span class="math inline">\(\beta_{LO*M1}\)</span> = 51.8836: For a one percentage point increase in percent of aided students at a college whose family income is between $0-$30,000, the effect of a one percentage point increase in percent of aided students at a college whose family income is between $30,001-$48,000 is associated with a 0.2692 unit increase in a college’s <code>var_measure</code> (and vice versa).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -210,6 +279,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.</p>
+</section>
 </section>
 <section id="observations-conclusions" class="level2">
 <h2 class="anchored" data-anchor-id="observations-conclusions">Observations &amp; Conclusions</h2>
