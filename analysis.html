@@ -190,13 +190,12 @@ window.Quarto = {
   <li><a href="#variable-selection" id="toc-variable-selection" class="nav-link" data-scroll-target="#variable-selection">Variable Selection</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul></li>
-  <li><a href="#observations-conclusions" id="toc-observations-conclusions" class="nav-link" data-scroll-target="#observations-conclusions">Observations &amp; Conclusions</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#observations-conclusions-1" id="toc-observations-conclusions-1" class="nav-link" data-scroll-target="#observations-conclusions-1">Observations &amp; Conclusions</a></li>
-  <li><a href="#limitations-1" id="toc-limitations-1" class="nav-link" data-scroll-target="#limitations-1">Limitations</a>
+  <li><a href="#clarity-figures" id="toc-clarity-figures" class="nav-link" data-scroll-target="#clarity-figures">Clarity Figures</a>
   <ul class="collapse">
-  <li><a href="#example-of-loading-data" id="toc-example-of-loading-data" class="nav-link" data-scroll-target="#example-of-loading-data">Example of loading data</a></li>
+  <li><a href="#figure-1" id="toc-figure-1" class="nav-link" data-scroll-target="#figure-1">Figure 1</a></li>
+  <li><a href="#figure-2" id="toc-figure-2" class="nav-link" data-scroll-target="#figure-2">Figure 2</a></li>
   </ul></li>
+  <li><a href="#figure-3" id="toc-figure-3" class="nav-link" data-scroll-target="#figure-3">Figure 3</a></li>
   <li><a href="#note-on-attribution" id="toc-note-on-attribution" class="nav-link" data-scroll-target="#note-on-attribution">Note on Attribution</a></li>
   <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
   </ul>
@@ -283,7 +282,29 @@ window.Quarto = {
 <p>As the model suggests, more diverse college campuses are, counter-intuitively, associated with a lower <code>var_measure</code>, indicating greater equality in post-graduation earnings. We suspect this actually reads nothing about the college’s capacity to help students, but is instead the natural consequence of less variation in the racial makeup of a school. If a university’s student body is more diverse, we could expect more variation in post-graduation earnings, on grounds that race plays a societal role in finding jobs after college. A related and interesting finding was that the proportion of White students at a college had no statistically significant influence on <code>var_measure</code>.</p>
 <p>Another curious finding, this time from the variable selection process, was that the proportion of students awarded a Pell Grant at a college was not significantly associated with a lower <code>var_measure</code> metric. This seems suspicious seeing that if a college has a greater share of students who have been awarded federal grants, one would predict that family income would play less of a role in determining a student’s post-graduation income.</p>
 <p>Although the assumptions for linear regression do hold, albeit loosely, there are some factors which further limit the certainty of our conclusions. First is our <code>var_measure</code> variable. Although the pseudo-variance metric does give a rough proxy for measuring disparities between post-graduation earnings between students by income bracket, it is not a mathematically rigorous estimation. Future research could benefit from a weighted metric that places more weight on different income brackets being closer or further from the median post-graduation earnings. Moreover, the <code>var_measure</code> variable is constructed by finding variance between three median values. This averaging-pipeline of averages of averages only gives crude estimations of the true metric of interest. Future exploration should look for college data banks which report all available incomes of its graduates, measured before any aggregate functions have been applied. In a similar vain, the second factor which heavily limits accurate predictions is the proportional and aggregate nature of the dataset. It’s impossible to find much disparity between each college’s predictor values because each college-level measurement has already been regressed towards some average value. This lack of variance in each predictor likely affected our ability to describe variation within the response variable, causing the predictability of the model to fall short. With this is mind, we can confidently state that this model does provide a rough proxy for the relationship between certain economic factors, educational burdens, race, and post-graduation income inequality.</p>
+</section>
+</section>
+<section id="clarity-figures" class="level2">
+<h2 class="anchored" data-anchor-id="clarity-figures">Clarity Figures</h2>
+<section id="figure-1" class="level3">
+<h3 class="anchored" data-anchor-id="figure-1">Figure 1</h3>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8145 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -292,28 +313,33 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.</p>
-</section>
-</section>
-<section id="observations-conclusions" class="level2">
-<h2 class="anchored" data-anchor-id="observations-conclusions">Observations &amp; Conclusions</h2>
+<p>The above boxplots highlight the main focus of our research: the variation in post-graduation earnings by a student’s family income. The three distributions showcase the varying post-graduate earnings of students from the lowest income tercile to the highest tercile. The horizontal axis indicates the income group while the vertical axis reports the median post-graduation earning.</p>
+<section id="observations-conclusions" class="level4">
+<h4 class="anchored" data-anchor-id="observations-conclusions">Observations &amp; Conclusions</h4>
 <ul>
-<li>The largest proportion of aided students comes from the lowest income group ($0-30k)</li>
-<li>The lowest income group shows a more diverse racial distribution compared to higher income groups<br>
-</li>
-<li>While White students make up the majority in all income groups, racial minorities are present in notable proportions, especially in the lower income brackets</li>
-<li>As income increases, the overall number of aided students decreases significantly</li>
-<li>This figure touches on the role financial aid can play in bridging financial disparities, enabling students from low-income and underrepresented racial backgrounds to access higher education</li>
-<li>Financial aid is essential in leveling the playing field for student from low-income backgrounds</li>
+<li>Median earnings increase as family income increases</li>
+<li>Each distribution is skewed right, indicating that few colleges enable the median student to earn more than roughly $60,000 in annual earnings. This is likely the result of aggregate data which suppresses variation.</li>
+<li>The median median-post-graduation earnings for the lowest tercile ($0-$30,000) is $39,666 but only $53,367 for the highest tercile, suggesting that college is much more beneficial for lower income students than for higher income students.</li>
+<li>Although the distributions’ central tendencies appear surprisingly close in value, subsequent two-sample t-tests report that the means for each category are significantly different from one another
+<ul>
+<li>This suggests that college may not be the economic equalizer that we suspect it is; however, the aforementioned benefit to lower income students cannot be discounted.</li>
+</ul></li>
+<li>Interestingly, students from the middle tercile are the only income group whose median median-earnings falls within the same bracket as their family’s</li>
 </ul>
 </section>
-<section id="limitations" class="level2">
-<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<section id="limitations" class="level4">
+<h4 class="anchored" data-anchor-id="limitations">Limitations</h4>
 <ul>
-<li>This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups.</li>
-<li>The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.</li>
-<li>Therefore, this figure should be used as a general estimate rather than a precise measurement.</li>
+<li>Using a median aggregation function limits variability in post-graduation earnings, possibly erasing important patterns that do not appear in the final boxplot</li>
+<li>The designated income groups are broad categories and thus may eliminate intra-group variability
+<ul>
+<li>More partitioning would provide a more nuanced depiction of how family income relates to post-graduation earnings</li>
+</ul></li>
 </ul>
+</section>
+</section>
+<section id="figure-2" class="level3">
+<h3 class="anchored" data-anchor-id="figure-2">Figure 2</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -323,10 +349,43 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>This scatterplot illustrates the relationship between racial diversity of low income students (families earning less than $30,000 annually) are influenced by the racial composition of colleges, as measured by the proportion of underrepresented racial groups (1 - UGDS_WHITE). The x-axis represents the proportion of underrepresented racial groups in colleges, while the y-axis shows the withdrawal rate, which is defined as the percentage of low income who left their original institution within four years. By faceting the data by income level, this analysis focuses specifically on the low income students.</p>
+<p>The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.</p>
+<section id="observations-conclusions-1" class="level4">
+<h4 class="anchored" data-anchor-id="observations-conclusions-1">Observations &amp; Conclusions</h4>
+<ul>
+<li>The largest proportion of aided students comes from the lowest income group ($0-\30k)</li>
+<li>The lowest income group shows a more diverse racial distribution compared to higher income groups<br>
+</li>
+<li>While White students make up the majority in all income groups, racial minorities are present in notable proportions, especially in the lower income brackets</li>
+<li>As income increases, the overall number of aided students decreases significantly</li>
+<li>This figure touches on the role financial aid can play in bridging financial disparities, enabling students from low-income and underrepresented racial backgrounds to access higher education</li>
+<li>Financial aid is essential in leveling the playing field for student from low-income backgrounds</li>
+</ul>
 </section>
-<section id="observations-conclusions-1" class="level2">
-<h2 class="anchored" data-anchor-id="observations-conclusions-1">Observations &amp; Conclusions</h2>
+<section id="limitations-1" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-1">Limitations</h4>
+<ul>
+<li>This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups.</li>
+<li>The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.</li>
+<li>Therefore, this figure should be used as a general estimate rather than a precise measurement.</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="figure-3" class="level2">
+<h2 class="anchored" data-anchor-id="figure-3">Figure 3</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This scatterplot illustrates the relationship between racial diversity of low income students (families earning less than $30,000 annually) are influenced by the racial composition of colleges, as measured by the proportion of underrepresented racial groups (1 - UGDS_WHITE). The x-axis represents the proportion of underrepresented racial groups in colleges, while the y-axis shows the withdrawal rate, which is defined as the percentage of low income who left their original institution within four years. By faceting the data by income level, this analysis focuses specifically on the low income students.</p>
+<section id="observations-conclusions-2" class="level4">
+<h4 class="anchored" data-anchor-id="observations-conclusions-2">Observations &amp; Conclusions</h4>
 <ul>
 <li>A slight downward trend in withdrawal rates is visible as racial diversity increases. This trend suggests that institutions with greater racial diversity may provide more supportive and inclusive environments for economically disadvantaged students, which could contribute to lower withdrawal rates.</li>
 <li>In contrast, colleges with predominantly white students enrollments tend to show slightly higher withdrawal rates for low income students, while institutions with greater diversity show marginally better retention rates. The marginally better retention rates in more diverse colleges align with the idea that diverse racial composition might mitigate some of the challenges faced by low income students.</li>
@@ -334,8 +393,8 @@ window.Quarto = {
 <li>However, the modest slope of the loess trend line suggests that while institutional diversity is significant, its effect on withdrawal rates is relatively small. This highlights the importance of other factors, such as financial aid availability, campus resources, and academic support, in fostering student retention.</li>
 </ul>
 </section>
-<section id="limitations-1" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-1">Limitations</h2>
+<section id="limitations-2" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-2">Limitations</h4>
 <ul>
 <li>It is assumed that higher levels of racial diversity (1 - UGDS_WHITE) are associated with better student support for low-income students, but diverse institutions may still need to be equipped with adequate student support services.</li>
 <li>Colleges in predominantly white areas may naturally have lower diversity and face unique retention challenges due to regional demographic differences.</li>
@@ -347,17 +406,15 @@ window.Quarto = {
 <p>The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc.</p>
 <p>While the exact number of figures and tables will vary and depend on your analysis, you should target around 5 to 6. An overly long analysis could lead to losing points. If you want you can link back to your blog posts or create separate pages with more details.</p>
 <p>The style of this paper should aim to be that of an academic paper. I don’t expect this to be of publication quality but you should keep that aim in mind. Avoid using “we” too frequently, for example “We also found that …”. Describe your methodology and your findings but don’t describe your whole process.</p>
-<section id="example-of-loading-data" class="level3">
-<h3 class="anchored" data-anchor-id="example-of-loading-data">Example of loading data</h3>
-<p>The code below shows an example of loading the loan refusal data set (which you should delete at some point).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">getwd</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">getwd</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "/Users/thomaspoulin/Documents/ma415/ma-4615-fa24-final-project-group-12"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"dataset/loan_refusal_clean.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_rds</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"dataset/loan_refusal_clean.rds"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>data &lt;- read_rds(here::here(“dataset/loan_refusal_clean.rds”))</p>
 </section>
 </section>
 <section id="note-on-attribution" class="level2">
