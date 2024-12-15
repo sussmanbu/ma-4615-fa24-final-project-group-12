@@ -100,10 +100,10 @@ For larger datasets, you'll need to create a new folder in the project root dire
 Your [load_and_clean_data.R](/scripts/load_and_clean_data.R) file is how you will load and clean your data. Here is a an example of a very simple one.
 
 ```{r}
-source(
-  "scripts/load_and_clean_data.R",
-  echo = TRUE # Use echo=FALSE or omit it to avoid code output  
-)
+# source(
+#   "scripts/load_and_clean_data.R",
+#   echo = TRUE # Use echo=FALSE or omit it to avoid code output  
+# )
 ```
 You should never use absolute paths (eg. `/Users/danielsussman/path/to/project/` or `C:\MA415\\Final_Project\`).
 
