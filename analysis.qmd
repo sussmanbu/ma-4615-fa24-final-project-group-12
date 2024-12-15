@@ -75,7 +75,9 @@ Another curious finding, this time from the variable selection process, was that
 
 Although the assumptions for linear regression do hold, albeit loosely, there are some factors which further limit the certainty of our conclusions. First is our `var_measure` variable. Although the pseudo-variance metric does give a rough proxy for measuring disparities between post-graduation earnings between students by income bracket, it is not a mathematically rigorous estimation. Future research could benefit from a weighted metric that places more weight on different income brackets being closer or further from the median post-graduation earnings. Moreover, the `var_measure` variable is constructed by finding variance between three median values. This averaging-pipeline of averages of averages only gives crude estimations of the true metric of interest. Future exploration should look for college data banks which report all available incomes of its graduates, measured before any aggregate functions have been applied. In a similar vain, the second factor which heavily limits accurate predictions is the proportional and aggregate nature of the dataset. It's impossible to find much disparity between each college's predictor values because each college-level measurement has already been regressed towards some average value. This lack of variance in each predictor likely affected our ability to describe variation within the response variable, causing the predictability of the model to fall short. With this is mind, we can confidently state that this model does provide a rough proxy for the relationship between certain economic factors, educational burdens, race, and post-graduation income inequality. 
 
+## Clarity Figures
 
+### Figure 1
 ```{r echo = FALSE}
 #| warning: false
 
@@ -139,7 +141,7 @@ ggplot(stacked_data, aes(x = Income_Group, y = Total_Contribution, fill = Race))
 ```
 The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.
 
-## Observations & Conclusions  
+#### Observations & Conclusions  
 
  - The largest proportion of aided students comes from the lowest income group ($0-30k)
  - The lowest income group shows a more diverse racial distribution compared to higher income groups  
@@ -148,13 +150,13 @@ The stacked bar chart illustrates the racial composition of aided students by in
  - This figure touches on the role financial aid can play in bridging financial disparities, enabling students from low-income and underrepresented racial backgrounds to access higher education
  - Financial aid is essential in leveling the playing field for student from low-income backgrounds 
  
-## Limitations 
+#### Limitations 
 
   - This figure assumes proportionality. It assumes that the racial composition of financial aid recipients within each income group is directly proportional to the overall racial composition of the institution. This may not reflect reality as financial aid distribution often varies based on additional factors like institutional policies, eligibility criteria, and systemic barriers that can favor or exclude certain racial groups. 
   - The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.
   - Therefore, this figure should be used as a general estimate rather than a precise measurement. 
   
-
+## Figure 2
 ```{r echo = FALSE}
 #| warning: false
 library(tidyverse)
@@ -200,7 +202,7 @@ ggplot(scatter_data, aes(x = Racial_Diversity, y = Withdrawal_Rate)) +
 ```
 This scatterplot illustrates the relationship between racial diversity of low income students (families earning less than $30,000 annually) are influenced by the racial composition of colleges, as measured by the proportion of underrepresented racial groups (1 - UGDS_WHITE). The x-axis represents the proportion of underrepresented racial groups in colleges, while the y-axis shows the withdrawal rate, which is defined as the percentage of low income who left their original institution within four years. By faceting the data by income level, this analysis focuses specifically on the low income students.
 
-## Observations & Conclusions 
+#### Observations & Conclusions 
 
  - A slight downward trend in withdrawal rates is visible as racial diversity increases. This trend suggests that institutions with greater racial diversity may provide more supportive and inclusive environments for economically disadvantaged students, which could contribute to lower withdrawal rates. 
  - In contrast, colleges with predominantly white students enrollments tend to show slightly higher withdrawal rates for low income students, while institutions with greater diversity show marginally better retention rates.
@@ -208,7 +210,7 @@ The marginally better retention rates in more diverse colleges align with the id
  - These findings support our thesis that racial disparities in family income are greater before college than after graduation. While low-income students face significant systemic barriers before enrolling in college, the diversity of their college may mitigate some of these challenges, improving retention rates during college. 
  - However, the modest slope of the loess trend line suggests that while institutional diversity is significant, its effect on withdrawal rates is relatively small. This highlights the importance of other factors, such as financial aid availability, campus resources, and academic support, in fostering student retention.
 
-## Limitations 
+#### Limitations 
 
   - It is assumed that higher levels of racial diversity (1 - UGDS_WHITE) are associated with better student support for low-income students, but diverse institutions may still need to be equipped with adequate student support services.
   - Colleges in predominantly white areas may naturally have lower diversity and face unique retention challenges due to regional demographic differences.
@@ -238,8 +240,7 @@ The code below shows an example of loading the loan refusal data set (which you 
 
 ```{r}
 library(tidyverse)
-print(getwd())
-data <- read_rds(here::here("dataset/loan_refusal_clean.rds"))
+data <- read_rds(here::here("/Users/thomaspoulin/Documents/ma415/ma-4615-fa24-final-project-group-12/dataset/cleaned_dataset.rds"))
 ```
 
 ## Note on Attribution
