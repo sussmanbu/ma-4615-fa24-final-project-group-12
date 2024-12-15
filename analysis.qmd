@@ -78,8 +78,8 @@ Although the assumptions for linear regression do hold, albeit loosely, there ar
 ## Clarity Figures
 
 ### Figure 1
-```{r}
-#| echo: false
+```{r echo = FALSE}
+#| warning: false
 library(tidyverse)
 cleaned_data <- read_rds("dataset/cleaned_dataset.rds")
 cleaned_data |> 
@@ -195,7 +195,7 @@ The stacked bar chart illustrates the racial composition of aided students by in
   - The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.
   - Therefore, this figure should be used as a general estimate rather than a precise measurement. 
   
-## Figure 3
+### Figure 3
 ```{r echo = FALSE}
 #| warning: false
 library(tidyverse)
@@ -272,14 +272,6 @@ If you want you can link back to your blog posts or create separate pages with m
 The style of this paper should aim to be that of an academic paper. 
 I don't expect this to be of publication quality but you should keep that aim in mind.
 Avoid using "we" too frequently, for example "We also found that ...". Describe your methodology and your findings but don't describe your whole process.
-
-```{r}
-library(tidyverse)
-print(getwd())
-data <- read_rds(here::here("dataset/loan_refusal_clean.rds"))
-```
-
-data <- read_rds(here::here("dataset/loan_refusal_clean.rds"))
 
 ## Note on Attribution
 
