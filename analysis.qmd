@@ -78,6 +78,45 @@ Although the assumptions for linear regression do hold, albeit loosely, there ar
 ## Clarity Figures
 
 ### Figure 1
+```{r}
+#| echo: false
+library(tidyverse)
+cleaned_data <- read_rds("dataset/cleaned_dataset.rds")
+cleaned_data |> 
+  select(MD_EARN_WNE_INC1_P10, MD_EARN_WNE_INC2_P10, MD_EARN_WNE_INC3_P10) |> 
+  rename(`$0-$30,000` = MD_EARN_WNE_INC1_P10,
+         `$30,001-$75,000` = MD_EARN_WNE_INC2_P10,
+         `$75,001+` = MD_EARN_WNE_INC3_P10) |> 
+  pivot_longer(cols = everything(), names_to = "Income Group", values_to = "value") |> 
+  ggplot(aes(x = `Income Group`, y = value/1000, color = `Income Group`, fill = `Income Group`)) +
+  geom_boxplot(alpha = 0.4) +
+  labs(title = "Boxplot of Median Earnings (10 Years After Graduation) 
+                of Students From Each Income Tercile",
+       x = "Income Group",
+       y = "Median Post-Graduation Earnings ($ in 1,000s)",
+       color = "Income Group",
+       fill = "Income Group") +
+  scale_fill_brewer(palette = "Set2") +
+  scale_color_brewer(palette = "Set2") 
+```
+The above boxplots highlight the main focus of our research: the variation in post-graduation earnings by a student's family income. The three distributions showcase the varying post-graduate earnings of students from the lowest income tercile to the highest tercile. The horizontal axis indicates the income group while the vertical axis reports the median post-graduation earning. 
+
+#### Observations & Conclusions
+
+ - Median earnings increase as family income increases
+ - Each distribution is skewed right, indicating that few colleges enable the median student to earn more than roughly \$60,000 in annual earnings. This is likely the result of aggregate data which suppresses variation.
+ - The median median-post-graduation earnings for the lowest tercile (\$0-\$30,000) is \$39,666 but only \$53,367 for the highest tercile, suggesting that college is much more beneficial for lower income students than for higher income students.
+ - Although the distributions' central tendencies appear surprisingly close in value, subsequent two-sample t-tests report that the means for each category are significantly different from one another
+    - This suggests that college may not be the economic equalizer that we suspect it is; however, the aforementioned benefit to lower income students cannot be discounted.
+ - Interestingly, students from the middle tercile are the only income group whose median median-earnings falls within the same bracket as their family's
+
+#### Limitations
+
+ - Using a median aggregation function limits variability in post-graduation earnings, possibly erasing important patterns that do not appear in the final boxplot
+ - The designated income groups are broad categories and thus may eliminate intra-group variability
+    - More partitioning would provide a more nuanced depiction of how family income relates to post-graduation earnings
+
+### Figure 2
 ```{r echo = FALSE}
 #| warning: false
 
@@ -139,11 +178,11 @@ ggplot(stacked_data, aes(x = Income_Group, y = Total_Contribution, fill = Race))
     plot.title = element_text(size = 14, face = "bold")
   )
 ```
-The stacked bar chart illustrates the racial composition of aided students by income group. Each income group ($0–$30K, $30K–$48K, $48K–$75K, $75K–$110K, $110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.
+The stacked bar chart illustrates the racial composition of aided students by income group. Each income group (\$0–\$30K, \$30K–\$48K, \$48K–\$75K, \$75K–\$110K, \$110K+) is represented on the x-axis, while the y-axis shows the proportional contributions of racial groups to the total number of aided students in that income group. The colors correspond to different racial groups, such as White, Black, Hispanic, Asian, etc.
 
 #### Observations & Conclusions  
 
- - The largest proportion of aided students comes from the lowest income group ($0-30k)
+ - The largest proportion of aided students comes from the lowest income group (\$0-\30k)
  - The lowest income group shows a more diverse racial distribution compared to higher income groups  
  - While White students make up the majority in all income groups, racial minorities are present in notable proportions, especially in the lower income brackets 
  - As income increases, the overall number of aided students decreases significantly
@@ -156,7 +195,7 @@ The stacked bar chart illustrates the racial composition of aided students by in
   - The assumptions in this figure highlight the need for further data on whether aid is distributed equitably across racial and income groups.
   - Therefore, this figure should be used as a general estimate rather than a precise measurement. 
   
-## Figure 2
+## Figure 3
 ```{r echo = FALSE}
 #| warning: false
 library(tidyverse)
