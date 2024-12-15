@@ -50,11 +50,7 @@ We acknowledged the dependent nature of our race variables (as they measure prop
 ### Results
 The final model is represented by the following equation: 
 
-$$
-{\small
-{\sqrt{var\_measure_i} = 10.6397 - 2.1601 \cdot UGDS\_BLACK\_i - 1.5554 \cdot UGDS\_HISP\_i - 2.0451 \cdot UGDS\_ASIAN\_i}
-}
-$$
+${\small{\sqrt{var\_measure_i} = 10.6397 - 2.1601 \cdot UGDS\_BLACK\_i - 1.5554 \cdot UGDS\_HISP\_i - 2.0451 \cdot UGDS\_ASIAN\_i}}$
 ${\small + 1.5862 \cdot FTFTPCTFLOAN\_POOLED\_SUPP\_i - 6.5651 \cdot INC\_PCT\_LO\_i - 27.1280 \cdot INC\_PCT\_M1\_i}$
 ${\small + 51.8836 \cdot (INC\_PCT\_LO \cdot INC\_PCT\_M1)_i - 0.0001 \cdot LO\_INC\_DEBT\_MDN\_i}$ 
 ${\small - 7.3350 \cdot BBRR3\_FED\_PELL\_MAKEPROG\_i + \epsilon\_i}$ 
@@ -73,15 +69,11 @@ Interpretations of each of the nine predictor coefficients are provided below:
 - $\beta_{DEBT} = -0.0001$: A \$1,000 increase in the median debt for students with family income between \$0-\$30,000 is associated with a 0.1 unit decrease in a college's `var_measure`.
 - $\beta_{MAKEPROG} = -7.3350$: A one percentage point increase in the percent of a college's Pell-Grant-recipient federal-student-loan borrowers making repayment progress after 3 years is associated with a 0.0054 unit decrease in a college's `var_measure`.
 
+As the model suggests, more diverse college campuses are, counter-intuitively, associated with a lower `var_measure`, indicating greater equality in post-graduation earnings. We suspect this actually reads nothing about the college's capacity to help students, but is instead the natural consequence of less variation in the racial makeup of a school. If a university's student body is more diverse, we could expect more variation in post-graduation earnings, on grounds that race plays a societal role in finding jobs after college. A related and interesting finding was that the proportion of White students at a college had no statistically significant influence on `var_measure`.
 
-  An interesting take away from the variable selection process was that the proportion of students awarded a Pell Grant was not significantly associated with a lower `var_measure`
-  not including white
-  - **UGDS_WHITE:** Total share of enrollment of undergraduate degree-seeking students who are white
+Another curious finding, this time from the variable selection process, was that the proportion of students awarded a Pell Grant at a college was not significantly associated with a lower `var_measure` metric. This seems suspicious seeing that if a college has a greater share of students who have been awarded federal grants, one would predict that family income would play less of a role in determining a student's post-graduation income.
 
-this confusing too:
-- $\beta_{LO*M1}$ = 51.8836: For a one percentage point increase in percent of aided students at a college whose family income is between \$0-\$30,000, the effect of a one percentage point increase in percent of aided students at a college whose family income is between \$30,001-\$48,000 is associated with a 0.2692 unit increase in a college's `var_measure` (and vice versa).
-
-
+Although the assumptions for linear regression do hold, albeit loosely, there are some factors which further limit the certainty of our conclusions. First is our `var_measure` variable. Although the pseudo-variance metric does give a rough proxy for measuring disparities between post-graduation earnings between students by income bracket, it is not a mathematically rigorous estimation. Future research could benefit from a weighted metric that places more weight on different income brackets being closer or further from the median post-graduation earnings. Moreover, the `var_measure` variable is constructed by finding variance between three median values. This averaging-pipeline of averages of averages only gives crude estimations of the true metric of interest. Future exploration should look for college data banks which report all available incomes of its graduates, measured before any aggregate functions have been applied. In a similar vain, the second factor which heavily limits accurate predictions is the proportional and aggregate nature of the dataset. It's impossible to find much disparity between each college's predictor values because each college-level measurement has already been regressed towards some average value. This lack of variance in each predictor likely affected our ability to describe variation within the response variable, causing the predictability of the model to fall short. With this is mind, we can confidently state that this model does provide a rough proxy for the relationship between certain economic factors, educational burdens, race, and post-graduation income inequality. 
 
 
 ```{r echo = FALSE}
