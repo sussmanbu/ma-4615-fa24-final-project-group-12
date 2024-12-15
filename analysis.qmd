@@ -3,6 +3,9 @@ title: Analysis
 description: Here we provide a detailed analysis using more sophisticated statistics techniques.
 toc: true
 draft: false
+output:
+  html_document:
+    css: styles.css
 ---
 
 ![](ma415analysispicture.jpg)
@@ -47,12 +50,13 @@ We acknowledged the dependent nature of our race variables (as they measure prop
 ### Results
 The final model is represented by the following equation: 
   $$
-  \begin{multline}
-  \sqrt{var\_measure_i} = 10.6397 - 2.1601*UGDS\_BLACK_i - 1.5554*UGDS\_HISP_i - 2.0451*UGDS\_ASIAN_i \\
-  + 1.5862*FTFTPCTFLOAN\_POOLED\_SUPP_i - 6.5651*INC\_PCT\_LO_i - 27.1280*INC\_PCT\_M1_i \\
+  \begin{equation}
+  \sqrt{var\_measure_i} = 10.6397 - 2.1601*UGDS\_BLACK_i - 1.5554*UGDS\_HISP_i \\ 
+  - 2.0451*UGDS\_ASIAN_i + 1.5862*FTFTPCTFLOAN\_POOLED\_SUPP_i \\
+  - 6.5651*INC\_PCT\_LO_i - 27.1280*INC\_PCT\_M1_i \\
   + 51.8836*(INC\_PCT\_LO*INC\_PCT\_M1)_i - 0.0001*LO\_INC\_DEBT\_MDN_i \\
   - 7.3350*BBRR3\_FED\_PELL\_MAKEPROG_i + \epsilon_i
-  \end{multline}
+  \end{equation}
   $$
 This multiple linear regression model has an adjusted correlation of determination of 0.2639308 and a RMSE of 1.145915, indicating that the average error is only 1.31 units off from a college’s true `var_measure` value. We believe the reason for such a low adjusted correlation of determination and RMSE is due to the narrow range of `sqrt(var_measure)`: nearly all values of the response variable fall between 2 and 8. Because there is little variance to explain, the adjusted $R^2$ and RMSE are naturally low. 
 
