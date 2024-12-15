@@ -5,7 +5,8 @@ toc: true
 draft: false
 ---
 
-![](ma415_analysispage_photo.jpg)
+![](ma415analysispicture.jpg)
+
 This comes from the file `analysis.qmd`.
 
 ## Introduction and Motivation
@@ -46,26 +47,25 @@ We acknowledged the dependent nature of our race variables (as they measure prop
 ### Results
 The final model is represented by the following equation: 
   $$
-  \begin{align}
+  \begin{equation}
   \sqrt{var\_measure_i} = 10.6397 - 2.1601*UGDS\_BLACK_i - 1.5554*UGDS\_HISP_i - 2.0451*UGDS\_ASIAN_i \\
   + 1.5862*FTFTPCTFLOAN\_POOLED\_SUPP_i - 6.5651*INC\_PCT\_LO_i - 27.1280*INC\_PCT\_M1_i \\
   + 51.8836*(INC\_PCT\_LO*INC\_PCT\_M1)_i - 0.0001*LO\_INC\_DEBT\_MDN_i \\
   - 7.3350*BBRR3\_FED\_PELL\_MAKEPROG_i + \epsilon_i
-  \end{align}
+  \end{equation}
   $$
 This multiple linear regression model has an adjusted correlation of determination of 0.2639308 and a RMSE of 1.145915, indicating that the average error is only 1.31 units off from a college’s true `var_measure` value. We believe the reason for such a low adjusted correlation of determination and RMSE is due to the narrow range of `sqrt(var_measure)`: nearly all values of the response variable fall between 2 and 8. Because there is little variance to explain, the adjusted $R^2$ and RMSE are naturally low. 
 
 Interpretations of each of the nine predictor coefficients are provided below:
- - $\beta_{BLACK}$ = -2.1601: A one percentage point increase in the share of Black students at a college is associated with a 0.0005 unit decrease in a college's `var_measure`.
- - $\beta_{HISP}$ = -1.5554: A one percentage point increase in the share of Hispanic students at a college is associated with a 0.0002 unit decrease in a college's `var_measure`.
- - $\beta_{ASIAN}$ = -2.0451: A one percentage point increase in the share of Asian students at a college is associated with a 0.0004 unit decrease in a college's `var_measure`.
- - $\beta_{PCTFLOAN}$ = 1.5862: A one percentage point increase in percent of full-time undergraduate students at a college who are awarded a federal loan is associated with a 0.0003 unit increase in a college's `var_measure`.
- - $\beta_{INC\_PCT\_LO}$ = -6.5651: A one percentage point increase in percent of aided students at a college whose family income is between \$0-\$30,000 is associated with a 0.0043 unit decrease in a college's `var_measure`.
- - $\beta_{INC\_PCT\_M1}$ = -27.1280: A one percentage point increase in percent of aided students at a college whose family income is between \$30,001-\$48,000 is associated with a 0.0736 unit decrease in a college's `var_measure`.
- - $\beta_{LO*M1}$ = 51.8836: For a one percentage point increase in percent of aided students at a college whose family income is between \$0-\$30,000, the effect of a one percentage point increase in percent of aided students at a college whose family income is between \$30,001-\$48,000 is associated with a 0.2692 unit increase in a college's `var_measure` (and vice versa).
- - $\beta_{DEBT}$ = -0.0001: A \$1,000 increase in the median debt for students with family income between \$0-\$30,000 is associated with a 0.1 unit decrease in a college's `var_measure`.
- - $\beta_{MAKEPROG}$ = -7.3350: A one percentage point increase in the percent of a college's 
- Pell-Grant-recipient federal-student-loan borrowers making repayment progress after 3 years is associated with a 0.0054 unit decrease in a college's `var_measure`.
+-  $\beta_{BLACK}$ = -2.1601: A one percentage point increase in the share of Black students at a college is associated with a 0.0005 unit decrease in a college's `var_measure`.
+-  $\beta_{HISP}$ = -1.5554: A one percentage point increase in the share of Hispanic students at a college is associated with a 0.0002 unit decrease in a college's `var_measure`.
+-  $\beta_{ASIAN}$ = -2.0451: A one percentage point increase in the share of Asian students at a college is associated with a 0.0004 unit decrease in a college's `var_measure`.
+-  $\beta_{PCTFLOAN}$ = 1.5862: A one percentage point increase in percent of full-time undergraduate students at a college who are awarded a federal loan is associated with a 0.0003 unit increase in a college's `var_measure`.
+-  $\beta_{INC\_PCT\_LO}$ = -6.5651: A one percentage point increase in percent of aided students at a college whose family income is between \$0-\$30,000 is associated with a 0.0043 unit decrease in a college's `var_measure`.
+-  $\beta_{INC\_PCT\_M1}$ = -27.1280: A one percentage point increase in percent of aided students at a college whose family income is between \$30,001-\$48,000 is associated with a 0.0736 unit decrease in a college's `var_measure`.
+-  $\beta_{LO*M1}$ = 51.8836: For a one percentage point increase in percent of aided students at a college whose family income is between \$0-\$30,000, the effect of a one percentage point increase in percent of aided students at a college whose family income is between \$30,001-\$48,000 is associated with a 0.2692 unit increase in a college's `var_measure` (and vice versa).
+-  $\beta_{DEBT}$ = -0.0001: A \$1,000 increase in the median debt for students with family income between \$0-\$30,000 is associated with a 0.1 unit decrease in a college's `var_measure`.
+-  $\beta_{MAKEPROG}$ = -7.3350: A one percentage point increase in the percent of a college's Pell-Grant-recipient federal-student-loan borrowers making repayment progress after 3 years is associated with a 0.0054 unit decrease in a college's `var_measure`.
 
 
   An interesting take away from the variable selection process was that the proportion of students awarded a Pell Grant was not significantly associated with a lower `var_measure`
