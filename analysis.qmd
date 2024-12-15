@@ -50,11 +50,10 @@ We acknowledged the dependent nature of our race variables (as they measure prop
 ### Results
 The final model is represented by the following equation: 
 ${\sqrt{var\_measure_i} = 10.6397 - 2.1601 \cdot UGDS\_BLACK\_i - 1.5554 \cdot UGDS\_HISP\_i - 2.0451 \cdot UGDS\_ASIAN\_i}$
-${\small+ 1.5862 \cdot FTFTPCTFLOAN\_POOLED\_SUPP\_i} - 6.5651 \cdot INC\_PCT\_LO\_i - 27.1280 \cdot INC\_PCT\_M1\_i}$ 
+${\small+ 1.5862 \cdot FTFTPCTFLOAN\_POOLED\_SUPP\_i - 6.5651 \cdot INC\_PCT\_LO\_i - 27.1280 \cdot INC\_PCT\_M1\_i}$ 
 ${\small+ 51.8836 \cdot (INC\_PCT\_LO \cdot INC\_PCT\_M1)_i - 0.0001 \cdot LO\_INC\_DEBT\_MDN\_i}$ 
 ${\small- 7.3350 \cdot BBRR3\_FED\_PELL\_MAKEPROG\_i + \epsilon\_i}$
 
-$$
 This multiple linear regression model has an adjusted correlation of determination of 0.2639308 and a RMSE of 1.145915, indicating that the average error is only 1.31 units off from a college’s true `var_measure` value. We believe the reason for such a low adjusted correlation of determination and RMSE is due to the narrow range of `sqrt(var_measure)`: nearly all values of the response variable fall between 2 and 8. Because there is little variance to explain, the adjusted $R^2$ and RMSE are naturally low. 
 
 Interpretations of each of the nine predictor coefficients are provided below:
