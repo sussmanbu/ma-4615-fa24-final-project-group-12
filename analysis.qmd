@@ -258,6 +258,74 @@ The marginally better retention rates in more diverse colleges align with the id
   - The subtle trend in this figure suggests that racial diversity alone has a limited impact on retention. Other factors, such as faculty representation, curriculum inclusivity, and campus resources, may have a more significant impact.
 
 
+### Figure 5
+```{r}
+library(tidyverse)
+
+# Load and preprocess data
+debt_data <- read_rds("dataset/cleaned_dataset.rds") %>%
+  select(
+    LO_INC_DEBT_MDN, MD_INC_DEBT_MDN, HI_INC_DEBT_MDN,
+    UGDS_WHITE
+  ) %>%
+  pivot_longer(
+    cols = starts_with("LO_INC_DEBT_MDN") | starts_with("MD_INC_DEBT_MDN") | starts_with("HI_INC_DEBT_MDN"),
+    names_to = "Income_Category",
+    values_to = "Median_Debt"
+  ) %>%
+  mutate(
+    Racial_Diversity = 1 - UGDS_WHITE,
+    Median_Debt = as.numeric(Median_Debt),
+    Income_Category = recode(Income_Category,
+                             "LO_INC_DEBT_MDN" = "Low Income",
+                             "MD_INC_DEBT_MDN" = "Medium Income",
+                             "HI_INC_DEBT_MDN" = "High Income")
+  ) %>%
+  drop_na()
+
+# Scatter Plot
+ggplot(debt_data, aes(x = Racial_Diversity, y = Median_Debt)) +
+  geom_point(alpha = 0.4, color = "blue", position = position_jitter(width = 0.02, height = 0.02)) +
+  geom_smooth(method = "loess", se = TRUE, color = "red") +
+  facet_wrap(~ Income_Category, scales = "free_y") +
+  labs(
+    title = "Median Debt and Racial Diversity in Colleges",
+    subtitle = "Faceted by Family Income Level",
+    x = "Proportion of Underrepresented Racial Groups",
+    y = "Median Debt"
+  ) +
+  theme_minimal() +
+  theme(
+    strip.text = element_text(size = 12, face = "bold"),
+    axis.text = element_text(size = 10),
+    axis.title = element_text(size = 12),
+    plot.title = element_text(size = 14, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5)
+  )
+```
+
+This figure shows the relationship between racial diversity (proportion of underrepresented racial groups) and median student debt, split by three income categories: Low Income, Medium Income, and High Income.
+
+### Observations & Conclusions
+Low-Income Students:
+- Median debt is highest for this group, reaching up to $30,000 in some cases.
+- The relationship between racial diversity and debt is relatively stable but shows slight fluctuations.
+- Students from more diverse colleges tend to have marginally higher debt.
+
+Medium-Income Students:
+- Median debt for medium-income students is generally lower than for low-income students, mostly staying under $20,000.
+- There is a slight upward trend in debt as racial diversity increases, especially at higher levels of diversity.
+
+High-Income Students:
+- High-income students have the lowest debt levels, typically staying below $15,000–$20,000.
+- The relationship between racial diversity and debt is weaker but shows mild non-linear behavior.
+
+Overall Trends:
+- Colleges with higher racial diversity tend to have slightly higher student debt across income groups.
+- Debt burden decreases as family income increases, highlighting the disproportionate impact of student loans on low-income families.
+
+### Limitations
+- The analysis is limited to median debt and racial diversity, and other potential explanatory factors are not considered.
 
 
 
