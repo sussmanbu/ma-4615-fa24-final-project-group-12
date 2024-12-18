@@ -1,2 +1,3 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/R5KvOQwo)
 # ma4615-final-project-quarto
+Video link: https://bushare.sharepoint.com/sites/GRP-CLA-MA415-615-Fall2024-Group12/_layouts/15/stream.aspx?id=%2Fsites%2FGRP%2DCLA%2DMA415%2D615%2DFall2024%2DGroup12%2FShared%20Documents%2FGroup%2012%2FRecordings%2FMeeting%20in%20%5FGroup%2012%5F%2D20241218%5F173554%2DMeeting%20Recording%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E69215de4%2D73e4%2D4fea%2D8860%2D8843c64e0422
