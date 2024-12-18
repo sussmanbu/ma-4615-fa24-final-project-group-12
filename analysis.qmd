@@ -261,6 +261,7 @@ The marginally better retention rates in more diverse colleges align with the id
 "Family Income vs. Median Earnings After 10 Years" shows the relationship between Median Family Income (pre-college financial background) and Median Earnings After 10 Years (post-college economic outcomes), grouped by SAT Categories (Low, Medium, High).
 ```{r echo = FALSE}
 #| warning: false
+#| message: false
 library(ggplot2)
 library(dplyr)
 library(tidyverse)
@@ -294,48 +295,58 @@ print(plot_10yrs)
 #### Observations & Conclusions
 Diverse Financial Backgrounds:
 
-- The X-axis (Median Family Income) shows a wide spread, confirming that students come from a variety of financial backgrounds, from low-income families to high-income families.
-- All SAT categories (Low, Medium, High) have students distributed across the income spectrum, showing no strict correlation between SAT scores and family income.
+
+  - The X-axis (Median Family Income) shows a wide spread, confirming that students come from a variety of financial backgrounds, from low-income families to high-income families.
+  - All SAT categories (Low, Medium, High) have students distributed across the income spectrum, showing no strict correlation between SAT scores and family income.
 Less Variation in Economic Outcomes:
-- The Y-axis (Median Earnings After 10 Years) shows that earnings tend to converge, with most data points lying between $40,000 and $100,000.
+  - The Y-axis (Median Earnings After 10 Years) shows that earnings tend to converge, with most data points lying between $40,000 and $100,000.
 
 High SAT Category (Red):
 
-- Students with high SAT scores generally achieve higher earnings, especially at the upper end (>$100,000).
+
+  - Students with high SAT scores generally achieve higher earnings, especially at the upper end (>$100,000).
 
 Medium SAT Category (Blue):
 
-- The earnings distribution overlaps significantly with the High SAT group, particularly in the $50,000–$80,000 range, showing that SAT scores alone do not fully determine outcomes.
+
+  - The earnings distribution overlaps significantly with the High SAT group, particularly in the $50,000–$80,000 range, showing that SAT scores alone do not fully determine outcomes.
 
 Low SAT Category (Green):
 
-- While earnings are generally lower for this group, many students still achieve earnings in the $40,000–$60,000 range, suggesting upward mobility.
+
+  - While earnings are generally lower for this group, many students still achieve earnings in the $40,000–$60,000 range, suggesting upward mobility.
 
 Earnings Convergence:
 
-- Despite the wide spread in family income (X-axis), there is less variation in earnings after 10 years (Y-axis), indicating that higher education helps reduce economic disparities over time.
+
+  - Despite the wide spread in family income (X-axis), there is less variation in earnings after 10 years (Y-axis), indicating that higher education helps reduce economic disparities over time.
 
 #### Support for the Thesis
 Diverse Financial Backgrounds:
 
- - The wide range of family income reflects pre-college financial diversity.
+
+  - The wide range of family income reflects pre-college financial diversity.
  
 Less Variation in Outcomes: 
 
- - Earnings converge within a narrower range, irrespective of family income or SAT category, indicating that students from different financial backgrounds achieve similar economic outcomes.
+
+  - Earnings converge within a narrower range, irrespective of family income or SAT category, indicating that students from different financial backgrounds achieve similar economic outcomes.
  
 The role of SAT scores: 
 
-- While High SAT students tend to have slightly higher earnings, Medium and Low SAT students still achieve considerable economic mobility, suggesting that factors beyond academic preparedness (e.g., education quality, financial aid, and career opportunities) contribute to earnings equality.
+
+  - While High SAT students tend to have slightly higher earnings, Medium and Low SAT students still achieve considerable economic mobility, suggesting that factors beyond academic preparedness (e.g., education quality, financial aid, and career opportunities) contribute to earnings equality.
 
 #### Limitations
 No Regression Lines:
 
- - This limits our ability to assess the exact relationship between family income and earnings within each SAT category.
+
+  - This limits our ability to assess the exact relationship between family income and earnings within each SAT category.
  
 Outliers and Scale:
 
- - Some outliers (e.g., earnings above $120,000) may skew the interpretation of central trends.
+
+  - Some outliers (e.g., earnings above $120,000) may skew the interpretation of central trends.
 
 
 ### Figure 5
@@ -390,28 +401,32 @@ This figure shows the relationship between racial diversity (proportion of under
 #### Observations & Conclusions
 Low-Income Students:
 
-- Median debt is highest for this group, reaching up to $30,000 in some cases.
-- The relationship between racial diversity and debt is relatively stable but shows slight fluctuations.
-- Students from more diverse colleges tend to have marginally higher debt.
+
+  - Median debt is highest for this group, reaching up to $30,000 in some cases.
+  - The relationship between racial diversity and debt is relatively stable but shows slight fluctuations.
+  - Students from more diverse colleges tend to have marginally higher debt.
 
 Medium-Income Students:
 
-- Median debt for medium-income students is generally lower than for low-income students, mostly staying under $20,000.
-- There is a slight upward trend in debt as racial diversity increases, especially at higher levels of diversity.
+
+  - Median debt for medium-income students is generally lower than for low-income students, mostly staying under $20,000.
+  - There is a slight upward trend in debt as racial diversity increases, especially at higher levels of diversity.
 
 High-Income Students:
 
-- High-income students have the lowest debt levels, typically staying below $15,000–$20,000.
-- The relationship between racial diversity and debt is weaker but shows mild non-linear behavior.
+
+  - High-income students have the lowest debt levels, typically staying below $15,000–$20,000.
+  - The relationship between racial diversity and debt is weaker but shows mild non-linear behavior.
 
 Overall Trends:
 
-- Colleges with higher racial diversity tend to have slightly higher student debt across income groups.
-- Debt burden decreases as family income increases, highlighting the disproportionate impact of student loans on low-income families.
+
+  - Colleges with higher racial diversity tend to have slightly higher student debt across income groups.
+  - Debt burden decreases as family income increases, highlighting the disproportionate impact of student loans on low-income families.
 
 #### Limitations
 
-- The analysis is limited to median debt and racial diversity, and other potential explanatory factors are not considered.
+  - The analysis is limited to median debt and racial diversity, and other potential explanatory factors are not considered.
 
 
 ------------------------------------------------------------------------
