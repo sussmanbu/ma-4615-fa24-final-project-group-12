@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="A 538/Upshot style article about the data.">
+<meta name="description" content="Does Higher Education Close Economic and Racial Gaps?">
 
 <title>Group 12 - Big Picture</title>
 <style>
@@ -40,11 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<meta name="shinylive:serviceworker_dir" content=".">
-<script src="site_libs/quarto-contrib/shinylive-0.5.0/shinylive/load-shinylive-sw.js" type="module"></script>
-<script src="site_libs/quarto-contrib/shinylive-0.5.0/shinylive/run-python-blocks.js" type="module"></script>
-<link href="site_libs/quarto-contrib/shinylive-0.5.0/shinylive/shinylive.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/shinylive-quarto-css/shinylive-quarto.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,7 +121,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#interactive" id="toc-interactive" class="nav-link active" data-scroll-target="#interactive">Interactive</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction:</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a>
+  <ul class="collapse">
+  <li><a href="#family-income-and-post-graduation-earnings" id="toc-family-income-and-post-graduation-earnings" class="nav-link" data-scroll-target="#family-income-and-post-graduation-earnings">1. Family Income and Post-Graduation Earnings</a></li>
+  <li><a href="#racial-composition-of-aided-students" id="toc-racial-composition-of-aided-students" class="nav-link" data-scroll-target="#racial-composition-of-aided-students">2. Racial Composition of Aided Students</a></li>
+  <li><a href="#retention-rates-and-racial-diversity" id="toc-retention-rates-and-racial-diversity" class="nav-link" data-scroll-target="#retention-rates-and-racial-diversity">3. Retention Rates and Racial Diversity</a></li>
+  <li><a href="#family-income-sat-scores-and-post-graduation-outcomes" id="toc-family-income-sat-scores-and-post-graduation-outcomes" class="nav-link" data-scroll-target="#family-income-sat-scores-and-post-graduation-outcomes">4. Family Income, SAT Scores, and Post-Graduation Outcomes</a></li>
+  <li><a href="#student-debt-and-racial-diversity" id="toc-student-debt-and-racial-diversity" class="nav-link" data-scroll-target="#student-debt-and-racial-diversity">5. Student Debt and Racial Diversity</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
   <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
   <li><a href="#rubric-other-components" id="toc-rubric-other-components" class="nav-link" data-scroll-target="#rubric-other-components">Rubric: Other components</a>
   <ul class="collapse">
@@ -146,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    A 538/Upshot style article about the data.
+    Does Higher Education Close Economic and Racial Gaps?
   </div>
 </div>
 
@@ -165,66 +169,78 @@ ul.task-list li input[type="checkbox"] {
 
 <p><img src="images/bigpictureimage.jpg" class="img-fluid"></p>
 <p>This comes from the file <code>big_picture.Rmd</code>.</p>
-<p>Think of this page as your 538/Upshot style article. This means that you should try to tell a story through the data and your analysis. Read articles from those sites and similar sites to get a feeling for what they are like. Try to write in the style of a news or popular article. Importantly, this page should be geared towards the general public. You shouldn’t assume the reader understands how to interpret a linear regression or a complicated plot. Focus on interpretation and visualizations.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>Higher education is often seen as a pathway to economic mobility, offering opportunities to reduce systemic inequalities. But does it truly fulfill this promise?</p>
+<p>Our analysis examines:<br>
+1. How <strong>family income</strong> and <strong>racial diversity</strong> impact access to education and post-graduation success.<br>
+2. Trends in <strong>student debt</strong>, <strong>withdrawal rates</strong>, and <strong>post-graduation earnings</strong> across income and racial groups.</p>
+<p>Through exploring five specific questions(in analysis page), we reveal that while colleges contribute to upward mobility, disparities in <strong>earnings, debt burdens</strong>, and <strong>retention rates</strong> persist for low-income and underrepresented racial groups.</p>
 <hr>
-<section id="interactive" class="level3">
-<h3 class="anchored" data-anchor-id="interactive">Interactive</h3>
-<p>You will also be required to make an interactive dashboard like <a href="./flex/flex.html">this one</a>.</p>
-<p>Your Big Data page should also include a small interactive dashboard. The dashboard should be created either using Shinylive, as below. This interactive component should in some way support your thesis from your big picture page. Good interactives often provide both high-level understanding of the data while allowing a user to investigate specific scenarios, observations, subgroups, etc.</p>
-<pre class="shinylive-r" data-engine="r"><code>#| '!! shinylive warning !!': |
-#|   shinylive does not work in self-contained HTML documents.
-#|   Please set `embed-resources: false` in your metadata.
-#| eval: false
-#| standalone: true
-#| viewerHeight: 640 # You will have to adjust this to fit everything
-
-# change code chunk language to just r when prototyping
-# when changing back to shinylive-r, remove the eval:false label
-
-library(shiny)
-library(tidyverse)
-options("readr.edition" = 1) # keep this to ensure you can download the data
-
-
-# Define UI for app that draws a histogram ----
-ui &lt;- fluidPage(
-
-  # App title ----
-  titlePanel("Hello Shiny!"),
-
-  # Sidebar layout with input and output definitions ----
-  verticalLayout(
-      # Input: Slider for the number of bins ----
-      sliderInput(inputId = "bins",
-                  label = "Number of bins:",
-                  min = 1,
-                  max = 50,
-                  value = 30),
-
-      # Output: Histogram ----
-      plotOutput(outputId = "distPlot")
-
-  )
-)
-
-# Define server logic required to draw a histogram ----
-server &lt;- function(input, output) {
-  # The URL below has to point to a dataset on your github pages website
-  # I recommend creating a small-ish rds file that has only the data relevant to 
-  # the interactive.
-  data &lt;- read_rds("https://sussmanbu.github.io/ma4615-final-project-quarto/dataset/loan_refusal_clean.rds")
-  # when prototyping: data &lt;- read_csv(here::here("dataset))
-  
-  output$distPlot &lt;- renderPlot({
-    ggplot(data, aes(x = refusal_rate)) +
-      geom_histogram(bins = input$bins + 1)
-
-  })
-
-}
-
-# Create Shiny app ----
-shinyApp(ui = ui, server = server)</code></pre>
+</section>
+<section id="key-findings" class="level2">
+<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<section id="family-income-and-post-graduation-earnings" class="level3">
+<h3 class="anchored" data-anchor-id="family-income-and-post-graduation-earnings">1. Family Income and Post-Graduation Earnings</h3>
+<p>The <strong>median post-graduation earnings</strong> show a clear trend:<br>
+- Students from higher-income families ($75K+) earn significantly more after 10 years compared to those from lower-income backgrounds ($0–$30K).</p>
+<p><strong>Insight</strong>: Economic disparities persist even after higher education, with students from wealthier families achieving higher earnings.</p>
+<hr>
+</section>
+<section id="racial-composition-of-aided-students" class="level3">
+<h3 class="anchored" data-anchor-id="racial-composition-of-aided-students">2. Racial Composition of Aided Students</h3>
+<ul>
+<li>Lower-income groups ($0–$30K) display <strong>greater racial diversity</strong> with higher proportions of <strong>Black, Hispanic, and other underrepresented groups</strong>.<br>
+</li>
+<li>As family income increases, the racial composition shifts, with <strong>White students</strong> dominating higher income brackets.</li>
+</ul>
+<p><strong>Insight</strong>: Financial aid plays a critical role in enabling access to higher education for underrepresented racial groups, particularly in lower income tiers.</p>
+<hr>
+</section>
+<section id="retention-rates-and-racial-diversity" class="level3">
+<h3 class="anchored" data-anchor-id="retention-rates-and-racial-diversity">3. Retention Rates and Racial Diversity</h3>
+<ul>
+<li>Colleges with a higher <strong>proportion of underrepresented racial groups</strong> show slightly <strong>lower withdrawal rates</strong> for low-income students.<br>
+</li>
+<li>A modest downward trend suggests that diverse environments <strong>support retention</strong> for economically disadvantaged students.</li>
+</ul>
+<p><strong>Insight</strong>: Inclusive campuses can mitigate systemic barriers, though additional academic and financial support is still necessary to ensure student success.</p>
+<hr>
+</section>
+<section id="family-income-sat-scores-and-post-graduation-outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="family-income-sat-scores-and-post-graduation-outcomes">4. Family Income, SAT Scores, and Post-Graduation Outcomes</h3>
+<ul>
+<li><strong>Family income</strong> has a strong positive correlation with median earnings after 10 years.<br>
+</li>
+<li>Students in the <strong>high SAT score group</strong> consistently achieve higher earnings, especially at higher family income levels.<br>
+</li>
+<li>Earnings tend to <strong>converge</strong> for students from different SAT score groups, particularly in the $40K–$100K range.</li>
+</ul>
+<p><strong>Insight</strong>: While family income drives post-graduation outcomes, SAT scores alone do not fully explain earnings disparities. Higher education helps reduce variation but does not eliminate income-based inequalities.</p>
+<hr>
+</section>
+<section id="student-debt-and-racial-diversity" class="level3">
+<h3 class="anchored" data-anchor-id="student-debt-and-racial-diversity">5. Student Debt and Racial Diversity</h3>
+<ul>
+<li><strong>Low-income students</strong> from racially diverse campuses carry the <strong>highest debt burdens</strong>—up to $30,000.<br>
+</li>
+<li>Debt burdens are lower for students from wealthier families, highlighting financial advantages in higher income groups.</li>
+</ul>
+<p><strong>Insight</strong>: The disproportionate debt burden for racially diverse, low-income students exacerbates systemic inequalities, limiting their upward mobility despite higher education access.</p>
+<hr>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion:</h2>
+<p>While colleges contribute to upward mobility, our findings reveal persistent economic and racial disparities:<br>
+- <strong>Earnings gaps</strong> remain tied to family income.<br>
+- <strong>Racial diversity</strong> improves access and retention but does not eliminate financial challenges.<br>
+- <strong>Debt burdens</strong> disproportionately impact low-income and underrepresented racial groups.</p>
+<p>To fulfill higher education’s promise of equity, institutions and policymakers must:<br>
+1. <strong>Increase financial aid</strong> for low-income and racially diverse students.<br>
+2. <strong>Enhance academic support</strong> to improve retention rates.<br>
+3. <strong>Address systemic barriers</strong> to reduce student debt burdens.</p>
+<p>By addressing these challenges, higher education can better serve as a true engine of opportunity for all students.</p>
 <hr>
 </section>
 <section id="rubric-on-this-page" class="level2">
