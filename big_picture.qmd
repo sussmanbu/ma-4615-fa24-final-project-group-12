@@ -1,6 +1,6 @@
 ---
 title: "Big Picture"
-description: "A 538/Upshot style article about the data."
+description: "Does Higher Education Close Economic and Racial Gaps?"
 toc: true
 draft: FALSE
 filters:
@@ -82,6 +82,79 @@ shinyApp(ui = ui, server = server)
 ```
 
 ---
+
+## Introduction:  
+
+Higher education is often seen as a pathway to economic mobility, offering opportunities to reduce systemic inequalities. But does it truly fulfill this promise?  
+
+Our analysis examines:  
+1. How **family income** and **racial diversity** impact access to education and post-graduation success.  
+2. Trends in **student debt**, **withdrawal rates**, and **post-graduation earnings** across income and racial groups.  
+
+Through exploring five specific questions(in analysis page), we reveal that while colleges contribute to upward mobility, disparities in **earnings, debt burdens**, and **retention rates** persist for low-income and underrepresented racial groups.
+
+---
+
+## Key Findings  
+
+### 1. Family Income and Post-Graduation Earnings 
+The **median post-graduation earnings** show a clear trend:  
+- Students from higher-income families ($75K+) earn significantly more after 10 years compared to those from lower-income backgrounds ($0–$30K).  
+
+**Insight**: Economic disparities persist even after higher education, with students from wealthier families achieving higher earnings.  
+
+---
+
+### 2. Racial Composition of Aided Students 
+- Lower-income groups ($0–$30K) display **greater racial diversity** with higher proportions of **Black, Hispanic, and other underrepresented groups**.  
+- As family income increases, the racial composition shifts, with **White students** dominating higher income brackets.  
+
+**Insight**: Financial aid plays a critical role in enabling access to higher education for underrepresented racial groups, particularly in lower income tiers.  
+
+---
+
+### 3. Retention Rates and Racial Diversity  
+- Colleges with a higher **proportion of underrepresented racial groups** show slightly **lower withdrawal rates** for low-income students.  
+- A modest downward trend suggests that diverse environments **support retention** for economically disadvantaged students.  
+
+**Insight**: Inclusive campuses can mitigate systemic barriers, though additional academic and financial support is still necessary to ensure student success.  
+
+---
+
+### 4. Family Income, SAT Scores, and Post-Graduation Outcomes  
+- **Family income** has a strong positive correlation with median earnings after 10 years.  
+- Students in the **high SAT score group** consistently achieve higher earnings, especially at higher family income levels.  
+- Earnings tend to **converge** for students from different SAT score groups, particularly in the $40K–$100K range.  
+
+**Insight**: While family income drives post-graduation outcomes, SAT scores alone do not fully explain earnings disparities. Higher education helps reduce variation but does not eliminate income-based inequalities.  
+
+---
+
+### 5. Student Debt and Racial Diversity  
+- **Low-income students** from racially diverse campuses carry the **highest debt burdens**—up to $30,000.  
+- Debt burdens are lower for students from wealthier families, highlighting financial advantages in higher income groups.  
+
+**Insight**: The disproportionate debt burden for racially diverse, low-income students exacerbates systemic inequalities, limiting their upward mobility despite higher education access.  
+
+---
+
+## Conclusion:
+
+While colleges contribute to upward mobility, our findings reveal persistent economic and racial disparities:  
+- **Earnings gaps** remain tied to family income.  
+- **Racial diversity** improves access and retention but does not eliminate financial challenges.  
+- **Debt burdens** disproportionately impact low-income and underrepresented racial groups.  
+
+To fulfill higher education’s promise of equity, institutions and policymakers must:  
+1. **Increase financial aid** for low-income and racially diverse students.  
+2. **Enhance academic support** to improve retention rates.  
+3. **Address systemic barriers** to reduce student debt burdens.  
+
+By addressing these challenges, higher education can better serve as a true engine of opportunity for all students.  
+
+
+
+
 
 ## Rubric: On this page
 
