@@ -259,7 +259,8 @@ The marginally better retention rates in more diverse colleges align with the id
 
 
 ### Figure 5
-```{r}
+```{r echo = FALSE}
+#| warning: false
 library(tidyverse)
 
 # Load and preprocess data
