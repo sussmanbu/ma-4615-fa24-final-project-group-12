@@ -161,8 +161,8 @@ window.Quarto = {
   <li><a href="#figure-1" id="toc-figure-1" class="nav-link" data-scroll-target="#figure-1">Figure 1</a></li>
   <li><a href="#figure-2" id="toc-figure-2" class="nav-link" data-scroll-target="#figure-2">Figure 2</a></li>
   <li><a href="#figure-3" id="toc-figure-3" class="nav-link" data-scroll-target="#figure-3">Figure 3</a></li>
+  <li><a href="#figure-5" id="toc-figure-5" class="nav-link" data-scroll-target="#figure-5">Figure 5</a></li>
   </ul></li>
-  <li><a href="#note-on-attribution" id="toc-note-on-attribution" class="nav-link" data-scroll-target="#note-on-attribution">Note on Attribution</a></li>
   <li><a href="#rubric-on-this-page" id="toc-rubric-on-this-page" class="nav-link" data-scroll-target="#rubric-on-this-page">Rubric: On this page</a></li>
   </ul>
 </nav>
@@ -194,8 +194,8 @@ window.Quarto = {
 </header>
 
 
-<p><img src="ma415analysispicture.jpg" class="img-fluid"></p>
-<p>This comes from the file <code>analysis.qmd</code>.</p>
+<p><img src="images/ma415analysispicture.jpg" class="img-fluid"></p>
+<p>This comes from the file <code>analysis.qmd</code>. We describe here our detailed data analysis.</p>
 <section id="introduction-and-motivation" class="level2">
 <h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
 <p>People often view higher education institutions as a significant pathway to reduce systemic inequalities and promote upward mobility. However, it remains uncertain how much a family’s financial background and racial demographics affect things like dropout rates, academic readiness, and post-graduation earnings. This study evaluates how effectively higher education addresses these issues by analyzing family income, average student debt, racial composition, financial aid, and completion rates. Specifically, the focus is on whether higher education institutions reduce disparities in outcomes like retention and post-graduation earnings or if these disparities persist despite access to higher education.</p>
@@ -351,22 +351,35 @@ window.Quarto = {
 <li>1 - UGDS_WHITE does not capture the nuance of other racial groups or how race interacts with factors such as income, first-generation status, or academic ability.</li>
 <li>The subtle trend in this figure suggests that racial diversity alone has a limited impact on retention. Other factors, such as faculty representation, curriculum inclusivity, and campus resources, may have a more significant impact.</li>
 </ul>
-<p>We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You’ll also reflect on next steps and further analysis.</p>
-<p>The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc.</p>
-<p>While the exact number of figures and tables will vary and depend on your analysis, you should target around 5 to 6. An overly long analysis could lead to losing points. If you want you can link back to your blog posts or create separate pages with more details.</p>
-<p>The style of this paper should aim to be that of an academic paper. I don’t expect this to be of publication quality but you should keep that aim in mind. Avoid using “we” too frequently, for example “We also found that …”. Describe your methodology and your findings but don’t describe your whole process.</p>
 </section>
 </section>
+<section id="figure-5" class="level3">
+<h3 class="anchored" data-anchor-id="figure-5">Figure 5</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This figure shows the relationship between racial diversity (proportion of underrepresented racial groups) and median student debt, split by three income categories: Low Income, Medium Income, and High Income.</p>
+<section id="observations-conclusions-3" class="level4">
+<h4 class="anchored" data-anchor-id="observations-conclusions-3">Observations &amp; Conclusions</h4>
+<p>Low-Income Students: - Median debt is highest for this group, reaching up to $30,000 in some cases. - The relationship between racial diversity and debt is relatively stable but shows slight fluctuations. - Students from more diverse colleges tend to have marginally higher debt.</p>
+<p>Medium-Income Students: - Median debt for medium-income students is generally lower than for low-income students, mostly staying under $20,000. - There is a slight upward trend in debt as racial diversity increases, especially at higher levels of diversity.</p>
+<p>High-Income Students: - High-income students have the lowest debt levels, typically staying below $15,000–$20,000. - The relationship between racial diversity and debt is weaker but shows mild non-linear behavior.</p>
+<p>Overall Trends: - Colleges with higher racial diversity tend to have slightly higher student debt across income groups. - Debt burden decreases as family income increases, highlighting the disproportionate impact of student loans on low-income families.</p>
 </section>
-<section id="note-on-attribution" class="level2">
-<h2 class="anchored" data-anchor-id="note-on-attribution">Note on Attribution</h2>
-<p>In general, you should try to provide links to relevant resources, especially those that helped you. You don’t have to link to every StackOverflow post you used but if there are explainers on aspects of the data or specific models that you found helpful, try to link to those. Also, try to link to other sources that might support (or refute) your analysis. These can just be regular hyperlinks. You don’t need a formal citation.</p>
-<p>If you are directly quoting from a source, please make that clear. You can show quotes using <code>&gt;</code> like this</p>
-<pre><code>&gt; To be or not to be.</code></pre>
-<blockquote class="blockquote">
-<p>To be or not to be.</p>
-</blockquote>
+<section id="limitations-3" class="level4">
+<h4 class="anchored" data-anchor-id="limitations-3">Limitations</h4>
+<ul>
+<li>The analysis is limited to median debt and racial diversity, and other potential explanatory factors are not considered.</li>
+</ul>
 <hr>
+</section>
+</section>
 </section>
 <section id="rubric-on-this-page" class="level2">
 <h2 class="anchored" data-anchor-id="rubric-on-this-page">Rubric: On this page</h2>
