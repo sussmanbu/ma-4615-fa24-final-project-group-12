@@ -8,9 +8,9 @@ output:
     mathjax: default
 ---
 
-![](ma415analysispicture.jpg)
+![](images/ma415analysispicture.jpg)
 
-This comes from the file `analysis.qmd`.
+This comes from the file `analysis.qmd`. We describe here our detailed data analysis.
 
 ## Introduction and Motivation
 People often view higher education institutions as a significant pathway to reduce systemic inequalities and promote upward mobility. However, it remains uncertain how much a family's financial background and racial demographics affect things like dropout rates, academic readiness, and post-graduation earnings. This study evaluates how effectively higher education addresses these issues by analyzing family income, average student debt, racial composition, financial aid, and completion rates. Specifically, the focus is on whether higher education institutions reduce disparities in outcomes like retention and post-graduation earnings or if these disparities persist despite access to higher education.
@@ -96,8 +96,8 @@ cleaned_data |>
        y = "Median Post-Graduation Earnings ($ in 1,000s)",
        color = "Income Group",
        fill = "Income Group") +
-  scale_fill_brewer(palette = "Set2") +
-  scale_color_brewer(palette = "Set2") 
+  scale_fill_brewer(palette = "Set3") +
+  scale_color_brewer(palette = "Set3") 
 ```
 The above boxplots highlight the main focus of our research: the variation in post-graduation earnings by a student's family income. The three distributions showcase the varying post-graduate earnings of students from the lowest income tercile to the highest tercile. The horizontal axis indicates the income group while the vertical axis reports the median post-graduation earning. 
 
@@ -307,7 +307,7 @@ ggplot(debt_data, aes(x = Racial_Diversity, y = Median_Debt)) +
 
 This figure shows the relationship between racial diversity (proportion of underrepresented racial groups) and median student debt, split by three income categories: Low Income, Medium Income, and High Income.
 
-### Observations & Conclusions
+#### Observations & Conclusions
 Low-Income Students:
 - Median debt is highest for this group, reaching up to $30,000 in some cases.
 - The relationship between racial diversity and debt is relatively stable but shows slight fluctuations.
@@ -325,34 +325,9 @@ Overall Trends:
 - Colleges with higher racial diversity tend to have slightly higher student debt across income groups.
 - Debt burden decreases as family income increases, highlighting the disproportionate impact of student loans on low-income families.
 
-### Limitations
+#### Limitations
 - The analysis is limited to median debt and racial diversity, and other potential explanatory factors are not considered.
 
-
-
-
-We describe here our detailed data analysis. This page will provide an overview of what questions you addressed, illustrations of relevant aspects of the data with tables and figures, and a statistical model that attempts to answer part of the question. You'll also reflect on next steps and further analysis.
-
-The audience for this page is someone like your class mates, so you can expect that they have some level of statistical and quantitative sophistication and understand ideas like linear and logistic regression, coefficients, confidence intervals, overfitting, etc. 
-
-While the exact number of figures and tables will vary and depend on your analysis, you should target around 5 to 6. An overly long analysis could lead to losing points.
-If you want you can link back to your blog posts or create separate pages with more details.
-
-The style of this paper should aim to be that of an academic paper. 
-I don't expect this to be of publication quality but you should keep that aim in mind.
-Avoid using "we" too frequently, for example "We also found that ...". Describe your methodology and your findings but don't describe your whole process.
-
-## Note on Attribution
-
-In general, you should try to provide links to relevant resources, especially those that helped you. You don't have to link to every StackOverflow post you used but if there are explainers on aspects of the data or specific models that you found helpful, try to link to those. Also, try to link to other sources that might support (or refute) your analysis. These can just be regular hyperlinks. You don't need a formal citation.
-
-If you are directly quoting from a source, please make that clear. You can show quotes using `>` like this
-
-```         
-> To be or not to be.
-```
-
-> To be or not to be.
 
 ------------------------------------------------------------------------
 
