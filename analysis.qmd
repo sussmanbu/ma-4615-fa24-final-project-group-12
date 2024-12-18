@@ -289,33 +289,35 @@ plot_10yrs <- ggplot(data, aes(x = FAMINC, y = MD_EARN_WNE_INC1_P10, color = SAT
 print(plot_10yrs)
 
 ```
-###Key Observations
+
+#### Observations & Conclusions
 Diverse Financial Backgrounds:
-  The X-axis (Median Family Income) shows a wide spread, confirming that students come from a variety of financial backgrounds, from low-income families to high-income families.
-All SAT categories (Low, Medium, High) have students distributed across the income spectrum, showing no strict correlation between SAT scores and family income.
+- The X-axis (Median Family Income) shows a wide spread, confirming that students come from a variety of financial backgrounds, from low-income families to high-income families.
+- All SAT categories (Low, Medium, High) have students distributed across the income spectrum, showing no strict correlation between SAT scores and family income.
 Less Variation in Economic Outcomes:
-  The Y-axis (Median Earnings After 10 Years) shows that earnings tend to converge, with most data points lying between $40,000 and $100,000.
-  High SAT Category (Red):
-Students with high SAT scores generally achieve higher earnings, especially at the upper end (>$100,000).
-  Medium SAT Category (Blue):
-The earnings distribution overlaps significantly with the High SAT group, particularly in the $50,000–$80,000 range, showing that SAT scores alone do not fully determine outcomes.
-  Low SAT Category (Green):
-While earnings are generally lower for this group, many students still achieve earnings in the $40,000–$60,000 range, suggesting upward mobility.
-  Earnings Convergence:
-Despite the wide spread in family income (X-axis), there is less variation in earnings after 10 years (Y-axis), indicating that higher education helps reduce economic disparities over time.
-Connection to the Thesis
+- The Y-axis (Median Earnings After 10 Years) shows that earnings tend to converge, with most data points lying between $40,000 and $100,000.
+High SAT Category (Red):
+- Students with high SAT scores generally achieve higher earnings, especially at the upper end (>$100,000).
+Medium SAT Category (Blue):
+- The earnings distribution overlaps significantly with the High SAT group, particularly in the $50,000–$80,000 range, showing that SAT scores alone do not fully determine outcomes.
+Low SAT Category (Green):
+- While earnings are generally lower for this group, many students still achieve earnings in the $40,000–$60,000 range, suggesting upward mobility.
+Earnings Convergence:
+- Despite the wide spread in family income (X-axis), there is less variation in earnings after 10 years (Y-axis), indicating that higher education helps reduce economic disparities over time.
 
-###Support for the Thesis:
-  Diverse Financial Backgrounds: The wide range of family income reflects pre-college financial diversity.
-  Less Variation in Outcomes: Earnings converge within a narrower range, irrespective of family income or SAT category, indicating that students from different financial backgrounds achieve similar economic outcomes.
-  Additional Insight:
-The role of SAT scores: While High SAT students tend to have slightly higher earnings, Medium and Low SAT students still achieve considerable economic mobility, suggesting that factors beyond academic preparedness (e.g., education quality, financial aid, and career opportunities) contribute to earnings equality.
+#### Support for the Thesis
+Diverse Financial Backgrounds: 
+ - The wide range of family income reflects pre-college financial diversity.
+Less Variation in Outcomes: 
+ - Earnings converge within a narrower range, irrespective of family income or SAT category, indicating that students from different financial backgrounds achieve similar economic outcomes.
+The role of SAT scores: 
+- While High SAT students tend to have slightly higher earnings, Medium and Low SAT students still achieve considerable economic mobility, suggesting that factors beyond academic preparedness (e.g., education quality, financial aid, and career opportunities) contribute to earnings equality.
 
-###Limitations:
-  No Regression Lines:
-This limits our ability to assess the exact relationship between family income and earnings within each SAT category.
-  Outliers and Scale:
-Some outliers (e.g., earnings above $120,000) may skew the interpretation of central trends.
+#### Limitations
+No Regression Lines:
+ - This limits our ability to assess the exact relationship between family income and earnings within each SAT category.
+Outliers and Scale:
+ - Some outliers (e.g., earnings above $120,000) may skew the interpretation of central trends.
 
 
 ### Figure 5

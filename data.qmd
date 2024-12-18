@@ -63,7 +63,7 @@ read_rds("dataset/cleaned_dataset.rds")
 ```
 
 
-----
+------------------------------------------------------------------------
 
 ## Rubric: On this page
 
